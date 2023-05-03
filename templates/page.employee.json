@@ -1,0 +1,125 @@
+{
+  "sections": {
+    "automizely-063ad747": {
+      "type": "automizely-063ad747",
+      "disabled": true,
+      "settings": {}
+    },
+    "86ccc3c9-d6de-4425-bed8-1ad1bc3d3fbc": {
+      "type": "gallery",
+      "disabled": true,
+      "blocks": {
+        "template--14485806776375__86ccc3c9-d6de-4425-bed8-1ad1bc3d3fbc-16787361259a35e0bb-0": {
+          "type": "image",
+          "settings": {}
+        },
+        "template--14485806776375__86ccc3c9-d6de-4425-bed8-1ad1bc3d3fbc-16787361259a35e0bb-1": {
+          "type": "image",
+          "settings": {}
+        },
+        "template--14485806776375__86ccc3c9-d6de-4425-bed8-1ad1bc3d3fbc-16787361259a35e0bb-2": {
+          "type": "image",
+          "settings": {}
+        },
+        "template--14485806776375__86ccc3c9-d6de-4425-bed8-1ad1bc3d3fbc-16787361259a35e0bb-3": {
+          "type": "image",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "template--14485806776375__86ccc3c9-d6de-4425-bed8-1ad1bc3d3fbc-16787361259a35e0bb-0",
+        "template--14485806776375__86ccc3c9-d6de-4425-bed8-1ad1bc3d3fbc-16787361259a35e0bb-1",
+        "template--14485806776375__86ccc3c9-d6de-4425-bed8-1ad1bc3d3fbc-16787361259a35e0bb-2",
+        "template--14485806776375__86ccc3c9-d6de-4425-bed8-1ad1bc3d3fbc-16787361259a35e0bb-3"
+      ],
+      "settings": {
+        "title": "Gallery",
+        "select_layout": "standard",
+        "grid-size": "four-per-row"
+      }
+    },
+    "f9b806c1-ca7a-4377-b752-993573ab5925": {
+      "type": "slideshow-old",
+      "disabled": true,
+      "blocks": {
+        "template--14485806776375__f9b806c1-ca7a-4377-b752-993573ab5925-16787362451103d550-0": {
+          "type": "image",
+          "settings": {
+            "title": "The Responsive Shopify Theme",
+            "subtitle": "",
+            "text_position": "center",
+            "text_align": "center",
+            "button_label": "",
+            "link": ""
+          }
+        },
+        "template--14485806776375__f9b806c1-ca7a-4377-b752-993573ab5925-16787362451103d550-1": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "text_position": "center",
+            "text_align": "center",
+            "button_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--14485806776375__f9b806c1-ca7a-4377-b752-993573ab5925-16787362451103d550-0",
+        "template--14485806776375__f9b806c1-ca7a-4377-b752-993573ab5925-16787362451103d550-1"
+      ],
+      "settings": {
+        "slideshow_animation": "fade",
+        "slideshow_speed": "6",
+        "image_stretch": true
+      }
+    },
+    "07dc02c8-0f86-4a69-8824-ce840c07b948": {
+      "type": "logo-bar",
+      "disabled": true,
+      "blocks": {
+        "template--14485806776375__07dc02c8-0f86-4a69-8824-ce840c07b948-1678736258cc4d9f37-0": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1.png",
+            "link": ""
+          }
+        },
+        "template--14485806776375__07dc02c8-0f86-4a69-8824-ce840c07b948-1678736258cc4d9f37-1": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "template--14485806776375__07dc02c8-0f86-4a69-8824-ce840c07b948-1678736258cc4d9f37-2": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "template--14485806776375__07dc02c8-0f86-4a69-8824-ce840c07b948-1678736258cc4d9f37-3": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--14485806776375__07dc02c8-0f86-4a69-8824-ce840c07b948-1678736258cc4d9f37-0",
+        "template--14485806776375__07dc02c8-0f86-4a69-8824-ce840c07b948-1678736258cc4d9f37-1",
+        "template--14485806776375__07dc02c8-0f86-4a69-8824-ce840c07b948-1678736258cc4d9f37-2",
+        "template--14485806776375__07dc02c8-0f86-4a69-8824-ce840c07b948-1678736258cc4d9f37-3"
+      ],
+      "settings": {
+        "title": "Logo list"
+      }
+    }
+  },
+  "order": [
+    "automizely-063ad747",
+    "86ccc3c9-d6de-4425-bed8-1ad1bc3d3fbc",
+    "f9b806c1-ca7a-4377-b752-993573ab5925",
+    "07dc02c8-0f86-4a69-8824-ce840c07b948"
+  ]
+}

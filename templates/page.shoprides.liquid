@@ -1,0 +1,67 @@
+<div class="sixteen page-ls columns">
+  <div class="section clearfix">
+    <h1>{{ page.title }}</h1>
+  </div>
+</div>
+{{ page.content }}
+
+<div class="section clearfix">  
+  {% form 'contact' %}
+    {% if form.posted_successfully? %}
+      <script>
+window.location = "/pages/thank-you-for-signing-up";
+</script>
+    {% endif %}
+
+    {% if form.errors %}
+      <p class="quote">{{ 'general.forms.post_error' | t }}</p>
+
+       {% assign message = 'contact.form.message' | t %}
+        <ul class="center">
+          {% for field in form.errors %}
+            {% if field == 'form' %}
+              <li>
+                {{ form.errors.messages[field] }}
+              </li>
+            {% else %}
+              <li>
+                {% assign field_name = field | replace: 'body', message %}
+                {{ 'general.forms.post_field_error_html' | t: field: field_name, error: form.errors.messages[field] }}
+              </li>
+            {% endif %}
+          {% endfor %}
+         </ul>
+    {% endif %}
+
+   
+    
+    <div class="ten columns long-cont offset-by-zero">
+      {% assign name_attr = 'contact.form.name' | t | handle %}
+      <label for="contactFormName">{{ 'contact.form.name' | t }} <span class="red">*</span></label>
+      <input type="text" id="contactFormName" name="contact[{{ name_attr }}]" placeholder="{{ 'contact.form.name' | t }}" autocapitalize="words" value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.name }}{% endif %}" required="required">
+
+      <label for="contactFormEmail">{{ 'contact.form.email' | t }} <span class="red">*</span></label>
+      <input type="email" id="contactFormEmail" name="contact[email]" placeholder="{{ 'contact.form.email' | t }}" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" required="required">
+          
+                   
+      
+      <label>Sign Up Type<span class="red">*</span></label>
+   <input type="checkbox" id="contactFormSignUpType2" name="contact[SignUpType2]" value="Shop Rides" />Shop Rides<br>
+<input type="checkbox" id="contactFormSignUpType2" name="contact[SignUpType3]" value="Demo Events" />Demo Events<br>
+	<input type="checkbox" id="contactFormSignUpType1" name="contact[SignUpType1]" value="Newsletter" />Newsletter
+      <p></p>
+      
+      {% assign name_attr = 'contact.form.phone' | t | handle %}
+      <label for="contactFormPhone" class="hidden-label">{{ 'contact.form.phone' | t }}</label>
+      <input type="tel" id="contactFormPhone" name="contact[{{ name_attr }}]" placeholder="{{ 'contact.form.phone' | t }}" pattern="[0-9\-]*" value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+
+      <label>Notes</label>
+      <textarea rows="5" id="contactFormMessage" name="contact[body]" placeholder="{{ 'contact.form.message' | t }}">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+
+      <input type='submit' class="submit action_button" value="{{ 'contact.form.send' | t }}" />
+      </div>
+   <div class="ten columns cntct">
+        
+    </div>
+  {% endform %}
+</div>  

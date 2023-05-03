@@ -1,0 +1,203 @@
+<footer id="footer">
+    <div class="footer-content center grid">
+        {% if section.settings.footer_newsletter %}
+        <div class="footer-column join join-mobile">
+            {% if section.settings.joinus_title != blank %}
+                <h1>{{ section.settings.joinus_title }}</h1>
+            {% endif %}
+
+            {% if section.settings.joinus_text != blank %}
+                <div class="desc">
+                    {{ section.settings.joinus_text }}
+                </div>
+            {% endif %}
+
+            <div class="newspoup">
+               <div class="newspop-form">
+                 <form action="{{ section.settings.action_url }}" method="post" name="mc-embedded-subscribe-form" class="contact-form desk_news" target="_blank">
+                  <input type="email" value="" name="EMAIL" class="contact_email" placeholder="{{ section.settings.email_placeholder }}">
+                  <input type="submit" value="{{ section.settings.button_text }}" class="action_button sign_up" name="subscribe">
+                 </form>
+               </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if linklists[section.settings.footer_linklist_2] != blank %}
+          <div class="footer-menu footer-column">
+            <h6>{{ linklists[section.settings.footer_linklist_2].title }}</h6>
+            <ul>
+              {% for link in linklists[section.settings.footer_linklist_2].links %}
+                <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
+        {% if linklists[section.settings.footer_linklist_3] != blank %}
+          <div class="footer-menu footer-column">
+            <h6>{{ linklists[section.settings.footer_linklist_3].title }}</h6>
+            <ul>
+              {% for link in linklists[section.settings.footer_linklist_3].links %}
+                <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
+        <div class="footer-column contact">
+            {{section.settings.contacts_tds}}
+
+            {% if settings.enable_social_links %}
+                <div class="social">
+                    {% include 'social-icons' %}
+                </div>
+        	{% endif %}
+        </div>
+
+
+        {% if section.settings.footer_newsletter %}
+        <div class="footer-column join join-desktop">
+            {% if section.settings.joinus_title != blank %}
+                <h1>{{ section.settings.joinus_title }}</h1>
+            {% endif %}
+
+            {% if section.settings.joinus_text != blank %}
+                <div class="desc">
+                    {{ section.settings.joinus_text }}
+                </div>
+            {% endif %}
+
+            <div class="newspoup">
+               <div class="newspop-form">
+                 <form action="{{ section.settings.action_url }}" method="post" name="mc-embedded-subscribe-form" class="contact-form desk_news" target="_blank">
+                  <input type="email" value="" name="EMAIL" class="contact_email" placeholder="{{ section.settings.email_placeholder }}">
+                  <input type="submit" value="{{ section.settings.button_text }}" class="action_button sign_up" name="subscribe">
+                 </form>
+               </div>
+            </div>
+
+            <div class="sd-yelp-widget" data-widget="525" data-shop="8124b951351e666a820d15d1c843b5e1"></div>
+        </div>
+        {% endif %}
+    </div>
+  
+    <div class="copy-wrap center">
+        <div class="copy-content">
+            <div class="copy"> Copyright &copy; 2018 Pro Bike Supply</div>
+            <div class="copy-menu">
+                {% if linklists[section.settings.footer_linklist_1] != blank %}
+                  {% for link in linklists[section.settings.footer_linklist_1].links %}
+                    <a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
+                  {% endfor %}
+                {% endif %}
+            </div>
+            <div class="payment-methods">
+                <i class="ico-paypal"></i><i class="ico-mastercard"></i><i class="ico-visa"></i><i class="ico-amex"></i><i class="ico-discover"></i>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- end footer -->
+
+{% schema %}
+{
+  "name": "Footer",
+  "class": "footer-section",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "footer_linklist_2",
+      "label": "Vertical menu (left column)",
+      "default": "footer"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_linklist_3",
+      "label": "Vertical menu ( 2nd left column)",
+      "default": "footer"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_linklist_1",
+      "label": "Legal Menu",
+      "default": "footer"
+    },
+    {
+      "type": "page",
+      "id": "footer_content_page",
+      "label": "Content page (right column)"
+    },
+    {
+      "type": "select",
+      "id": "footer_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "left",
+          "label": "Left"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright text"
+    },
+    {
+      "type": "checkbox",
+      "id": "footer_newsletter",
+      "label": "Show newsletter form",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "display_payment_methods",
+      "label": "Show payment method icons",
+      "default": true
+    },
+{
+"type": "textarea",
+"id": "contacts_tds",
+"label": "Contact:"
+
+},
+
+{
+  "type":"text",
+   "id" :"action_url",
+   "label":"MailChimp Form Action URL"
+},
+{
+     "type": "text",
+     "id": "joinus_title",
+     "label": "Join Us Title",
+     "default": "Join Our Community"
+   },
+
+   {
+        "type": "text",
+        "id": "joinus_text",
+        "label": "Join Us Description",
+        "default": "Subcribe to our newsletter and always be the first to hear about what is happening."
+      },
+{
+  "type":"text",
+   "id" :"email_placeholder",
+ "label":"Enter Email Placeholder"
+},
+{
+  "type":"text",
+   "id" :"button_text",
+ "label":"Button text"
+  }
+
+  ]
+}
+{% endschema %}

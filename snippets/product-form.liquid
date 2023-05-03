@@ -1,0 +1,280 @@
+
+<script type="text/javascript">
+
+  var selectCallback = function(variant, selector) {
+
+    // BEGIN SWATCHES
+    if (variant) {
+
+      var form = jQuery('#' + selector.domIdPrefix).closest('form');
+
+      for (var i=0,length=variant.options.length; i<length; i++) {
+        var radioButton = form.find('.swatch[data-option-index="' + i + '"] :radio[value="' + variant.options[i] +'"]');
+        if (radioButton.size()) {
+          radioButton.get(0).checked = true;
+        }
+      }
+    }
+    // END SWATCHES
+  };
+
+  jQuery(function() {
+
+
+    jQuery('.swatch :radio').change(function() {
+      var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
+
+      var optionValue = jQuery(this).val();
+
+      jQuery(this)
+      .closest('form')
+      .find('.single-option-selector')
+      .eq(optionIndex)
+      .val(optionValue)
+      .trigger('change');
+    });
+
+    jQuery('.selector-wrapper').each(function() {
+
+
+
+      jQuery(this).children('.single-option-selector').prepend('<option value="" selected="selected">Please make a selection</option>');
+    });  
+
+
+    jQuery(".single-option-selector").change(function () {
+      var selectedText = jQuery(this).find("option:selected").text();
+
+      var selectedValue = jQuery(this).val();
+
+      if (selectedText == 'Please make a selection'){
+        jQuery('.notify_form').hide();
+      }
+    });
+
+
+
+
+  });
+
+  jQuery( document ).ready(function() {
+
+    setTimeout(function(){
+      jQuery('.single-option-selector').each(function(){
+        if (jQuery(this).children(".single-option-selector :selected").text() == 'Please make a selection'){
+          jQuery('.notify_form').hide();
+        }
+      });
+    }, 1400);
+  });
+
+
+  $(window).load(function() {
+
+    $('.selector-wrapper').each(function(){
+
+      var texts = $(this).children('.single-option-selector').children("option:selected").text();
+
+      var value="Please make a selection";
+      if(texts==value)
+      {
+
+        $('.product_form .purchase .action_button').css('pointer-events','none');
+        $('.product_form .purchase .action_button').attr('data-label','Make Selection');
+        $('.product_form .purchase .action_button > span').text('Make Selection');
+        $('.product_form .purchase .action_button').addClass('disabled-btn');		
+      }
+
+
+
+    });
+
+
+  });
+
+  $(document).ready(function() {
+
+    var vali = [];
+    $('.selector-wrapper').each(function(){
+
+      $(this).children('.single-option-selector').change(function(){
+
+        setTimeout(function(){
+          var tprice = $('.multi_select').children('option:selected').attr('data-price');
+          $('.current_price').children('.money').html(tprice);
+          var tsku= $('.multi_select').children('option:selected').attr('data-sku');
+          $('.skui').html(tsku);
+        }, 1000);
+
+
+        $('.selector-wrapper').each(function(){
+          var texts = $(this).children('.single-option-selector').children("option:selected").text();
+          var vali = [];
+          vali.push(texts);
+
+          var value="Please make a selection";
+
+          if($.inArray(value, vali) > -1){
+
+            $('.product_form .purchase .action_button').css('pointer-events','none');
+            $('.product_form .purchase .action_button').attr('data-label','Make Selection');
+            $('.product_form .purchase .action_button > span').text('Make Selection');
+            $('.product_form .purchase .action_button').addClass('disabled-btn');
+
+
+          }
+
+          else{
+
+            $('.product_form .purchase .action_button').css('pointer-events','auto');
+            $('.product_form .purchase .action_button').attr('data-label','Add to Cart');
+            $('.product_form .purchase .action_button > span').text('Add to Cart');
+            $('.product_form .purchase .action_button').removeClass('disabled-btn');	
+
+          }	 
+
+
+
+        }); 
+
+
+      });
+    });	
+
+
+
+
+  });	
+
+
+  //script for changing sku.
+
+  $(document).ready(function() {
+    $('.select .selector-wrapper .single-option-selector').change(function(){
+
+      var vari=$(this).children('option:selected').text();
+      var name,sku;
+      $('.product_form .select').children('select').children('option').each(function() {
+        name=$(this).text();
+        if(vari==name)
+        {
+          sku=$(this).attr('data-sku');
+        }
+      });
+      //console.log(sku);
+      $('.product_section .columns .new-h .variant-sku').text(sku);
+    });
+    $('.single-sel').children('label').hide();
+    var lab = $('.single-sel').children('label').html();
+
+    $('.single-sel').children('.selector-wrapper').prepend('<label>'+lab+'</label>');
+  });
+
+</script>
+
+
+{% if product.available %}
+
+  {% assign variant = product.selected_or_first_available_variant %}
+
+  {% comment %} Bold:POv2 {% endcomment %}
+  <form action="/cart/add"
+        method="post"
+        enctype="multipart/form-data"
+        class="clearfix product_form init {% if product.variants.size > 1 or product.options.size > 1 %}product_form_options{% endif %}"
+        id="product-form-{{ product.id }}"
+        data-money-format="{{ shop.money_format }}"
+        enctype="multipart/form-data"
+        data-shop-currency="{{ shop.currency }}"
+        data-select-id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}"
+        data-enable-state="{% if template contains 'product' %}true{% else %}false{% endif %}"
+        data-product="{%- include 'bold-product', output: 'json', escape: true -%}"
+        data-product-id="{{ product.id }}">
+
+    {% if product.options.size > 1 %}
+      <div class="select">
+        <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}" name="id" class="multi_select">
+          {% for v in product.variants %}
+            <option {% if v == variant %}selected="selected"{% endif %} value="{{ v.id }}" data-sku="{{ v.sku }}"  data-price="{{ v.price | money }}">{{ v.title }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    {% elsif product.options.size == 1 and product.variants.size > 1 or product.options.size == 1 and product.options[0] != "Title" %}
+      <div class="select single-sel">
+        <label>{{ product.options[0] }}</label>
+        <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}" name="id" class="multi_select">
+          {% for v in product.variants %}
+          {% include 'bold-variant' with v, hide_action: 'skip'  %}
+            <option {% if v == variant %}selected="selected"{% endif %} value="{{ v.id }}" data-sku="{{ v.sku }}" data-price="{{ v.price | money }}">{{ v.title }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    {% else %}
+      <input type="hidden" name="id" value="{{ variant.id }}" />
+    
+    {% endif %}
+
+    {% if settings.product_form_style == "swatches" and product.variants.size > 1 or settings.product_form_style == "swatches" and product.options[0] != "Title" %}
+      <div class="swatch_options">
+        {% for option in product.options %}
+          {% include 'product-swatch' with option %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  
+    {% if settings.display_inventory_left %}
+      <div class="items_left">
+        {% if variant.inventory_management != blank and variant.inventory_quantity > 0 %}
+          {% capture items_left_text %}
+            {% if variant.inventory_quantity == 1 %}
+              {{ 'products.product.items_left_count.one' | t }}
+            {% else %}
+              {{ 'products.product.items_left_count.other' | t }}
+            {% endif %}
+          {% endcapture %}
+
+          <p><em>{{ variant.inventory_quantity }} {{ items_left_text }}</em></p>
+        {% endif %}
+      </div>
+    {% endif %}
+    
+    
+
+    {% comment %} Bold:POv2 {% endcomment %}
+    <div class="bold_options" data-product-id="{{ product.id }}"></div>
+
+    {% if settings.display_product_quantity %}
+      <div class="product-qty left">
+        <label for="quantity">{{ 'products.product.quantity' | t }}</label>
+        <input type="number" min="1" size="2" class="quantity" name="quantity" id="quantity" value="1" {% if variant.inventory_management != blank and variant.inventory_quantity > 0 and variant.inventory_policy == "deny" %}max="{{ variant.inventory_quantity }}"{% endif %} />
+      </div>
+    {% endif %}
+    <div class="purchase clearfix {% if settings.display_product_quantity %}inline_purchase{% endif %}">
+      {% if settings.cart_action == 'reload_page' %}
+        <input type="hidden" name="return_to" value="back" />
+      {% elsif settings.cart_action == 'redirect_checkout' %}
+        <input type="hidden" name="return_to" value="/checkout" />
+      {% endif %}
+
+      {% capture add_to_cart_label %}{% if collection_handles contains 'pre-order' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
+      <button type="submit" name="add" class="action_button add_to_cart" data-label={{ add_to_cart_label | json }}><span class="text">{{ add_to_cart_label }}</span></button>
+      
+    </div> 
+    
+    <div id="preproduct-pledge" data-id="{{product.id}}" style="text-align:left !important;"></div>    
+    {{- form | payment_button -}}
+  </form>
+
+  {% if product.variants.size > 1 or product.options.size > 1 %} 
+    <script type="text/javascript">
+      // <![CDATA[  
+        $(function() {    
+          $product = $('#product-' + {{ product.id }});
+          new Shopify.OptionSelectors("product-select-{{ product.id }}", { product: {%- include 'bold-product', output: 'json' -%}, onVariantSelected: selectCallback{% if product-form == 'product' %}, enableHistoryState: true{% endif %} });          
+        });
+      // ]]>
+    </script>
+  {% endif %}
+
+
+{% endif %}

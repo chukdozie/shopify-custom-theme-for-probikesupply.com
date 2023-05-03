@@ -1,0 +1,39 @@
+{% comment %} Bold:POv2 {% endcomment %}
+{% comment %} {%- include 'bold-product' with product, hide_action: 'break', output: 'none' -%} {% endcomment %}
+
+<div class="most-pop">
+  <h4>Customers Also Bought</h4>
+  <div class="fflexslider">
+    <ul class="sslides"> 
+
+      {% for product in collections.Apparel.products limit:3 %}
+        {% comment %} Bold:POv2 {% endcomment %}
+        {%- include 'bold-product' with product, hide_action: 'skip' -%}
+        <li>
+          <a href="{{ product.url }}">
+            <div class="thumb_left">
+              <img src="{{ product.featured_image.src | img_url: 'small' }}" >
+            </div>
+            <div class="text_left">
+              <span class="title"> {{ product.title }} </span>
+
+              <p class="modal_price">
+
+                <span class="was_pricee">
+                  {{ product.compare_at_price | money }}
+
+                </span>
+
+                <span class="current_pricee">
+                  {{ product.price_min | money }}
+                </span>
+              </p>
+            </div>
+          </a>
+        </li> 
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+

@@ -1,0 +1,269 @@
+<div class="header-wrap">
+    <div class="banner">
+        <div class="banner-content">
+            {{ section.settings.shippingcontent }}
+        </div>
+        <div class="phone">
+            <a href="tel:+{{ section.settings.phone_number | replace: ' ', '' | replace: '+', '' | replace: '-', '' }}"><i class="ico-phone"></i> {{ section.settings.phone_number }}</a>
+        </div>
+    </div>
+    <div class="header-spacer" id="header-trigger">
+        <header id="header">
+            <div class="header-content center">
+                <a href="/" title="{{ shop.name }}" class="logo">
+                    {% if section.settings.logo != nil %}
+                        <img src="{{ section.settings.logo | img_url: '328x' }}" alt="{{ shop.name }}" />
+                    {% else %}
+                        {{ shop.name }}
+                    {% endif %}
+                </a>
+
+                <div id="nav">
+                    <div class="nav-wrap">
+                        <ul id="menu">
+                        {% for link in linklists[section.settings.main_linklist].links %}
+                          {% if linklists[link.handle] == empty %}
+                            <li><a href="{{ link.url }}" {% if link.active %}class="active"{% endif %}>{{ link.title }}</a></li>
+                          {% else %}
+                            <li class="dropdown"><a href="{{ link.url }}" {% if link.active %}class="active"{% endif %} {% for link in linklists[link.handle].links %}{% if link.active %}class="active"{% endif %}{% endfor %}>{{ link.title }}<span class="icon-down-arrow arrow"></span></a>
+                              <ul class="animated fadeIn">
+                                {% for link in linklists[link.handle].links %}
+                                  {% if linklists[link.handle] == empty %}
+                                    <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                                  {% else %}
+                                  <li><a href="{{ link.url }}">{{ link.title }} <span class="icon-right-arrow arrow"></span></a>
+                                    <ul class="animated fadeIn">
+                                      {% for link in linklists[link.handle].links %}
+                                        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                                      {% endfor %}
+                                    </ul>
+                                  </li>
+                                  {% endif %}
+                                {% endfor %}
+                              </ul>
+                            </li>
+                          {% endif %}
+                        {% endfor %}
+                      </ul>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    {% if section.settings.search_box_top_bar %}
+                    <div class="search-positioner">
+                        <form action="/search" class="search">
+                            {% if settings.search_option != 'everything' %}
+                                <input type="hidden" name="type" value="product" />
+                            {% endif %}
+                            <input type="text" name="q" class="search_box" placeholder="{{ 'general.search.placeholder' | t }}" value="{% if search and search.results.first.price %}{{ search.terms }}{% endif %}" autocapitalize="off" autocomplete="off" autocorrect="off" />
+                            <input type="submit" value="Search" />
+                        </form>
+                    </div>
+                    {% endif %}
+
+                    <a class="account control-btn" href="{% if customer %}/account{% else %}/login{% endif %}">
+                        <span class="ico-wrap">
+                            <i class="ico-account"></i>
+                        </span>
+                        <span class="label">
+                            {% if customer %}{{ 'layout.general.cart' | t }}{{ customer.name }}{% else %}Account{% endif %}
+                        </span>
+                    </a>
+
+                    <a class="cart control-btn" href="/cart">
+                        <span class="ico-wrap">
+                            <i class="ico-cart"></i>
+                            {% if cart.item_count > 0 %}
+                           {%- assign bold_cart_item_count = cart.item_count -%}
+                          {%- for item in cart.items -%}
+                          {%- if item.properties._boldBuilderId  and item.properties._boldVariantIds == null -%}
+                          {%- assign bold_cart_item_count = bold_cart_item_count | minus: item.quantity -%}
+                          {%- endif -%}
+                          {%- endfor -%}
+                                <span class="count">{{ bold_cart_item_count }}</span>
+                            {% endif %}
+                        </span>
+                        <span class="label">
+                            {{ 'layout.general.cart' | t }}
+                        </span>
+                    </a>
+
+                    <div class="hamburger" id="hamburger">
+                        <span class="l l1"></span>
+                        <span class="l l2"></span>
+                        <span class="l l3"></span>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+</div>
+
+<style>
+  .header-logo.logo a {
+    max-width: {{ section.settings.logo_width }}px;
+  }
+  .featured_content a, .featured_content p {
+    color: {{ section.settings.announcement_color }};
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "header-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image",
+      "info": "720px wide recommended"
+    },
+    {
+      "type": "text",
+      "id": "logo_width",
+      "label": "Logo display width",
+      "info": "Recommended display width is 360 pixels",
+      "default": "360"
+    },
+    {
+      "type": "select",
+      "id": "logo_alignment",
+      "label": "Logo alignment",
+      "options": [
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "left",
+          "label": "Left"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "link_list",
+      "id": "main_linklist",
+      "label": "Main menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "select",
+      "id": "menu_alignment",
+      "label": "Main menu alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "nav_border",
+      "label": "Main menu border",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "dashed",
+          "label": "Dashed"
+        },
+        {
+          "value": "dotted",
+          "label": "Dotted"
+        },
+        {
+          "value": "double",
+          "label": "Double"
+        },
+        {
+          "value": "solid",
+          "label": "Solid"
+        }
+      ],
+      "default": "double"
+    },
+    {
+      "type": "select",
+      "id": "nav_separator",
+      "label": "Main menu link separator",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "solid",
+          "label": "Border"
+        }
+      ],
+      "default": "solid"
+    },
+    {
+      "type": "header",
+      "content": "Announcement"
+    },
+    {
+      "type": "richtext",
+      "id": "announcement_message",
+      "label": "Announcement message"
+    },
+    {
+      "type": "url",
+      "id": "announcement_link",
+      "label": "Announcement link (optional)"
+    },
+    {
+      "type": "color",
+      "id": "announcement_color",
+      "label": "Announcement color",
+      "default": "#444"
+    },
+    {
+      "type": "header",
+      "content": "Top bar"
+    },
+    {
+     "type": "checkbox",
+     "id": "search_box_top_bar",
+     "label": "Show search form",
+     "default": true
+    },
+    {
+     "type": "checkbox",
+     "id": "fix_top_bar",
+     "label": "Fixed ('sticky') top bar",
+     "default": true
+    },
+    {
+     "type": "link_list",
+     "id": "top_bar_linklist",
+     "label": "Top bar menu"
+    },
+    {
+      "type": "text",
+      "id": "phone_number",
+      "label": "Phone number",
+      "info": "1-800-555-5555"
+    },
+    {
+      "type": "text",
+      "id": "shippingcontent",
+      "label": "shipping content"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,309 @@
+/* Please use this file to customize the syles of the custom product builder */
+
+#product-builder {
+    width: 100%;
+    min-height: 600px;
+    position: relative;
+    border: none;
+    margin-top: -60px;
+}
+
+/*
+Tabs
+*/
+
+.nav-tabs{
+border-bottom: none !important;
+}
+
+.product-builder .alpine-white .builder-layout .builder-wrapper .panels-container .nav-tabs li{
+padding: 10px !important;
+}
+
+.product-builder .alpine-white .builder-layout .builder-wrapper .panels-container .nav-tabs li a{
+padding: 0 !important;
+font-family: Futura, 'Century Gothic', AppleGothic, sans-serif !important;
+font-weight: bold !important;
+font-size: 15px !important;
+text-transform: uppercase !important;
+color: #ffffff !important;
+position: relative !important;
+display: block !important;
+letter-spacing: 1px !important;
+padding-bottom: 8px !important;
+opacity: 1 !important;
+}
+
+.product-builder .alpine-white .builder-layout .builder-wrapper .panels-container .nav-tabs li.active a:after{
+background: #416864 !important;
+}
+
+.tab-content{
+padding: 10px;
+}
+
+/*
+Panels
+*/
+
+.product-builder .builder-layout .builder-wrapper .panels-container .panel .description{
+display: none;
+}
+
+/*
+Categories
+*/
+
+.product-builder .builder-layout .builder-wrapper .panels-container .panel .categories-container .category .title{
+font-size: 19px !important;
+line-height: 1.5em !important;
+margin: 0 auto 15px !important;
+clear: both !important;
+font-weight: bold !important;
+padding-top: 4px !important;
+}
+
+@font-face {
+font-family: 'retina';
+src: url("//cdn.shopify.com/s/files/1/1162/8602/t/8/assets/retina.eot?8606387872806150500");
+src: url("//cdn.shopify.com/s/files/1/1162/8602/t/8/assets/retina.eot?%23iefix&8606387872806150500") format("embedded-opentype"), url("//cdn.shopify.com/s/files/1/1162/8602/t/8/assets/retina.woff?8606387872806150500") format("woff"), url("//cdn.shopify.com/s/files/1/1162/8602/t/8/assets/retina.ttf?8606387872806150500") format("truetype"), url("//cdn.shopify.com/s/files/1/1162/8602/t/8/assets/retina.svg?8606387872806150500") format("svg");
+font-weight: normal;
+font-style: normal
+}
+/* Please use this file to customize the syles of the custom product builder */
+
+::selection {
+background: #FFF7B6;
+color: black;
+}
+
+#product-builder {
+width: 100%;
+min-height: 600px;
+position: relative;
+border: none;
+font-family: Futura, 'Century Gothic', AppleGothic, sans-serif !important;
+}
+
+.product-builder {
+background: transparent !important;
+}
+
+.product-builder .product-name{
+font-size: 24px;
+line-height: 1.5em;
+margin: 14px 10px;
+clear: both;
+font-weight: normal;
+padding-top: 4px;
+text-transform: uppercase;
+margin-bottom: 25px;
+}
+
+.product-builder .builder-wrapper {
+background: transparent !important;
+flex-direction: row-reverse !important;
+}
+
+.product-builder a, .product-builder p, .product-builder h1,
+.title>div,
+span.price {
+color: white !important;
+}
+
+.builder-layout {
+margin: 0 !important;
+padding: 0px !important;
+}
+
+#loading{
+background: url("//cdn.shopify.com/s/files/1/1162/8602/files/website_background_2449dee7-1c79-405c-b490-c20a387477c7_2000x.jpg?v=1503496313") !important;
+z-index: 9999 !important;;
+color: #fff !important;;
+}
+
+#loading .content .ball{
+background-color: #fff !important;
+}
+
+/*
+Tabs
+*/
+
+.nav-tabs{
+border-bottom: none !important;
+}
+
+.product-builder .alpine-white .builder-layout .builder-wrapper .panels-container .nav-tabs li{
+padding: 10px !important;
+}
+
+.product-builder .alpine-white .builder-layout .builder-wrapper .panels-container .nav-tabs li a{
+padding: 0 !important;
+font-family: Futura, 'Century Gothic', AppleGothic, sans-serif !important;
+font-weight: bold !important;
+font-size: 15px !important;
+text-transform: uppercase !important;
+color: #ffffff !important;
+position: relative !important;
+display: block !important;
+letter-spacing: 1px !important;
+padding-bottom: 8px !important;
+opacity: 1 !important;
+}
+
+.product-builder .alpine-white .builder-layout .builder-wrapper .panels-container .nav-tabs li.active a:after{
+background: #416864 !important;
+}
+
+.tab-content{
+padding: 10px;
+}
+
+/*
+Panels
+*/
+
+.product-builder .builder-layout .builder-wrapper .panels-container .panel .description{
+display: none;
+}
+
+/*
+Categories
+*/
+
+.product-builder .builder-layout .builder-wrapper .panels-container .panel .categories-container .category .title{
+font-size: 19px !important;
+line-height: 1.5em !important;
+margin: 0 auto 15px !important;
+clear: both !important;
+font-weight: bold !important;
+padding-top: 4px !important;
+}
+
+/*
+Options
+*/
+
+.product-builder .option.option-type-select .option-value select{
+padding: 6px 16px !important !important;
+font-family: Futura, 'Century Gothic', AppleGothic, sans-serif !important;
+background: none !important;
+border: 1px solid #666 !important;
+border-radius: 0 !important;
+font-weight: bold !important;
+color: #ececec !important;
+outline: none !important;
+min-width: 215px;
+}
+
+.product-builder .option.option-type-img{
+width: 80px !important;
+height: 80px !important;
+padding: 5px !important;
+border: 1px solid transparent !important;
+display: inline-flex !important;
+margin: 0px 10px 15px 0 !important;
+}
+
+.product-builder .category-3gc4USis_GgvjR4AQ1s6AFr8 .option.option-type-img{
+width: 70px !important;
+height: 50px !important;
+}
+
+.product-builder .option.option-type-img.active{
+border-color: #666 !important;
+}
+
+.product-builder .alpine-white .option.option-type-img img{
+height: 100% !important;
+width: 100% !important;
+border: #e2e2e2 1px solid !important;
+}
+
+/*
+Aside Submit Area
+*/
+.product-builder .builder-layout .builder-wrapper .panels-container .builder-actions{
+margin: 10px !important;
+flex-direction: row;
+border-bottom: 1px solid #ccc;
+padding-bottom: 24px;
+}
+
+.product-builder .builder-layout .builder-wrapper .panels-container .builder-actions>div{
+padding: 0 !important;
+}
+
+.product-builder .builder-layout .builder-wrapper .panels-container .builder-actions .cart-container button{
+background: #416864 !important;
+border-radius: 5px !important;
+float: right !important;
+font-size: 0.9em !important;
+margin-right: 10px !important;
+text-transform: uppercase;
+padding: 6px 16px !important;
+}
+
+.product-builder .builder-layout .builder-wrapper .panels-container .builder-actions .cart-container button:first-child{
+font-weight: 600 !important;
+margin-right: 0 !importnant;
+}
+
+.product-builder .builder-layout .builder-wrapper .panels-container .builder-actions .price{
+font-family: Futura, 'Century Gothic', AppleGothic, sans-serif !important;
+font-weight: 400 !important;
+font-size: 18px !important;
+}
+
+.product-builder .builder-layout .builder-wrapper .social-buttons{
+color: #416864 !important;
+margin: 10px;
+}
+
+.product-builder .builder-layout .builder-wrapper .social-buttons a{
+font-size: 18px;
+padding-left: 10px;
+position: relative;
+top: 2px;
+cursor: pointer;
+color: #416864 !important;
+}
+
+.product-builder .builder-layout .builder-wrapper .social-buttons [class^="icon-"]:before,
+.product-builder .builder-layout .builder-wrapper .social-buttons [class*=" icon-"]:before {
+font-family: "retina";
+font-style: normal;
+font-weight: normal;
+speak: none;
+display: inline-block;
+text-decoration: inherit;
+width: 1.01em;
+margin-right: .2em;
+text-align: center;
+font-variant: normal;
+text-transform: none;
+line-height: 1em;
+position: relative;
+top: 1px;
+}
+
+.product-builder .builder-layout .builder-wrapper .social-buttons .icon-facebook:before {
+content: "\ea90"
+}
+
+.product-builder .builder-layout .builder-wrapper .social-buttons .icon-twitter:before {
+content: "\ea96"
+}
+
+.product-builder .builder-layout .builder-wrapper .social-buttons .icon-gplus:before {
+content: "\e907"
+}
+
+.product-builder .builder-layout .builder-wrapper .social-buttons .icon-pinterest:before {
+content: "\e906"
+}
+
+.product-builder .builder-layout .builder-wrapper .social-buttons .icon-email:before {
+content: "\e905"
+}

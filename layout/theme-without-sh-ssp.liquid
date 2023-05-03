@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if (gte IE 10)|!(IE)]><!--><html lang="{{ shop.locale }}"> <!--<![endif]-->
+  <head>
+{% include "load-metafields" %}
+
+  {% include 'shop-sheriff-amp' %}
+
+
+
+    <script>
+      _affirm_config = {
+        public_api_key:  "6GG51BKNU72PEOWR",
+        script:          "https://cdn1.affirm.com/js/v2/affirm.js"
+      };
+      (function(l,g,m,e,a,f,b){var d,c=l[m]||{},h=document.createElement(f),n=document.getElementsByTagName(f)[0],k=function(a,b,c){return function(){a[b]._.push([c,arguments])}};c[e]=k(c,e,"set");d=c[e];c[a]={};c[a]._=[];d._=[];c[a][b]=k(c,a,b);a=0;for(b="set add save post open empty reset on off trigger ready setProduct".split(" ");a<b.length;a++)d[b[a]]=k(c,e,b[a]);a=0;for(b=["get","token","url","items"];a<b.length;a++)d[b[a]]=function(){};h.async=!0;h.src=g[f];n.parentNode.insertBefore(h,n);delete g[f];d(g);l[m]=c})(window,_affirm_config,"affirm","checkout","ui","script","ready");
+      // Use your live public API Key and https://cdn1.affirm.com/js/v2/affirm.js script to point to Affirm production environment.
+    </script>
+
+    <meta name="google-site-verification" content="hDkQmg5bPHF1fKT9vKNVHny4YO-v_udBio-FAx2fsOg" />
+    <meta charset="utf-8">
+    <meta http-equiv="cleartype" content="on">
+    <meta name="robots" content="index,follow">
+
+    {% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %}{% endif %}
+    <title>{% if template contains "index" %}{{ page_title }}{% else %}{{ page_title }}{% if current_tags %} {{ 'general.meta.tagged_html' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} {{ 'general.meta.page' | t: page_number: current_page }}{% endif %}{% unless page_title contains shop.name %} - {{ shop.name }}{% endunless %}{% endif %}</title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}{% if current_tags %} {{ 'general.meta.tagged_html' | t: tags: meta_tags | escape }}.{% endif %}{% if current_page != 1 %} {{ 'general.meta.page' | t: page_number: current_page }}.{% endif %}" />
+    {% endif %}
+
+    <!-- Custom Fonts -->
+    {% if settings.logo_font contains 'Google' or settings.headline_font contains 'Google' or settings.nav_font contains 'Google' or settings.slideshow_subtitle_font contains 'Google' or settings.regular_font contains 'Google' or settings.top_bar_font contains 'Google' %}
+      <link href="//fonts.googleapis.com/css?family=.|{% if settings.logo_font contains 'Google' %}{{ settings.logo_font | replace: 'Google_', '' }}:light,normal,bold|{% endif %}{% if settings.headline_font contains 'Google' %}{{ settings.headline_font | replace: 'Google_', '' }}:light,normal,bold|{% endif %}{% if settings.nav_font contains 'Google' %}{{ settings.nav_font | replace: 'Google_', '' }}:light,normal,bold|{% endif %}{% if settings.slideshow_subtitle_font contains 'Google' %}{{ settings.slideshow_subtitle_font | replace: 'Google_', '' }}:light,normal,bold|{% endif %}{% if settings.top_bar_font contains 'Google' %}{{ settings.top_bar_font | replace: 'Google_', '' }}:light,normal,bold|{% endif %}{% if settings.regular_font contains 'Google' %}{{ settings.regular_font | replace: 'Google_', ''  }}:light,normal,bold{% endif %}" rel="stylesheet" type="text/css" />
+    {% endif %}
+
+    {% include 'social-meta-info' %}
+
+    {% if collection.previous_product %}
+      <link rel="prev" href="{{ collection.previous_product }}">
+    {% endif %}
+    {% if collection.next_product %}
+      <link rel="next" href="{{ collection.next_product }}">
+    {% endif %}
+
+    <link rel="stylesheet" href="https://use.typekit.net/ymj5csq.css">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="{{ settings.shop_bg_color }}">
+
+    <!-- Stylesheets for Responsive 6.1.4 -->
+    {% comment pluginspeed replaced-css DON'T CHANGE %}{{ 'styles.scss' | asset_url | stylesheet_tag }}{% endcomment %}{%- include 'pluginspeed-minify-asset', asset: 'styles.scss', tag: 'stylesheet', liquid_tag: true -%}
+
+    {% comment pluginspeed replaced-css DON'T CHANGE %}{{ 'custom.css' | asset_url | stylesheet_tag }}{% endcomment %}{%- include 'pluginspeed-minify-asset', asset: 'custom.css', tag: 'stylesheet', liquid_tag: true -%}
+    {% comment pluginspeed replaced-css DON'T CHANGE %}{{ 'owl.carousel.css' | asset_url | stylesheet_tag }}{% endcomment %}{%- include 'pluginspeed-minify-asset', asset: 'owl.carousel.css', tag: 'stylesheet', liquid_tag: true -%}
+    {% comment pluginspeed replaced-css DON'T CHANGE %}{{ 'owl.theme.css' | asset_url | stylesheet_tag }}{% endcomment %}{%- include 'pluginspeed-minify-asset', asset: 'owl.theme.css', tag: 'stylesheet', liquid_tag: true -%}
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    {% comment pluginspeed replaced-css DON'T CHANGE %}{{ 'new.scss.css' | asset_url | stylesheet_tag }}{% endcomment %}{%- include 'pluginspeed-minify-asset', asset: 'new.scss.css', tag: 'stylesheet', liquid_tag: true -%}
+
+
+    <!-- Icons -->
+    {% if settings.favicon != nil %}
+      <link rel="shortcut icon" type="image/x-icon" href="{{ settings.favicon | img_url }}">
+    {% else %}
+      <link rel="shortcut icon" type="image/x-icon" href="{{ 'favicon.png' | asset_url }}">
+    {% endif %}
+    <link rel="canonical" href="{{ canonical_url }}" />
+
+    {% if template contains 'customer' %}
+      {{ "shopify_common.js" | shopify_asset_url | script_tag }}
+      {{ "customer_area.js"  | shopify_asset_url | script_tag }}
+    {% endif %}
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+    {% comment pluginspeed replaced-inliner DON'T CHANGE %}<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>{% endcomment %}{% include 'pluginspeed-inlined-jquery.min.js' %}
+
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    {% comment pluginspeed replaced-js DON'T CHANGE %}{{ 'app.js' | asset_url | script_tag }}{% endcomment %}{%- include 'pluginspeed-minify-asset', asset: 'app.js', tag: 'script', liquid_tag: true -%}
+  
+  {% include 'meteor-menu', load: 'head' %}
+  {{ 'ndnapps-sociallogin.css' | asset_url | stylesheet_tag }}
+{{ content_for_header }}
+  {% include 'qikify-apps' %}
+
+{% if shop.customer_accounts_enabled %}{% unless customer  %}{{ 'ndnapps-sociallogin-script.js' | asset_url | script_tag }}{% endunless %}{% endif %}
+{% include 'webyze-infinitelivepreviewoptions' %}
+
+
+    {% comment %} Bold:POv2 {% endcomment %}
+    <script>
+      window.BOLD = window.BOLD || {};
+      window.BOLD.options = {settings: {v1_variant_mode : true, hybrid_fix_auto_insert_inputs: true}};
+    </script>
+    {% include 'bold-common' %}
+    {%- include 'bold-product' with product, hide_action: 'header' -%}
+    {% comment pluginspeed replaced-js DON'T CHANGE %}{{ 'bold-helper-functions.js' | asset_url | script_tag }}{% endcomment %}{%- include 'pluginspeed-minify-asset', asset: 'bold-helper-functions.js', tag: 'script', liquid_tag: true -%}
+    {% comment pluginspeed replaced-css DON'T CHANGE %}{{ 'bold.scss.css' | asset_url | stylesheet_tag }}{% endcomment %}{%- include 'pluginspeed-minify-asset', asset: 'bold.scss.css', tag: 'stylesheet', liquid_tag: true -%}
+
+    {% include 'bacon-menu'%}
+    {% include "adroll" %}
+  <!--Gem_Page_Header_Script-->
+{% include 'gem-app-header-scripts' %}
+<!--End_Gem_Page_Header_Script-->
+  {% include 'judgeme_core' %}
+
+
+
+
+
+
+
+
+
+<!-- BeginConsistentCartAddon -->  <script>  {% if customer %}  Shopify.merge_cart_text = '{{ "consistent_cart_addon.merge_cart_text" | t }}' ;  Shopify.customer_logged_in = true ;  Shopify.customer_email = "{{ customer.email }}" ;  Shopify.log_uuids = true;  {% else %}  Shopify.customer_logged_in = false ;  Shopify.customer_email = "" ;  Shopify.log_uuids = true;  {% endif %}  </script>  <!-- EndConsistentCartAddon -->
+  
+  
+</head>
+  {% include 'search-autocomplete' %}
+
+  <body class="{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
+    {% section 'header' %}
+
+    <div {% unless template contains "index" or template contains "article" or template contains "banner" %}class="container"{% endunless %}>
+      {{ content_for_layout }}
+<script type="text/javascript">if(typeof webyze_filterCollectionProducts == 'function')webyze_filterCollectionProducts();</script>
+
+      {% include 'cart-shipping-calculator' %}
+    </div>
+
+    {% section 'footer' %}
+    {% if settings.size_chart != blank %}
+      <div id="size-chart" class="size_chart_content">
+        <h5 class="center">{{ pages[settings.size_chart].title }}</h5>
+        {{ pages[settings.size_chart].content }}
+      </div>
+    {% endif %}
+
+    {% include 'newsletter-popup' %}
+    {% include 'currencies' %}
+    {% if settings.disqus_enabled %}
+      {% if template contains "blog" or template contains "article" or template contains "index" %}
+        <script id="dsq-count-scr" src="//{{ settings.disqus_shortname }}.disqus.com/count.js" async></script>
+      {% endif %}
+    {% endif %}
+    <!--Start of Zopim Live Chat Script-->
+    <script type="text/javascript">
+      window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+          d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+          _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute('charset','utf-8');
+                                    $.src='//v2.zopim.com/?1NTDGFBScajBcl83wDS1y07Af8bn4X3Z';z.t=+new Date;$.
+                                    type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
+    </script>
+    <!--End of Zopim Live Chat Script-->
+    <script>
+      function shappify_options_rendered(){
+        $('.shapp_full_width ').each(function(){
+          $(this).find('option').first().text('Please Make A Selection');
+          $(this).find('option').first().val('');
+        });
+        $('.shapp_full_width').change(function(){
+          $(this).find('option').first().attr('disabled','disabled');
+        });
+      }
+    </script>
+
+    {% include "sloyalty-statusbar" %}
+
+    {% include 'search-autocomplete' %}
+
+  {% comment %}
+    <!-- Power Tools view count code -->
+    {% endcomment %}
+    {% if template contains 'product' %}
+    <script type="text/javascript">
+      (function () {
+        var oldonload = window.onload;
+        window.onload = function(){
+          var scr = document.createElement("script");
+          scr.setAttribute('async', 'true');
+          scr.type = "text/javascript";
+          scr.src = "//ping.powertoolsapp.com/ping/{{ shop.permanent_domain }}/{{ product.id }}?weight=1{% if collection %}&collection_id={{ collection.handle }}{% endif %}";
+          ((document.getElementsByTagName('head') || [null])[0] || document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+          if(oldonload){oldonload()}};
+      }());
+    </script>
+    {% endif %}
+
+
+
+    <!-- Google Code for Remarketing Tag -->
+    {% comment %} Enter your google conversion id below {% endcomment %}
+    {% assign google_conversion_id = 969478747 %}
+    {% assign shopify_store_country  = 'US' %}
+    {% if shop.currency == 'CAD' %}
+    {% assign shopify_store_country  = 'CA' %}
+    {% endif %}
+
+
+    <script type="text/javascript">
+
+      {% if template contains 'cart' %}
+      var google_tag_params = {
+        ecomm_prodid: [{% for item in cart.items %}'shopify_{{ shopify_store_country }}_{{ item.product.id }}_{{ item.variant.id }}'{% unless forloop.last %}, {% endunless %}{% endfor %}],
+        ecomm_pagetype: 'cart',
+        ecomm_totalvalue: {{ cart.total_price | money_without_currency | remove: ',' }}
+      };
+
+        {% elsif template contains 'collection' %}
+        var google_tag_params = {
+        ecomm_prodid: [{% for item in collection.products limit:5 %}'shopify_{{ shopify_store_country }}_{{ item.id }}_{{ item.variants.first.id }}'{% unless forloop.last %}, {% endunless %}{% endfor %}],
+        ecomm_pagetype: 'category',
+        ecomm_category: '{{ collection.handle }}'
+      };
+
+      {% elsif template contains 'index' %}
+      var google_tag_params = {
+        ecomm_pagetype: 'home'
+      };
+
+      {% elsif template contains 'product' %}
+      var google_tag_params = {
+        ecomm_prodid: 'shopify_{{ shopify_store_country  }}_{{ product.id }}_{{ product.selected_or_first_available_variant.id }}',
+        ecomm_pagetype: 'product',
+        ecomm_totalvalue: {{ product.price | money_without_currency | replace: ',', '' }},
+      };
+
+      {% elsif template contains 'search' %}
+      var google_tag_params = {
+        ecomm_prodid: [{% for item in search.results limit:5 %}'shopify_{{ shopify_store_country  }}_{{ item.id }}_{{ item.variants.first.id }}'{% unless forloop.last %}, {% endunless %}{% endfor %}],
+        ecomm_pagetype: 'searchresults'
+      };
+      {% else %}
+      var google_tag_params = {
+        ecomm_pagetype: 'other'
+      };
+
+      {% endif %}
+    </script>
+
+
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 969478747;
+      var google_custom_params = window.google_tag_params;
+      var google_remarketing_only = true;
+      /* ]]> */
+    </script>
+
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+
+    <noscript>
+      <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/969478747/?guid=ON&amp;script=0"/>
+      </div>
+    </noscript>
+
+
+        {% include 'booster-discounts' %}
+
+<!--Gem_Page_Footer_Script-->
+{% include 'gem-app-footer-scripts' %}
+<!--End_Gem_Page_Footer_Script-->
+<!-- BEEKETINGSCRIPT CODE START -->{% include 'bk-tracking' %}<!-- BEEKETINGSCRIPT CODE END -->
+  
+  {% include 'meteor-menu', load: 'footer' %}
+  {% include 'elspl_theme' %}
+
+<!-- PROOFFACTOR CODE START -->
+{% capture proof_factor_snippet_content %}{% include 'proof-factor-plugin' %}{% endcapture %}
+{% if proof_factor_snippet_content contains "data-account-id" %}
+{{ proof_factor_snippet_content }}
+{% endif %}
+<!-- PROOFFACTOR CODE END -->
+ 
+ {% render 'preorder-now' %}
+  
+{% include "bc_banner" %}
+<script>(function(document, tag) { var script = document.createElement(tag); var element = document.getElementsByTagName('body')[0]; script.src = 'https://acsbap.com/apps/app/assets/js/acsb.js'; script.async = true; script.defer = true; (typeof element === 'undefined' ? document.getElementsByTagName('html')[0] : element).appendChild(script); script.onload = function() { acsbJS.init({ statementLink : '', feedbackLink : '', footerHtml : '', hideMobile : false, hideTrigger : false, language : 'en', position : 'right', leadColor : '#146FF8', triggerColor : '#146FF8', triggerRadius : '50%', triggerPositionX : 'right', triggerPositionY : 'bottom', triggerIcon : 'default', triggerSize : 'medium', triggerOffsetX : 20, triggerOffsetY : 20, mobile : { triggerSize : 'small', triggerPositionX : 'right', triggerPositionY : 'bottom', triggerOffsetX : 0, triggerOffsetY : 0, triggerRadius : '0' } }); };}(document, 'script'));</script>
+ 
+  
+ </body>   
+</html>
+
+{% include 'spently-featured-products' %}
+<script src="https://apis.google.com/js/platform.js?onload=renderBadge" async defer></script>
+<script>
+  window.renderBadge = function() {
+    var ratingBadgeContainer = document.createElement("div");
+    document.body.appendChild(ratingBadgeContainer);
+    window.gapi.load('ratingbadge', function() {
+      window.gapi.ratingbadge.render(ratingBadgeContainer, {"merchant_id": 115812969});
+    });
+  }
+</script>
+
+<script src="//cdn.codeblackbelt.com/js/modules/also-bought/main.min.js?shop=pro-bike-supply.myshopify.com"></script>
+
+
+<script type='text/javascript' src="https://d8sfokcjiy6.cloudfront.net/cdn/automatic-discount/wallsh_dp.min.js"></script>

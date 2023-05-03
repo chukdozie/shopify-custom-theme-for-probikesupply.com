@@ -1,0 +1,47 @@
+{% comment %} Newletter signup form GA4 tracking {% endcomment %}
+{% comment %} <script>
+$("form.contact-form.desk_news .action_button.sign_up").click(function(){
+  window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+    'event': 'formSubmission',
+    'formType': 'Newsletter Sign Up',
+    'formPosition': 'Footer'
+  });
+})
+</script> {% endcomment %}
+
+{% comment %} Ask a pro form GA4 tracking {% endcomment %}
+{% comment %} <script>
+$("form#bcontact-form-152680 .bcontact-submit-btn").click(function(){
+  window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+    'event': 'formSubmission',
+    'formType': 'Ask a Pro form',
+    'formPosition': '/pages/ask-a-pro-1'
+  });
+})
+</script> {% endcomment %}
+
+{% comment %} Service appointment form GA4 tracking {% endcomment %}
+{% comment %} <script>
+$("form#bcontact-form-152546 .bcontact-submit-btn").click(function(){
+  window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+    'event': 'formSubmission',
+    'formType': 'Service appointment form',
+    'formPosition': '/pages/service-appointment'
+  });
+})
+</script> {% endcomment %}
+
+{% comment %} Consignment Bike Sales form  GA4 tracking {% endcomment %}
+<script>
+$(".pb-contact-us-form-wrapper .pb-contact-us-form-button").click(function(){
+  window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+    'event': 'Consignment_Bike_Sales_form',
+    'formType': 'Consignment Bike Sales form',
+    'formPosition': '/pages/consignment-bikes'
+  });
+})
+</script>

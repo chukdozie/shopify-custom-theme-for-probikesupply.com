@@ -1,0 +1,764 @@
+{% comment %} Bold:POv2 {% endcomment %}
+{%- include 'bold-product' with product, hide_action: 'break', output: 'none' -%}
+
+{% if section.settings.product_breadcrumb %}
+  <div class="center prod-breadcrump">
+    <div class="breadcrumb breadcrumb_text product_breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+      <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="{{ shop.url }}" title="{{ shop.name | escape }}" itemprop="item"><span itemprop="name">{{ 'general.breadcrumbs.home' | t }}</span></a></span>
+      <span class="icon-right-arrow"></span>
+      <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        {% if collection %}
+          <a href="{{ collection.url }}" title="{{ collection.title | escape }}" itemprop="item"><span itemprop="name">{{ collection.title }}</span></a>
+        {% else %}
+          <a href="/collections/all" title="{{ collections.all.title }}">{{ collections.all.title }}</a>
+        {% endif %}
+      </span>
+      <span class="icon-right-arrow"></span>
+      {{ product.title }}
+    </div>
+  </div>
+{% endif %}
+
+<div class="container main-product">
+
+<!--sale banner start-->
+{% if section.settings.display_product_banner %}
+<div class="center prod1 prod-2">
+  <div class="salebannerfull">
+ <div class="bannertext">
+<a href="{{ section.settings.product_b_link }}">
+<strong>{{ section.settings.product_b_text }}</strong>
+  | {{ section.settings.product_b2_text }} ›
+</a>
+</div>
+</div>
+</div>
+{% endif %}
+<!--sale banner end-->
+
+{% comment %}Check to see if sidebar should be enabled{% endcomment %}
+{% if section.blocks.size > 0 %}
+  {% assign sidebar = true %}
+{% else %}
+  {% assign sidebar = false %}
+{% endif %}
+<div class="center grid prod_main">
+{% if sidebar %}
+  {% include 'sidebar' %}
+  <div class="twelve columns product-{{ product.id }}"   itemscope itemtype="http://schema.org/Product">
+{% else %}
+  <div class="sixteen columns product-{{ product.id }}"   itemscope itemtype="http://schema.org/Product">
+{% endif %}
+
+   <div class="main-product section product_section clearfix thumbnail_position--{{settings.thumbnail_position}} product_slideshow_animation--{{settings.product_slideshow_animation}}"
+        data-thumbnail="{{settings.thumbnail_position}}"
+        data-slideshow-animation="{{settings.product_slideshow_animation}}"
+        data-slideshow-speed="{{settings.slideshow_speed}}">
+
+
+	  <div class="img-desc desktop">
+
+        {% if section.settings.product_images_position == 'left' %}
+          <div class="flexslider-container {% if sidebar %}six{% else %}ten{% endif %} columns alpha">
+            {% include 'product-images' %}
+          </div>
+        {% endif %}
+         <div class="pro_si">
+        	{% include "social-buttons" with "product" %}
+        </div>
+    </div>
+
+
+     <div class="six columns {% if section.settings.product_images_position == 'left' %}omega{% else %}alpha{% endif %}">
+      {% assign collection_handles = product.collections | map: 'handle' %}
+      {% assign variant = product.selected_or_first_available_variant %}
+      {% if section.settings.display_vendor %}
+        <p class="brand">
+          {{ product.vendor | link_to_vendor }}
+        </p>
+      {% endif %}
+      <h1 class="product_name" itemprop="name">{{ product.title }}</h1>
+
+       {% include 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: true %}
+
+       <p class="modal_price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+          <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
+          <meta itemprop="seller" content="{{ shop.name | escape }}" />
+          <link itemprop="availability" href="http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}">
+          <meta itemprop="itemCondition" content="New" />
+
+          <span class="sold_out">{% if variant.available == false %}{{ 'products.product.sold_out' | t }}{% endif %}</span>
+          <span itemprop="price" content="{{ variant.price | money_without_currency }}" class="{% if variant.compare_at_price > variant.price %}sale{% endif %}">
+            <span class="bold_option_price_display current_price ">
+              {% if variant.price > 0 %}
+                <span class="money">{{ variant.price | money }}</span>
+              {% else %}
+                {{ settings.free_price_text }}
+              {% endif %}
+            </span>
+          </span>
+          <span class="was_price">
+            {% if variant.price < variant.compare_at_price %}
+              <span class="money">{{ variant.compare_at_price | money }}</span>
+            {% endif %}
+          </span>
+        </p>
+       <p class="affirm-as-low-as"  data-amount="{{variant.price}}"></p>
+
+<script>
+  var selectCallback = function(variant, selector) {
+
+    //Affirm Promos: Monthly Payment Messaging, dynamic pricing embed code
+    //
+    //NOTE: This Affirm embed code is only needed if you are using product variants.
+    //'selectCallback' might not be in your product.liquid template if product variants are not used or supported.
+    //If you are using product variants in your shop, use the following code to dynamically update your Monthly Payment Messaging when the customer selects a different product variant.
+
+    $('.affirm-as-low-as').attr('data-amount',variant.price);
+    affirm.ui.refresh();
+
+  };
+
+</script>
+
+     {% comment %} {% if settings.enable_shopify_product_badges %}
+        <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+      {% endif %}{% endcomment %}
+
+      {% if variant.sku != blank and section.settings.display_sku %}
+        <p class="sku">
+          <span class="label">Sku:</span>
+          <span class="skui" itemprop="sku">{{ variant.sku }}</span>
+        </p>
+      {% endif %}
+
+
+
+      {% include 'size-chart-popup' %}
+
+      {% unless collection_handles contains 'backorder' %}
+        {% comment %}
+
+        {% include 'product-notify-me' %}
+         {% endcomment %}
+      {% endunless %}
+
+
+
+
+
+       {% unless product.available %}
+       <div id="sold-out">
+         {% form 'contact' %}
+         {% if form.posted_successfully? %}
+         <p class="accent-text">Thanks! We will notify you when this product becomes available!</p>
+         {% else %}
+         <p>Click <a id="notify-me" href="#"><strong>here</strong></a> to be notified by email when this product becomes available.</p>
+         {% endif %}
+         {% if form.errors %}
+         <div class="error feedback accent-text">
+           <p>Please provide a valid email address.</p>
+         </div>
+         {% endif %}
+         {% unless form.posted_successfully? %}
+         <div id="notify-me-wrapper" class="clearfix" style="display:none">
+           {% if customer %}
+           <input type="hidden" name="contact[email]" value="{{ customer.email }}" />
+           {% else %}
+           <input style="float:left; width:180px;" required="required" type="email" name="contact[email]" placeholder="your@email.com" class="styled-input{% if form.errors contains 'email' %} error{% endif %}" value="{{ contact.fields.email }}" />
+           {% endif %}
+           <input type="hidden" name="contact[body]" value="Please notify me when {{ product.title | escape }} becomes available." />
+           <input style="float:left; margin-left:5px;" class="btn styled-submit" type="submit" value="Send" />
+         </div>
+         {% endunless %}
+         <script>
+           jQuery('#notify-me').click(function() {
+             {% if customer %}
+             jQuery('#sold-out form').submit();
+             {% else %}
+             jQuery('#notify-me-wrapper').fadeIn();
+             {% endif %}
+             return false;
+           } );
+         </script>
+         {% endform %}
+       </div>
+       {% endunless %}
+       {% comment %}
+
+
+<!--form of cart start-->
+
+       {% unless collection_handles contains 'backorder' %}
+        {% include 'product-form' with 'product' %}
+      {% endunless %}
+
+<!--form of cart  end-->
+
+{% endcomment %}
+
+       {% if collection_handles contains 'backorder' %}
+
+        *This product is currently on backorder*
+{% endif %}
+
+       {% case product.vendor %}
+    {% when 'Fox Racing Shox' %}
+        *This product can only ship within the United States*
+{% endcase %}
+       
+              
+       
+
+       {% case product.vendor %}
+    {% when 'Salsa' %}
+        *In-Store Pick Up Only*
+{% endcase %}
+
+       {% if product.collections contains 'RSSALE' %}
+
+Lorizzle i'm in the shizzle doggy sizzle amizzle, pizzle adipiscing elit. Sure my shizz velizzle, rizzle volutpizzle, gangster quis, gravida vel, daahng dawg. Pellentesque egizzle tortizzle. Sizzle eros. Fo shizzle my nizzle izzle dolor own yo' ass tempizzle shizznit.
+
+{% endif %}
+
+
+       {% case product.vendor %}
+    {% when 'Pivot Cycles' %}
+        *This product is for in-store pick-up only, contact us for details*
+{% endcase %}
+
+<div class="img-desc mobile">
+
+  {% if section.settings.product_images_position == 'left' %}
+    <div class="flexslider-container {% if sidebar %}six{% else %}ten{% endif %} columns alpha">
+      {% include 'product-images' %}
+    </div>
+  {% endif %}
+   <div class="pro_si">
+      {% include "social-buttons" with "product" %}
+  </div>
+</div>
+
+	<div class="pro-low desktop">
+      <h6>SHOP WITH 100% CONFIDENCE</h6>
+      <ul>
+        <li class="shipping">Free shipping on orders over $100</li>
+        <li class="delivery">No hassle returns within 30 days of delivery</li>
+        <li class="talk"><a href="https://www.probikesupply.com/pages/ask-a-pro-1">Ask a Pro if this product is right for you.</a></li>
+        <li class="price">
+          Found a better price?
+          <span>
+            <a href="http://probikesupply.wufoo.com/forms/m7x4z5/" onclick="window.open(this.href, null, 'height=700, width=680, toolbar=0, location=0, status=1, scrollbars=1, resizable=1'); return false"> request A price match </a>
+          </span>
+        </li>
+      </ul>
+    </div>
+
+<!--
+      <div class="meta">
+        {% if section.settings.display_collections %}
+          <p>
+            <span class="label">{{ 'products.product.collections' | t }}:</span>
+            <span>
+             {% for col in product.collections %}
+               <a href="{{ col.url }}" title="{{ 'collections.general.link_title' | t: title: col.title }}">{{ col.title }}</a>{% unless forloop.last %},{% endunless %}
+             {% endfor %}
+           </span>
+         </p>
+        {% endif %}
+
+        {% if section.settings.display_tags %}
+           <p>
+             {% for tag in product.tags %}
+               {% if forloop.first %}
+                 <span class="label">{{ 'products.product.tags' | t }}:</span>
+               {% endif %}
+
+               {% unless tag contains 'meta-' %}
+                 <span>
+                   <a href="/collections/{% if collection %}{{ collection.handle }}{% else %}all{% endif %}/{{ tag | handle }}" title="{{ 'products.product.products_tagged' | t: tag: tag }}">{{ tag }}</a>{% unless forloop.last %},{% endunless %}
+                 </span>
+               {% endunless %}
+             {% endfor %}
+           </p>
+        {% endif %}
+
+        {% if section.settings.display_type %}
+           <p>
+             <span class="label">{{ 'products.product.product_types' | t }}:</span> <span itemprop="category">{{ product.type | link_to_type }}</span>
+           </p>
+        {% endif %}
+      </div>
+
+     {% if collection %}
+         <hr />
+         <p class="meta">
+           {% if collection.next_product %}
+             {% capture next_url %}{{ collection.next_product }}{% endcapture %}
+             <span class="right">
+               {{ 'products.general.next_product_html' | t | link_to: next_url }}
+             </span>
+           {% endif %}
+
+           {% if collection.previous_product %}
+             {% capture prev_url %}{{ collection.previous_product }}{% endcapture %}
+             <span class="left">
+               {{ 'products.general.previous_product_html' | t | link_to: prev_url }}
+             </span>
+           {% endif %}
+         </p>
+      {% endif %}
+
+     <div class="nust">
+
+           {% include 'most-popular' %}
+
+     </div> -->
+
+    </div>
+
+
+
+    {% if section.settings.product_images_position == 'right' %}
+      <div class="flexslider-container {% if sidebar %}six{% else %}ten{% endif %} columns omega">
+        {% include 'product-images' %}
+      </div>
+    {% endif %}
+  </div>
+
+  <div id="tabbed" class="tabbed root">
+    <div class="tabbed-inner">
+        <div class="tabs">
+            <div class="tab active" data-target="description">
+                <div class="title">
+                    Description
+                </div>
+            </div>
+            <div class="tab" data-target="specs">
+                <div class="title">
+                    Specs
+                </div>
+            </div>
+            <div class="tab" data-target="reviews">
+                <div class="title">
+                    Reviews
+                </div>
+            </div>
+        </div>
+        <div class="tab-content-wrap">
+            <div class="tab-content active target-description expandable">
+                <div class="actual-content">
+                    <div class="landing-description">
+                        {{product.description}}
+                    </div>
+                </div>
+                <div class="expand">
+                    <a class="button">Read More</a>
+                </div>
+            </div>
+            <div class="tab-content target-specs expandable">
+                <div class="actual-content">
+                    <div class="landing-specs">
+                    </div>
+                </div>
+                <div class="expand">
+                    <a class="button">Read More</a>
+                </div>
+            </div>
+            <div class="tab-content target-reviews expandable">
+                <div class="actual-content">
+                    {% comment %}<div class="reviews">
+                      {% if settings.enable_shopify_review_comments and settings.review_position == "bottom" %}
+                        <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+                      {% endif %}
+                    </div>{% endcomment %}
+
+                    {% include 'judgeme_widgets', widget_type: 'judgeme_review_widget', concierge_install: true %}
+                </div>
+                <div class="expand">
+                    <a class="button">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pro-low center mobile">
+  <h6>SHOP WITH 100% CONFIDENCE</h6>
+  <ul>
+    <li class="shipping">Free shipping on orders over $100</li>
+    <li class="delivery">No hassle returns within 30 days of delivery</li>
+    <li class="talk"><a href="https://www.probikesupply.com/pages/ask-a-pro-1">Ask a Pro if this product is right for you.</a></li>
+    <li class="price">
+      Found a better price?
+      <span>
+        <a href="http://probikesupply.wufoo.com/forms/m7x4z5/" onclick="window.open(this.href, null, 'height=700, width=680, toolbar=0, location=0, status=1, scrollbars=1, resizable=1'); return false"> request A price match </a>
+      </span>
+    </li>
+  </ul>
+</div>
+
+</div>
+  </div>
+</div>
+
+{% if section.settings.display_related_products %}
+  {% capture limit %}{{ section.settings.products_per_row | plus: 1 }}{% endcapture %}
+
+  {% if collection and collection.all_products_count > 1 %}
+    {% assign col = collection.handle %}
+  {% else %}
+    {% assign col = product.collections.last.handle %}
+  {% endif %}
+
+  {% for tag in product.tags %}
+    {% if tag contains 'meta-related-collection-' %}
+      {% assign related_collection_handle = tag | remove: 'meta-related-collection-' %}
+      {% if collections[related_collection_handle].all_products_count > 0 %}
+        {% assign col = related_collection_handle %}
+        {% assign collection = collections[col] %}
+        {% capture limit %}{{ collection.products_count | plus: 1 }}{% endcapture %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
+   <div class="best-seller">
+  {% if col and collections[col].all_products_count > 0 %}
+    {% if collections[col].all_products_count != 1 or collections[col].products.first.id != product.id %}
+
+      <div class="heading-wrap">
+        <div class="clearfix">
+          <h2>{{ 'products.product.related_items' | t }}</h2>
+        </div>
+      </div>
+
+
+      {% assign skip_product = product %}
+      {% assign products = collections[col].products %}
+      {% assign products_per_row = section.settings.products_per_row %}
+      <div class="container hmmid">
+       <div class="full-box">
+          {% include 'product-loop', sidebar: sidebar %}
+        </div>
+        </div>
+    </div>
+      </div>
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+<script>
+
+    function parseSecs($elem) {
+        var specs = [];
+        var flag = false;
+
+        var $moar = $elem.find('.moar');
+
+        if ($moar.length) {
+            $moar.detach();
+            return $moar;
+        }
+
+        var children = $elem.children();
+        var re = /specifications?:?$/gi;
+
+        for (var i = 0; i < children.length; i++) {
+            var $child = $(children[i]);
+
+            if (!flag) {
+                var text = $child.text().trim();
+                var match = re.exec(text);
+
+                if (match && match.length) {
+                    $child.remove();
+                    flag = true;
+                    continue;
+                }
+            }
+
+            if (flag) {
+                specs.push($child);
+                $child.detach();
+            }
+        }
+
+        return specs;
+    }
+
+    var $desc = $('.landing-description').first();
+
+    while ($desc.children().length === 1) {
+        $desc = $desc.children().first();
+    }
+    var parsed = parseSecs($desc);
+
+    if (parsed.length) {
+        $('.landing-specs').append(parsed);
+    } else {
+        var $specs = $('#seqbpspecs');
+
+        if ($specs.length) {
+            $specs.detach();
+            $('.landing-specs').append($specs);
+        }
+    }
+
+
+    $('.tabbed .tab').on('click', function(){
+        var $this = $(this);
+        var target = $this.data('target');
+        var $tabs = $this.closest('.tabs');
+        var $tab_active = $tabs.find('.tab.active');
+        $tab_active.removeClass('active');
+        $this.addClass('active');
+
+        var $root = $this.closest('.root');
+        $root.find('.target-'+target).addClass('active');
+        var height = $root.find('.target-'+target).outerHeight(true);
+        $root.find('.tab-content-wrap').outerHeight(height);
+
+        var $elems = $root.find('.tab-content');
+        for (var i = 0; i < $elems.length; i++) {
+            var $exp = $($elems[i]);
+            expandableCheck($exp);
+        }
+        $elems.not('.target-'+target).attr('style', '').removeClass('active');
+    });
+
+    function tabExpand($this) {
+        var $root = $this.closest('.expandable');
+        var height = $root.find('.actual-content').outerHeight(true);
+        $root.closest('.tab-content-wrap').outerHeight(height+2);
+        $root.outerHeight(height+1).addClass('expanded');
+        $this.parent().fadeOut();
+    }
+
+    $('.expand .button').on('click', function(){
+        var $this = $(this);
+        tabExpand($this);
+    });
+
+    function expandableCheck($elem) {
+        var height = $elem.find('.actual-content').outerHeight(true);
+        if (height > $elem.outerHeight(true)) {
+            $elem.find('.expand').show();
+            $elem.removeClass('expanded');
+        } else {
+            $elem.addClass('expanded');
+        }
+    }
+
+    var $expandable = $('.expandable');
+    if ($expandable.length) {
+        for (var i = 0; i < $expandable.length; i++) {
+            var $exp = $($expandable[i]);
+            expandableCheck($exp);
+        }
+    }
+
+    $(window).resize(function(){
+      var $expandable = $('.expandable.expanded.active');
+      var height = $expandable.find('.actual-content').outerHeight(true);
+      $expandable.outerHeight(height);
+      $expandable.closest('.tab-content-wrap').outerHeight(height);
+    });
+
+    //$(window).resize();
+</script>
+{% schema %}
+
+{
+  "name": "Product",
+  "class": "product-template-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "product_breadcrumb",
+      "label": "Show breadcrumb links",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "display_tags",
+      "label": "Show tags"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_type",
+      "label": "Show type"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_vendor",
+      "label": "Show vendor"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_collections",
+      "label": "Show collections"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_sku",
+      "label": "Show SKU"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_related_products",
+      "label": "Show related products ([?](http:\/\/support.outofthesandbox.com\/customer\/portal\/articles\/942378-related-products))",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "products_per_row",
+      "label": "Related products per row",
+      "options": [
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "5",
+          "label": "5"
+        }
+      ]
+    },
+    {
+      "type": "radio",
+      "id": "product_description_position",
+      "label": "Description position",
+      "options": [
+        {
+          "value": "top",
+          "label": "Above 'add to cart'"
+        },
+        {
+          "value": "bottom",
+          "label": "Below 'add to cart'"
+        }
+      ]
+    },
+    {
+      "type": "radio",
+      "id": "product_images_position",
+      "label": "Images position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Sidebar"
+    },
+    {
+      "type": "paragraph",
+      "content": "Create a sidebar by adding content blocks."
+    },
+    {
+      "type": "checkbox",
+      "id": "toggle",
+      "label": "Toggle sidebar content"
+    },
+    {
+      "type":"checkbox",
+       "id" :"display_product_banner",
+       "label":"show shop banner"
+    },
+    {
+      "type":"text",
+       "id" :"product_b_link",
+     "label":"Banner link"
+    },
+    {
+      "type":"text",
+       "id" :"product_b_text",
+     "label":"Sale Text"
+    },
+    {
+      "type":"text",
+       "id" :"product_b2_text",
+       "label":"Shop Now"
+    }
+
+  ],
+  "blocks": [
+    {
+      "type": "filter_by_tag",
+      "name": "Tag list",
+      "limit": 1
+    },
+    {
+      "type": "filter_by_collection",
+      "name": "Collection list",
+      "limit": 1
+    },
+    {
+      "type": "filter_by_type",
+      "name": "Type list",
+      "limit": 1
+    },
+    {
+      "type": "filter_by_vendor",
+      "name": "Vendor list",
+      "limit": 1
+    },
+    {
+      "type": "menu",
+      "name": "Menu",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "custom_menu_linklist",
+          "label": "Menu"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Text area can be used for special announcements or general information.</p>"
+        }
+      ]
+    },
+    {
+      "type": "page",
+      "name": "Page",
+      "settings": [
+        {
+          "type": "page",
+          "id": "content_page",
+          "label": "Page"
+        }
+      ]
+    }
+  ]
+}
+
+{% endschema %}

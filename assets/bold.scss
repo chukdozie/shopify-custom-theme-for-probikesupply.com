@@ -1,0 +1,8 @@
+/* BOLD.CSS
+  To include this file in your theme, add the following before the closing </head> tag in theme.liquid
+  {{ 'bold.scss.css' | asset_url | stylesheet_tag }}
+*/
+
+.bold_options .bold_option_set .bold_option {
+  position: static !important;
+}

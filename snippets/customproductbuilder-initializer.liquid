@@ -1,0 +1,28 @@
+{% assign custombuilder = shop.metafields.customproductbuilder %}
+
+{% if custombuilder %}
+
+  {% assign productEditor = custombuilder.productEditor %}
+
+	{% assign productList = productEditor | split: ',' %}
+	{% assign productId = product.id | append: '' %}
+
+	{% if productList contains productId%}
+
+		{% comment pluginspeed replaced-inliner DON'T CHANGE %}{{ 'https://code.jquery.com/jquery-3.0.0.min.js' | script_tag }}{% endcomment %}{% include 'pluginspeed-inlined-jquery-3.0.0.min.js' %}
+		{{ 'https://cdn.shopify.com/s/assets/external/app.js' | script_tag }}
+
+		{% comment pluginspeed replaced-css DON'T CHANGE %}{{ 'customproductbuilder.css' | asset_url | stylesheet_tag }}{% endcomment %}{%- include 'pluginspeed-minify-asset', asset: 'customproductbuilder.css', tag: 'stylesheet', liquid_tag: true -%}
+
+		<div id="product-builder" shop-name="{{shop.permanent_domain}}" product-id="{{product.id}}" styles-path="{{'customproductbuilder.css' | asset_url }}" style="float: left;"></div>
+
+		{{ 'https://customproductbuilder.buildateam.io/dist/custom-product-builder.js' | script_tag }}
+		{{ 'https://customproductbuilder.buildateam.io/dist/customizer-theme-main.js'| script_tag }}
+
+	{% else %}
+		{% section 'product-template' %}
+	{% endif %}          
+	              
+{% else %}
+  {% section 'product-template' %}
+{% endif %}

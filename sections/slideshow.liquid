@@ -1,0 +1,224 @@
+{% if section.blocks.size > 0 %}
+  <div class="container slideshow-new">
+    <div  class="homepage_slider {% if section.settings.image_stretch == false %}sixteen columns{% endif %}"
+          data-slider-id="homepage_slider-{{section.id}}"
+          data-slideshow-animation="{{section.settings.slideshow_animation}}"
+          data-slideshow-speed="{{section.settings.slideshow_speed}}">
+      <ul class="slides">
+        {% for block in section.blocks %}
+
+          <li class="{% if block.settings.image %}has-image{% endif %}{% if block.settings.title != blank or block.settings.subtitle != blank or block.settings.button_label != blank %} has-text{% endif %} slide" {{ block.shopify_attributes }} data-block-id="{{block.id}}">
+            <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="slider-img-{{forloop.index}} bg" {% if block.settings.image %}style="background-image: url({{ block.settings.image | img_url: '300x' }})" data-full="{{ block.settings.image | img_url: '480x' }}"{% endif %}>
+                <img src="{{ 'slideshow-spacer.png' | asset_url }}" class="spacer" />
+            </a>
+            <style>
+              .slider-img-{{forloop.index}} {
+                background-image: url({{ block.settings.image | img_url: '1440x' }}) !important; 
+                min-height: 480px !important;
+              }
+              @media(max-width: 667px) {
+                .slider-img-{{forloop.index}} {
+                  background-image: url({{ block.settings.image2 | img_url: '480x' }}) !important;
+                  min-height: 200px !important;
+                }
+              }
+            </style>            
+            {% if block.settings.title != blank or block.settings.subtitle != blank or block.settings.button_label != blank %}
+            {% if block.settings.link != blank %}
+                <a href="{{ block.settings.link }}" class="darken overlay">
+                </a>
+            {% endif %}
+              <div class="flex-caption homepage_slider__flex-caption">
+                <div class="center grid caption-content">
+                  <div class="columns {% if block.settings.text_position == 'left' %} eight offset-by-one {% elsif block.settings.text_position == 'right' %} seven offset-by-eight {% else %} ten offset-by-three {% endif %} align_{{ block.settings.text_align }}">
+                    {% if forloop.first == true %}
+                      <h1 class="headline">
+                        {{ block.settings.title }}
+                      </h1>
+                    {% else %}
+                      <p class="headline">
+                        {{ block.settings.title }}
+                      </p>
+                    {% endif %}
+                    <p class="subtitle">{{ block.settings.subtitle }}</p>
+                    {% if block.settings.button_label != blank %}
+                      <a href="{{ block.settings.link }}" class="action_button">
+                        {{ block.settings.button_label }}
+                      </a>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Slideshow",
+  "class": "slideshow-section",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "For best results, upload images that are 1280px in width and under 600px in height. Try to keep your slideshow images the same size for consistency."
+    },
+    {
+      "type": "select",
+      "id": "slideshow_animation",
+      "label": "Animation",
+      "options": [
+        {
+          "value": "fade",
+          "label": "Fade"
+        },
+        {
+          "value": "slide",
+          "label": "Slide"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "slideshow_speed",
+      "label": "Slidehow speed",
+      "default": "6",
+      "options": [
+        {
+          "value": "4",
+          "label": "4 seconds"
+        },
+        {
+          "value": "6",
+          "label": "6 seconds"
+        },
+        {
+          "value": "10",
+          "label": "10 seconds"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "image_stretch",
+      "label": "Stretch to full screen width",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+		{
+          "type": "image_picker",
+          "id": "image2",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subheading"
+        },
+        {
+          "type": "select",
+          "id": "text_position",
+          "label": "Text position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "Text alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Slideshow",
+    "category": "Image",
+    "settings": {
+      "slideshow_animation": "fade"
+    },
+    "blocks": [
+      {
+        "type": "image",
+        "settings": {
+          "image": "",
+          "title": "The Responsive Shopify Theme",
+          "subtitle": "",
+          "text_position": "center",
+          "text_align": "center",
+          "button_label": "",
+          "link": ""
+        }
+      },
+      {
+        "type": "image",
+          "settings": {
+          "image": "",
+          "title": "",
+          "subtitle": "",
+          "text_position": "center",
+          "text_align": "center",
+          "button_label": "",
+          "link": ""
+        }
+      }
+    ]
+  }]
+}
+{% endschema %}

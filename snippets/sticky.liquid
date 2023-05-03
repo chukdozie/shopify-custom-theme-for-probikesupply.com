@@ -1,0 +1,170 @@
+  <div class="sticky_header">
+    
+    <div class="top_bar">
+      <div class="container">
+
+              
+        <div class="shpng">
+              <p>{{ section.settings.shippingcontent }}</p>
+           </div>
+         
+             
+        
+        {% if settings.show_multiple_currencies %}
+          <div class="four columns currencies-switcher mobile_hidden">
+            {% include 'currencies-switcher' %} 
+          </div>
+        {% endif %}
+          <div class="header-top-right {% if settings.search_box_top_bar and settings.show_multiple_currencies %}eight{% elsif settings.search_box_top_bar or settings.show_multiple_currencies %}cust_lg{% else %}sixteen{% endif %}">
+
+           
+             {% if settings.top_bar_linklist != blank %}
+              {% for link in linklists[settings.top_bar_linklist].links %}
+                <li>
+                  <a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
+                </li>
+              {% endfor %}
+            {% endif %}
+        </div>
+      </div>  
+    </div>
+
+
+<div class="container">
+      <div id="mobile_nav"> </div>
+  
+  
+  
+  <span id="srch_mob"><img src="{{ 'mob-srch.png' | asset_url }}"/></span>
+  
+  <div style="position: relative; height:0; ">
+       <div class="sticky_logo">
+         <a href="{{ shop.url }}" title="{{ shop.name }}">
+         <img class="desktop_logo" src="{{ 'sticky-logo.png' | asset_url }}" alt="{{ shop.name }}" />
+         <img class="mobile_logo" src="{{ 'mob_logo.png' | asset_url }}" alt="{{ shop.name }}" />
+         </a>
+         
+         <a class="call_c" href="tel:+{ section.settings.phone_number | replace: ' ', '' | replace: '+', '' | replace: '-', '' }}">{{ section.settings.phone_number }}</a>
+         </div>
+         
+         <div class="sticky_search"> 
+         
+         
+          <div class="sticky four columns top_bar_search">
+            <a class="mobile_icon"  href="tel:{{ settings.top_p_no }}"><img src="{{ 'mobile_icon.png' | asset_url }}" alt="Call" /></a>
+            <form class="search" action="/search">
+              {% if settings.search_option != 'everything' %}
+                <input type="hidden" name="type" value="product" />
+              {% endif %}
+              <input type="text" name="q" class="search_box" placeholder="Search" value="{% if search and search.results.first.price %}{{ search.terms }}{% endif %}" autocapitalize="off" autocomplete="off" autocorrect="off" />
+            </form>
+          </div>
+               
+               
+               
+              <div class="cartn">
+              <a href="/cart" class="cart" title="{{ 'layout.general.cart' | t }}">
+            <ul>
+
+              <li><em>{{ cart.item_count }}</em><span><img alt="Cart" src="{{'s-cart-icon.png' | asset_url}}"> cart</span>
+            </li>
+              </ul>
+                </a>
+            </div>  
+         
+         </div>
+         
+     </div>
+          <div class="sticky_menu">  
+         
+            <div id="nav">
+          
+          <ul id="menu">
+            {% for link in linklists[settings.main_linklist].links %}
+              {% if linklists[link.handle] == empty %}
+                <li><a href="{{ link.url }}" title="{{ link.title }}" {% if link.active %}class="active"{% endif %}>{{ link.title }}</a></li>
+              {% else %}
+                <li><a href="{{ link.url }}" title="{{ link.title }}" {% if link.active %}class="active"{% endif %} {% for link in linklists[link.handle].links %}{% if link.active %}class="active"{% endif %}{% endfor %}>{{ link.title }} 
+                  <span class="arrow">&or;</span></a>
+                <div>
+                  <ul>
+                    {% for link in linklists[link.handle].links %}
+                      {% if linklists[link.handle] == empty %}
+                        <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+                      {% else %}
+                      <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }} <span class="arrow"> &gt;</span></a> 
+                        <ul>
+                          {% for link in linklists[link.handle].links %}                        
+                            <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+                          {% endfor %}
+                        </ul>
+                      </li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                  </div>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+         
+         
+         
+         
+         
+         </div>
+            
+             
+         
+         
+         
+         
+         
+         
+         
+         
+      
+      
+      </div>  </div>
+    <div style="display:none;">  
+  <ul id="menu1">
+            {% for link in linklists[settings.main_linklist].links %}
+              {% if linklists[link.handle] == empty %}
+                <li><a href="{{ link.url }}" title="{{ link.title }}" {% if link.active %}class="active"{% endif %}>{{ link.title }}</a></li>
+              {% else %}
+                <li><a href="{{ link.url }}" title="{{ link.title }}" {% if link.active %}class="active"{% endif %} {% for link in linklists[link.handle].links %}{% if link.active %}class="active"{% endif %}{% endfor %}>{{ link.title }} 
+                  <span class="arrow">&or;</span></a>
+                
+                  <ul>
+                    {% for link in linklists[link.handle].links %}
+                      {% if linklists[link.handle] == empty %}
+                        <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+                      {% else %}
+                      <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }} <span class="arrow"> &gt;</span></a> 
+                        <ul>
+                          {% for link in linklists[link.handle].links %}                        
+                            <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+                          {% endfor %}
+                        </ul>
+                      </li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                 
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+</div>
+
+
+      <script type="text/javascript">
+        
+  $('#srch_mob').on('click', function(){
+    $('.com_header').toggleClass( "highlight" );
+});
+        
+       
+</script>
+      

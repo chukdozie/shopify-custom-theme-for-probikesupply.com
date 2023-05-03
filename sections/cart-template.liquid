@@ -1,0 +1,316 @@
+<style>
+  #shipping-calculator {display: none;}
+  .checkout_box {
+      position: relative;
+    }
+  .checkout_box svg {
+    position: absolute;
+    z-index: 2;
+    top: 11px;
+    fill: #fff;
+    width: 15px;
+    height: 15px;
+    left: 60px;
+  }
+</style>
+<script>
+  var cartItems = document.querySelectorAll('.product-title a');
+  cartItems.forEach(function(cartItem) {
+    var title = cartItem.innerHTML;
+    var newTitle = title.replace(/,/g, ',<br>');
+    cartItem.innerHTML = newTitle;
+  });
+  window.addEventListener('load', function() {
+  setTimeout(function() {
+    var shippingCalculator = document.querySelector('#shipping-calculator');
+      shippingCalculator.style.display = 'none';
+    var shippingBoxButton = document.querySelector('.shipping_box_button');
+    var shippingBox = document.querySelector('.shipping_box');
+    var shippingBoxButtonClicked = false;
+    shippingBoxButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (shippingBoxButtonClicked) {
+        shippingCalculator.style.display = 'none';
+        shippingBoxButtonClicked = false;
+      } else {
+        shippingCalculator.style.display = 'block';
+        shippingBoxButtonClicked = true;
+        shippingCalculator.scrollIntoView();
+      }
+    });
+    }, 1000);
+    /*
+    setTimeout(function(){
+      var automaticDiscountCode = document.querySelector('#automatic-discount .apply-code');
+      var automaticDiscountAccordion = document.querySelector('#automatic-discount #dcodeOuterWrapper');
+      automaticDiscountCode.addEventListener('click', function() {
+        automaticDiscountAccordion.classList.toggle('active');
+      });
+    }, 1000);
+    */
+  });
+</script>
+<div class="sixteen columns">
+  <div class="section clearfix">
+    <h1>{{ 'cart.general.title' | t }}</h1>
+  </div>
+   <a class="continue_button" href="{% if cart.items.first.product.collections != blank %}
+      {{ cart.items.first.product.collections.last.url }}
+      {% else %}/collections/all{% endif %}">
+  {{ 'cart.general.continue_shopping_link_html' | t }}
+  </a>
+</div>
+
+{% if cart.item_count == 0 %}
+  <div class="sixteen columns">
+    <div class="section clearfix">
+      <p class="quote">{{ 'cart.general.continue_browsing_html' | t }}</p>
+      <br class="clear" />
+      <br class="clear" />
+    </div>
+  </div>
+{% else %}
+
+  <div class="sixteen columns">
+    <form action="/cart" method="post" id="cart_form">
+      <div class="left-col-section">
+        <table class="checkout_table_header">
+          <thead>
+            <tr>
+              <td class="">
+                <h4>{{ 'cart.general.item' | t }}</h4>
+              </td>
+              
+              <td class="small_width">
+                <h4>{{ 'cart.general.price' | t }}(USD)</h4>
+              </td>
+              
+              <td class="micro_width">
+                <h4>{{ 'cart.general.quantity' | t }}</h4>
+              </td>
+              
+              <td class="micro_width">
+                <h4>{{ 'cart.general.total' | t }}</h4>
+              </td>
+              <td class="">
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in cart.items %}
+              <tr class="product-row">
+              {% if item.properties._boldBuilderId  and item.properties._boldVariantIds == null %}
+              <input type="hidden" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0" data-id="{{ item.key }}">
+              {% continue %}
+              {% endif %}
+              <td class="product-item">
+                <a href="{{ item.url }}" title="{{ item.title | escape }}" class="">
+                   <img src="{{ item | img_url: '80x' }}" alt="{{ item.title | escape }}" />
+                </a>
+                <div class="product-title">
+                  <a href="{{ item.url }}">
+                    {{ item.product.title }}
+                    <span class='booster-cart-item-success-notes' data-key='{{item.key}}'></span>
+                    <span class='booster-cart-item-upsell-notes' data-key='{{item.key}}'></span>
+                  </a>
+                  {% unless item.variant.title contains "Title" %}
+                    <p class="meta">
+                      {% for option in item.product.options %}
+                        <span class="label">{{ option }}:</span> <span>{{ item.variant.options[forloop.index0] }}</span><br />
+                      {% endfor %}
+                    </p>
+                  {% endunless %}
+                  {% comment %} Bold:POv2 {% endcomment %}
+                  <div>
+                    <span class="old_cart_item_properties" style="display:none !important;"></span>
+                    {% assign propertySize = item.properties | size %}
+                    {% if propertySize > 0 %}
+                      {% for p in item.properties %}
+                        {%- if p.first.first == '_' -%}{%- continue -%}{%- endif -%}
+                        {% assign first_character_in_key = p.first | truncate: 1, '' %}
+                        {% assign first_character_in_key = p.first | truncate: 1, '' %}
+                        {% unless p.last == blank %}
+                          {% unless p.first contains '_is_preorder' %}{{ p.first }}:{% endunless %}
+                          {% if p.last contains '/uploads/' %}
+                            <a href="{{ p.last }}">
+                            {% assign file_type = p.last | split: '.' | last | downcase %}
+                            {% assign file_types = 'jpg,jpeg,webp,gif,png,apng,avif,svg,bmp,ico,tiff' | split: ',' %}
+                            {% if file_types contains file_type %}
+                              <div class="bcpo-cart-file"><img src="{{ p.last }}" style="max-width: 50px; height: auto;"></div>
+                            {% else %}
+                              <span class="bcpo-cart-file">Uploaded file</span>
+                            {% endif %}
+                            </a>
+                          {% else %}
+                            {{ p.last }}
+                          {% endif %}
+                          <br/>
+                        {% endunless %}
+                      {% endfor %}
+                    {% endif %}
+                  </div>  
+                  <div class="bold_edit_in_cart"></div>
+                  <span><b>SKU:</b> {{ item.variant.sku }}</span>
+               </div>         
+            </td>
+    
+            <td class="small_width_mobile">
+              <p class="price_total">
+                <span class="money">
+                  {% comment %} Bold:POv2 {% endcomment %}  
+                    <div class="pn-price-item" data-id="{{ item.key }}">
+                      <span class="bcpo-cart-item-price" data-key="{{item.key}}">
+                        <div class="pn-price-item" data-id="{{ item.key }}">
+                        {{ item.price | money }}
+                        </div>
+                      </span>
+                    </div>
+                  </span>
+                </span>
+              </p>
+            </td>
+    
+            <td class="" id="quantity_{{ forloop.index }}">
+              <span class="quantity_label">{{ 'cart.general.quantity' | t }}:</span>
+              <input type="number" min="0" size="2" class="quantity" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" />
+            </td>
+            <td class="">
+              <span class="price_total">
+                <span class="money">
+                  {% comment %} Bold:POv2 {% endcomment %}  
+                  <span class='booster-cart-item-line-price' data-key='{{item.key}}'>
+                    <div class="pn-total-line-item" data-id="{{ item.key }}">
+                      <span class="bcpo-cart-item-line-price" data-key="{{item.key}}">
+                        <div class="pn-total-line-item" data-id="{{ item.key }}">
+                          {{ item.line_price | money }}
+                        </div>
+                      </span>
+                    </div>
+                  </span>
+                </span>
+              </span>
+            </td>
+            <td class="">
+              <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" title="{{ 'cart.general.remove' | t }}" class="right mobile_hidden remove"><span class="ss-icon">&#x2421;</span></a>      
+            </td>
+           </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+        <div class="pro-low confidence-block-cart">
+          </p><h6>SHOP WITH 100% CONFIDENCE</h6>
+          <ul>
+            <li class="shipping">{{ section.settings.block_one }}</li>
+            <li class="delivery">{{ section.settings.block_two }}</li>
+            <li class="talk">{{ section.settings.block_three }}</li>
+            <li class="talk">{{ section.settings.block_four }}</li>
+          </ul>
+        </div>
+      </div> <!-- left section -col -->
+      <div class="right-section-col">
+        <div class="sub-total-section">
+          <div class="sub-total-left">
+            <h4>{{ 'cart.general.subtotal' | t }} <span data-item-count="{{ cart.item_count }}">({{ cart.item_count }} {{ cart.item_count | pluralize: 'Item', 'Items' }})</span></h4>
+            <div class="">Shipping & Taxes</div>
+          </div>
+          <div class="sub-total-right">
+              <span class="money">
+                {% comment %} Bold:POv2 {% endcomment %}  
+                  <span class="wh-original-cart-total">
+                    <span id="bk-cart-subtotal-price">
+                      <span class="bcpo-cart-original-total">{{ cart.total_price | money_with_currency }}</span>
+                    </span> 
+                    <span class="wh-cart-total"></span>
+                    <div class="additional-notes">
+                      <span class="wh-minimums-note"></span>
+                      <span class="wh-extra-note "></span>
+                    </div>
+                </span>
+                <small class="excluding_tax">Calculated at Checkout</small>
+                {% if settings.show_multiple_currencies %}
+                  <small>
+                    <em>{{ 'cart.general.orders_processed_in_currency_html' | t: currency: shop.currency }}</em>
+                  </small>
+                {% endif %}
+              </span>
+          </div>
+        </div>
+        <div class="shipping_box" style="display: none;"><a class="shipping_box_button" href="#shipping-calculator">Calculate Shipping</a></div>
+  
+        {% if section.settings.display_tos_checkbox %}
+          <div>
+            <input type="checkbox" class="tos_agree" id="cart_agree" required />
+            <label class="tos_label" for="cart_agree">
+              {{ 'cart.general.agree_to_terms_html' | t }}
+            </label>
+          </div>
+        {% endif %}
+          <div class="checkout_box">
+          <input type="submit" class="action_button" id="checkout" name="checkout" value="Secure Checkout" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+              <path d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"/></svg>
+          </div>
+ 
+              </br>
+                
+          <div id="automatic-discount">
+            
+          </div>
+                </br>
+          <p style="margin: 40px 20px 10px 20px;" class="affirm-as-low-as" data-affirm-color="blue" data-amount="{{cart.total_price}}"></p>
+          <span class="subtotal">
+            <klarna-placement
+           data-key="credit-promotion-badge"
+           data-locale="en-US"
+           data-purchase-amount="{{cart.total_price}}"
+          ></klarna-placement>
+        </span>
+      </div> <!-- right section -->  
+  </form>
+</div>
+{% endif %}
+{% schema %}
+
+{
+  "name": "Cart page",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "display_special_instructions",
+      "label": "Show \"note\" text box"
+    },
+    {
+      "type": "text",
+      "id": "block_one",
+      "label": "Block One",
+      "default": "Free domestic shipping over $50"
+    },
+    {
+      "type": "text",
+      "id": "block_two",
+      "label": "Block Two",
+      "default": "45 days return policy"
+    },
+    {
+      "type": "html",
+      "id": "block_three",
+      "label": "Block Three"
+    },
+    {
+      "type": "text",
+      "id": "block_four",
+      "label": "Block Four",
+      "default": "Superior after sales support"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_tos_checkbox",
+      "label": "Show \"agree to terms\" checkbox"
+    }
+  ]
+}
+
+{% endschema %}
+<!-- bcpo done -->
+<!-- GPO installed -->
