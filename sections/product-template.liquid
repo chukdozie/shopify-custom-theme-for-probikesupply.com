@@ -151,7 +151,7 @@ margin: 0px;
        <p  class="modal_price">
           <meta content="{{ shop.currency }}" />
           <meta  content="{{ shop.name | escape }}" />
-          <link href="http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}">
+          <link href="http://schema.org/{% if variant.available or content_for_header contains 'globo.preorder' %}InStock{% else %}OutOfStock{% endif %}">
           <meta content="New" />
          
          
