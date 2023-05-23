@@ -277,4 +277,61 @@
   {% endif %}
 
 
+{% else %}
+{% assign variant = product.selected_or_first_available_variant %}
+
+  {% comment %} Bold:POv2 {% endcomment %}
+  <form 
+        method="post"
+        enctype="multipart/form-data"
+        class="clearfix product_form init {% if product.variants.size > 1 or product.options.size > 1 %}product_form_options{% endif %}"
+        id="product-form-{{ product.id }}"
+>
+
+    {% if product.options.size > 1 %}
+      <div class="select">
+        <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}" name="id" class="multi_select">
+          {% for v in product.variants %}
+            <option {% if v == variant %}selected="selected"{% endif %} value="{{ v.id }}" data-sku="{{ v.sku }}"  data-price="{{ v.price | money }}">{{ v.title }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    {% elsif product.options.size == 1 and product.variants.size > 1 or product.options.size == 1 and product.options[0] != "Title" %}
+      <div class="select single-sel">
+        <label>{{ product.options[0] }}</label>
+        <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}" name="id" class="multi_select">
+          {% for v in product.variants %}
+          {% include 'bold-variant' with v, hide_action: 'skip'  %}
+            <option {% if v == variant %}selected="selected"{% endif %} value="{{ v.id }}" data-sku="{{ v.sku }}" data-price="{{ v.price | money }}">{{ v.title }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    {% else %}
+      <input type="hidden" name="id" value="{{ variant.id }}" />
+    
+    {% endif %}
+
+    {% if settings.product_form_style == "swatches" and product.variants.size > 1 or settings.product_form_style == "swatches" and product.options[0] != "Title" %}
+      <div class="swatch_options">
+        {% for option in product.options %}
+          {% include 'product-swatch' with option %}
+        {% endfor %}
+      </div>
+    {% endif %}
+    <div class="purchase clearfix {% if settings.display_product_quantity %}inline_purchase{% endif %}">
+      {% capture add_to_cart_label %}{% if collection_handles contains 'pre-order' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
+      <button style="display: none" type="submit" name="add" class="action_button add_to_cart" data-label={{ add_to_cart_label | json }}><span class="text"></span></button>
+    </div>   
+  </form>
+
+  {% if product.variants.size > 1 or product.options.size > 1 %} 
+    <script type="text/javascript">
+      // <![CDATA[  
+        $(function() {    
+          $product = $('#product-' + {{ product.id }});
+          new Shopify.OptionSelectors("product-select-{{ product.id }}", { product: {%- include 'bold-product', output: 'json' -%}, onVariantSelected: selectCallback{% if product-form == 'product' %}, enableHistoryState: true{% endif %} });          
+        });
+      // ]]>
+    </script>
+  {% endif %}
 {% endif %}

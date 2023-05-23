@@ -3122,9 +3122,7 @@
       "13759942015198248323": {
         "type": "shopify:\/\/apps\/willdesk-live-chat-helpdesk\/blocks\/helpdesk\/fdb9f3d8-334c-44b1-86d1-03be979bbf8d",
         "disabled": false,
-        "settings": {
-          "helpdesk": "Frequently Asked Questions"
-        }
+        "settings": {}
       },
       "12120936241911852800": {
         "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/reviews_tab\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
@@ -3162,6 +3160,11 @@
       },
       "5134484470793087125": {
         "type": "shopify:\/\/apps\/vitals-all-in-one-marketing\/blocks\/app-embed\/aeb48102-2a5a-4f39-bdbd-d8d49f4e20b8",
+        "disabled": false,
+        "settings": {}
+      },
+      "11349500561483629931": {
+        "type": "shopify:\/\/apps\/ReStock\/blocks\/app-embed\/b399b727-6c85-44fc-9e21-63114bd72054",
         "disabled": false,
         "settings": {}
       }

@@ -230,6 +230,7 @@ margin: 0px;
 
 
        {% unless product.available %}
+         <button contactform-trigger='241434'></button>
        <div id="sold-out">
          {% form 'contact' %}
          {% if form.posted_successfully? %}
@@ -249,8 +250,7 @@ margin: 0px;
            {% else %}
            <input style="float:left; width:180px;" required="required" type="email" name="contact[email]" placeholder="your@email.com" class="styled-input{% if form.errors contains 'email' %} error{% endif %}" value="{{ contact.fields.email }}" />
            {% endif %}
-           <label for="freehub">Freehub</label>
-  <input required class="required" id="freehub" type="text" name="properties[Freehub]">
+           
 </p>
            <input type="hidden" name="contact[body]" value="Please notify me when {{ product.title | escape }} becomes available." />
            <input style="float:left; margin-left:5px;" class="btn styled-submit" type="submit" value="Send" />
@@ -263,7 +263,7 @@ margin: 0px;
              {% else %}
              jQuery('#notify-me-wrapper').fadeIn();
              {% endif %}
-             return false;
+             return false;s
            } );
          </script>
           
