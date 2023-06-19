@@ -149,12 +149,12 @@
       "from": "from"
     },
     "product": {
-      "sold_out": "Coming Soon",
+      "sold_out": "Contact for ETA",
       "unavailable": "Unavailable",
       "quantity": "Quantity",
       "add_to_cart": "Add to Cart",
       "add_to_cart_success": "Added",
-      "vendor": "Vendor",
+      "vendor": "Brand",
       "related_items": "Best Sellers",
       "collections": "Collections",
       "product_types": "Type",

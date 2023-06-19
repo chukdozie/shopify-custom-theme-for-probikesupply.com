@@ -89,9 +89,5 @@
     </script>
 {% endif %}
 {% if template contains 'index' or template contains 'product' or template contains 'collection' or template contains 'search'%}
-    {% if template contains 'index' %}
-        <script src="{{ 'scm-product-label.js' | asset_url }}" async></script>
-    {% else %}
-         {{ "scm-product-label.js" | asset_url | script_tag }}
-    {% endif %}
+    <script src="{{ 'scm-product-label.js' | asset_url }}" async></script>
 {% endif %}

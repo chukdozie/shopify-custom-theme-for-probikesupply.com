@@ -173,7 +173,6 @@
 </script>
 
 
-{% if product.available %}
 
   {% assign variant = product.selected_or_first_available_variant %}
 
@@ -257,7 +256,20 @@
       {% endif %}
 
       {% capture add_to_cart_label %}{% if collection_handles contains 'pre-order' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
-      <button type="submit" name="add" class="action_button add_to_cart" data-label={{ add_to_cart_label | json }}><span class="text">{{ add_to_cart_label }}</span></button>
+      <button type="submit" name="add" class="action_button add_to_cart   {% unless variant.available %}sold_out{% endunless %}>" data-label={{ add_to_cart_label | json }}
+         {% unless variant.available %} disabled="disabled"{% endunless %}>
+        >
+        <span class="text">
+         {% if variant.available %}
+          {{ add_to_cart_label }}
+       
+           {% else %}>
+           {{ 'products.product.sold_out' | t }}
+
+           {% endif %}
+            
+        </span>
+    </button>
       
     </div> 
     
@@ -277,7 +289,7 @@
   {% endif %}
 
 
-{% else %}
+{% comment %}
 {% assign variant = product.selected_or_first_available_variant %}
 
   {% comment %} Bold:POv2 {% endcomment %}
@@ -334,4 +346,4 @@
       // ]]>
     </script>
   {% endif %}
-{% endif %}
+{% endcomment %}

@@ -19,7 +19,15 @@
 <!--[if IE 8 ]><html class="ie ie8" lang="{{ shop.locale }}"> <![endif]-->
 <!--[if IE 9 ]><html class="ie ie9" lang="{{ shop.locale }}"> <![endif]-->
 <!--[if (gte IE 10)|!(IE)]><!--><html lang="{{ shop.locale }}"> <!--<![endif]-->
-  <head>{% render 'pagefly-head' %}
+  <head>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MWNGZXD');</script>
+<!-- End Google Tag Manager -->
+  {% render 'pagefly-head' %}
   <!-- Added by AVADA Joy -->
   {% include 'avada-joy' %}
   <!-- /Added by AVADA Joy -->
@@ -184,16 +192,21 @@
 
     gtag('config', 'G-HKJTMM3LQ9');
   </script>
+    <style>
+      .action_button.sold_out{
+          cursor: default !important;
+      }
+    </style>
 </head>
             
              
   {% include 'search-autocomplete' %}
 
-  <body class="{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}"><div class="page-builder-container">{{ content_for_layout }}</div></body>         
+  <body class="{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}"><div class="page-builder-container">{{ content_for_layout }}</div></body>          
 </html>
 {% if template != 'index' %}
 {% include 'spently-featured-products' %}
-<script src="//cdn.codeblackbelt.com/js/modules/also-bought/main.min.js?shop=pro-bike-supply.myshopify.com" defer></script>
+
 {% endif %}
 <script src="https://apis.google.com/js/platform.js?onload=renderOptIn" async defer></script>
 
