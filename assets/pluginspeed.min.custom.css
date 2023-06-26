@@ -1274,7 +1274,7 @@ a.slicknav_btn {
     height: 100%;}
 
 .prod_main .img-desc ul.slides {float:right;
-	width:90%;}
+	}
 
 .prod_main .img-desc .slides img {max-height: 600px;}
 
