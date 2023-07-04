@@ -2698,11 +2698,11 @@
       "1490265437563": {
         "type": "featured-promotions",
         "blocks": {
-          "2be19ada-514a-4776-9fb5-03b49140d958": {
+          "3ab6c79b-7976-4b43-b66b-6e5da2a2f069": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/open-box-featured-product.gif",
-              "link": "https:\/\/www.probikesupply.com\/collections\/takeoff-1",
+              "image": "shopify:\/\/shop_images\/specialized-epuitpment-sale-featured-product.gif",
+              "link": "https:\/\/www.probikesupply.com\/collections\/specialized-summer-eq-sale",
               "title": "",
               "text": ""
             }
@@ -2725,21 +2725,22 @@
               "text": ""
             }
           },
-          "3ab6c79b-7976-4b43-b66b-6e5da2a2f069": {
+          "2be19ada-514a-4776-9fb5-03b49140d958": {
             "type": "image",
             "disabled": true,
             "settings": {
-              "link": "",
+              "image": "shopify:\/\/shop_images\/open-box-featured-product.gif",
+              "link": "https:\/\/www.probikesupply.com\/collections\/takeoff-1",
               "title": "",
               "text": ""
             }
           }
         },
         "block_order": [
-          "2be19ada-514a-4776-9fb5-03b49140d958",
+          "3ab6c79b-7976-4b43-b66b-6e5da2a2f069",
           "7ad8bfdc-91e0-49c8-bdd8-f0e1ad4d4465",
           "c050a3b9-e2f1-4674-823b-2a53226ef2d8",
-          "3ab6c79b-7976-4b43-b66b-6e5da2a2f069"
+          "2be19ada-514a-4776-9fb5-03b49140d958"
         ],
         "settings": {
           "featured_promos_per_row": "3",
@@ -2985,6 +2986,19 @@
       "slideshow": {
         "type": "slideshow",
         "blocks": {
+          "4f386a5d-d17a-4d7e-b733-02289eca9818": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/4th-of-july-homepage.gif",
+              "image2": "shopify:\/\/shop_images\/4th-of-july-mobile.gif",
+              "title": "",
+              "subtitle": "",
+              "text_position": "center",
+              "text_align": "center",
+              "button_label": "",
+              "link": ""
+            }
+          },
           "668454f7-a777-4d5d-901c-2ab8c6d1463f": {
             "type": "image",
             "settings": {
@@ -3011,17 +3025,17 @@
               "link": "https:\/\/www.probikesupply.com\/collections\/2023-yeti-160e-summer-sale"
             }
           },
-          "ecdccf24-6f55-4206-8a19-def8d955ca4c": {
+          "555e3014-61ec-484c-9a7c-3cfd27701a93": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/axs-build-homepage_4f4ecf39-bc17-46b7-8ed5-f099f32c2ff2.gif",
-              "image2": "shopify:\/\/shop_images\/axs-build-mobile_ffb4eeaf-afa2-4308-b131-5ec49f291913.gif",
-              "title": "Yeti 20% Off",
-              "subtitle": "All AXS Builds",
+              "image": "shopify:\/\/shop_images\/FOX-ENDURO-SALE-HOMEPAGE.gif",
+              "image2": "shopify:\/\/shop_images\/FOX-ENDURO-SALE-MOBILE.gif",
+              "title": "Fox Enduro Sale",
+              "subtitle": "FOX 38, MY23 FLOAT X2 & DHX2",
               "text_position": "center",
               "text_align": "center",
               "button_label": "Shop Now",
-              "link": "https:\/\/www.probikesupply.com\/collections\/2023-yeti-summer-sale"
+              "link": "https:\/\/www.probikesupply.com\/collections\/fox-summer-sale?sort_by=created-descending"
             }
           },
           "1e9dbfcd-2ee7-4e6b-9f8a-ac1ab9f9fb8d": {
@@ -3037,19 +3051,6 @@
               "link": "https:\/\/www.probikesupply.com\/pages\/sram-eagle-transmission"
             }
           },
-          "555e3014-61ec-484c-9a7c-3cfd27701a93": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/FOX-ENDURO-SALE-HOMEPAGE.gif",
-              "image2": "shopify:\/\/shop_images\/FOX-ENDURO-SALE-MOBILE.gif",
-              "title": "Fox Enduro Sale",
-              "subtitle": "FOX 38, MY23 FLOAT X2 & DHX2",
-              "text_position": "center",
-              "text_align": "center",
-              "button_label": "Shop Now",
-              "link": "https:\/\/www.probikesupply.com\/collections\/fox-summer-sale?sort_by=created-descending"
-            }
-          },
           "c11eb9c4-c235-4218-92fa-205b5517ad49": {
             "type": "image",
             "settings": {
@@ -3063,8 +3064,23 @@
               "link": "https:\/\/www.probikesupply.com\/collections\/2023-turbo-levo-sl"
             }
           },
+          "ecdccf24-6f55-4206-8a19-def8d955ca4c": {
+            "type": "image",
+            "disabled": true,
+            "settings": {
+              "image": "shopify:\/\/shop_images\/axs-build-homepage_4f4ecf39-bc17-46b7-8ed5-f099f32c2ff2.gif",
+              "image2": "shopify:\/\/shop_images\/axs-build-mobile_ffb4eeaf-afa2-4308-b131-5ec49f291913.gif",
+              "title": "Yeti 20% Off",
+              "subtitle": "All AXS Builds",
+              "text_position": "center",
+              "text_align": "center",
+              "button_label": "Shop Now",
+              "link": "https:\/\/www.probikesupply.com\/collections\/2023-yeti-summer-sale"
+            }
+          },
           "26bcb4ce-4bf4-43c9-8926-78dacfb79c89": {
             "type": "image",
+            "disabled": true,
             "settings": {
               "image": "shopify:\/\/shop_images\/SPECIALIZED-HOMEPAGE_2e8fe65b-7c3a-40bd-b309-e55f1e7fede5.gif",
               "image2": "shopify:\/\/shop_images\/SPECIALIZED-MOBILE_a9578d27-c9b1-4a9d-9ec7-55eee181f849.gif",
@@ -3078,12 +3094,13 @@
           }
         },
         "block_order": [
+          "4f386a5d-d17a-4d7e-b733-02289eca9818",
           "668454f7-a777-4d5d-901c-2ab8c6d1463f",
           "194a5eeb-8a59-42df-bcd1-96e029275cc1",
-          "ecdccf24-6f55-4206-8a19-def8d955ca4c",
-          "1e9dbfcd-2ee7-4e6b-9f8a-ac1ab9f9fb8d",
           "555e3014-61ec-484c-9a7c-3cfd27701a93",
+          "1e9dbfcd-2ee7-4e6b-9f8a-ac1ab9f9fb8d",
           "c11eb9c4-c235-4218-92fa-205b5517ad49",
+          "ecdccf24-6f55-4206-8a19-def8d955ca4c",
           "26bcb4ce-4bf4-43c9-8926-78dacfb79c89"
         ],
         "custom_css": [],
@@ -3171,6 +3188,25 @@
       },
       "4372474792694305445": {
         "type": "shopify:\/\/apps\/also-bought-related-products\/blocks\/app-embed-block\/b94b27b4-738d-4d92-9e60-43c22d1da3f2",
+        "disabled": false,
+        "settings": {}
+      },
+      "1027443428159536739": {
+        "type": "shopify:\/\/apps\/hextom-quick-announcement-bar\/blocks\/qab-embeded-block\/9ac2a261-3b8b-42c8-9613-d34eb2e079d3",
+        "disabled": false,
+        "settings": {}
+      },
+      "13068276239658253650": {
+        "type": "shopify:\/\/apps\/power-tools-suite\/blocks\/app-embed\/f5386c05-833e-45ce-9e60-091e6fb23fc3",
+        "disabled": false,
+        "settings": {
+          "pt_enable_featured": false,
+          "pt_tracking_mode": "views",
+          "pt_enable_cart": false
+        }
+      },
+      "29232347192224340": {
+        "type": "shopify:\/\/apps\/dcart\/blocks\/app-embed\/731e2611-8bdf-4514-b5e4-f64f1cae3fb7",
         "disabled": false,
         "settings": {}
       }
