@@ -2988,6 +2988,7 @@
         "blocks": {
           "4f386a5d-d17a-4d7e-b733-02289eca9818": {
             "type": "image",
+            "disabled": true,
             "settings": {
               "image": "shopify:\/\/shop_images\/4th-of-july-homepage.gif",
               "image2": "shopify:\/\/shop_images\/4th-of-july-mobile.gif",
