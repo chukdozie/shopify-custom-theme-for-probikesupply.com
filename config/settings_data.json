@@ -2986,18 +2986,18 @@
       "slideshow": {
         "type": "slideshow",
         "blocks": {
-          "4f386a5d-d17a-4d7e-b733-02289eca9818": {
+          "bb18638e-944a-46ee-93d6-f121b6b15657": {
             "type": "image",
             "disabled": true,
             "settings": {
-              "image": "shopify:\/\/shop_images\/4th-of-july-homepage.gif",
-              "image2": "shopify:\/\/shop_images\/4th-of-july-mobile.gif",
+              "image": "shopify:\/\/shop_images\/SRAM-HOMEPAGE_daa075c4-d029-4b0d-824a-6f3e8ea23769.gif",
+              "image2": "shopify:\/\/shop_images\/sram-gx-mobile_b7ac6c1d-7b77-4ec4-9769-4f1817ae953c.gif",
               "title": "",
               "subtitle": "",
               "text_position": "center",
               "text_align": "center",
-              "button_label": "",
-              "link": ""
+              "button_label": "shop now",
+              "link": "https:\/\/www.probikesupply.com\/collections\/new-sram-gx-transmission-bronze-stealth-brakes"
             }
           },
           "668454f7-a777-4d5d-901c-2ab8c6d1463f": {
@@ -3064,45 +3064,15 @@
               "button_label": "Shop Now",
               "link": "https:\/\/www.probikesupply.com\/collections\/2023-turbo-levo-sl"
             }
-          },
-          "ecdccf24-6f55-4206-8a19-def8d955ca4c": {
-            "type": "image",
-            "disabled": true,
-            "settings": {
-              "image": "shopify:\/\/shop_images\/axs-build-homepage_4f4ecf39-bc17-46b7-8ed5-f099f32c2ff2.gif",
-              "image2": "shopify:\/\/shop_images\/axs-build-mobile_ffb4eeaf-afa2-4308-b131-5ec49f291913.gif",
-              "title": "Yeti 20% Off",
-              "subtitle": "All AXS Builds",
-              "text_position": "center",
-              "text_align": "center",
-              "button_label": "Shop Now",
-              "link": "https:\/\/www.probikesupply.com\/collections\/2023-yeti-summer-sale"
-            }
-          },
-          "26bcb4ce-4bf4-43c9-8926-78dacfb79c89": {
-            "type": "image",
-            "disabled": true,
-            "settings": {
-              "image": "shopify:\/\/shop_images\/SPECIALIZED-HOMEPAGE_2e8fe65b-7c3a-40bd-b309-e55f1e7fede5.gif",
-              "image2": "shopify:\/\/shop_images\/SPECIALIZED-MOBILE_a9578d27-c9b1-4a9d-9ec7-55eee181f849.gif",
-              "title": "Epic World Cup",
-              "subtitle": "",
-              "text_position": "center",
-              "text_align": "center",
-              "button_label": "Preorder Now",
-              "link": "https:\/\/www.probikesupply.com\/collections\/2023-specialized-epic-world-cup"
-            }
           }
         },
         "block_order": [
-          "4f386a5d-d17a-4d7e-b733-02289eca9818",
+          "bb18638e-944a-46ee-93d6-f121b6b15657",
           "668454f7-a777-4d5d-901c-2ab8c6d1463f",
           "194a5eeb-8a59-42df-bcd1-96e029275cc1",
           "555e3014-61ec-484c-9a7c-3cfd27701a93",
           "1e9dbfcd-2ee7-4e6b-9f8a-ac1ab9f9fb8d",
-          "c11eb9c4-c235-4218-92fa-205b5517ad49",
-          "ecdccf24-6f55-4206-8a19-def8d955ca4c",
-          "26bcb4ce-4bf4-43c9-8926-78dacfb79c89"
+          "c11eb9c4-c235-4218-92fa-205b5517ad49"
         ],
         "custom_css": [],
         "settings": {
