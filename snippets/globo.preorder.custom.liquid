@@ -2,6 +2,24 @@
    window.GloboPreorderParams = window.GloboPreorderParams || {};
    window.GloboPreorderParams.selectors = window.GloboPreorderParams.selectors || {};
    window.GloboPreorderParams.selectors.collectionProductForms = "";
+   window.GloboPreorderParams.selectors.productPositionMessage = ".inline_purchase";
+
+   window.GloboPreorderParams.advancedSettings = window.GloboPreorderParams.advancedSettings || {};
+   window.GloboPreorderParams.advancedSettings.isDuplicateBtn = false;
+  
+  document.addEventListener("globo.preorder.show.preorder", function(e) {
+  	const form = e.detail.form;
+    form.find('.add_to_cart').removeClass('gPreorderHidden').addClass('gPreorderBtn')
+  });
+  document.addEventListener("globo.preorder.show.addtocart", function(e) {
+  	const form = e.detail.form;
+    form.find('.add_to_cart').removeClass('gPreorderHidden').addClass('gPreorderBtn')
+  });
+  document.addEventListener("gpoRenderCompleted", function(e) {
+  	const form = GPOConfigs.form;
+    form && form.querySelector('.add_to_cart')?.classList.remove('gPreorderHidden')
+    form && form.querySelector('.add_to_cart')?.classList.add('gPreorderBtn')
+  });
 </script>
 <style>
   #Globo-Back-In-Stock{

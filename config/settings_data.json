@@ -2698,20 +2698,11 @@
       "1490265437563": {
         "type": "featured-promotions",
         "blocks": {
-          "3ab6c79b-7976-4b43-b66b-6e5da2a2f069": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/specialized-epuitpment-sale-featured-product.gif",
-              "link": "https:\/\/www.probikesupply.com\/collections\/specialized-summer-eq-sale",
-              "title": "",
-              "text": ""
-            }
-          },
           "7ad8bfdc-91e0-49c8-bdd8-f0e1ad4d4465": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/featured-product-sale-specializied_cbdf519f-88d1-4dee-8446-e0aa4729cd1b.gif",
-              "link": "https:\/\/www.probikesupply.com\/collections\/specialized-spring-sale",
+              "image": "shopify:\/\/shop_images\/vivid-rockshox-FEATURED-PRODUCT-JAN-2022_dca73171-e06b-4d85-ab3d-d45d39a5c05a.gif",
+              "link": "https:\/\/www.probikesupply.com\/collections\/rockshox-vivid-ultimate-air-rc2t-rear-shock-w-hydraulic-bottom-out",
               "title": "",
               "text": ""
             }
@@ -2719,15 +2710,14 @@
           "c050a3b9-e2f1-4674-823b-2a53226ef2d8": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/shimano-cassettes-featured-product_f26c8916-b6ee-44e9-b668-32178d9d560e.gif",
-              "link": "https:\/\/www.probikesupply.com\/collections\/shimano-in-stock-1",
+              "image": "shopify:\/\/shop_images\/specialized-traverse.gif",
+              "link": "https:\/\/www.probikesupply.com\/collections\/2024-roval-traverse-wheels",
               "title": "",
               "text": ""
             }
           },
           "2be19ada-514a-4776-9fb5-03b49140d958": {
             "type": "image",
-            "disabled": true,
             "settings": {
               "image": "shopify:\/\/shop_images\/open-box-featured-product.gif",
               "link": "https:\/\/www.probikesupply.com\/collections\/takeoff-1",
@@ -2737,7 +2727,6 @@
           }
         },
         "block_order": [
-          "3ab6c79b-7976-4b43-b66b-6e5da2a2f069",
           "7ad8bfdc-91e0-49c8-bdd8-f0e1ad4d4465",
           "c050a3b9-e2f1-4674-823b-2a53226ef2d8",
           "2be19ada-514a-4776-9fb5-03b49140d958"
@@ -2986,44 +2975,56 @@
       "slideshow": {
         "type": "slideshow",
         "blocks": {
-          "bb18638e-944a-46ee-93d6-f121b6b15657": {
+          "32482c34-14ae-4477-abc7-62a0532d6514": {
             "type": "image",
-            "disabled": true,
             "settings": {
-              "image": "shopify:\/\/shop_images\/SRAM-HOMEPAGE_daa075c4-d029-4b0d-824a-6f3e8ea23769.gif",
-              "image2": "shopify:\/\/shop_images\/sram-gx-mobile_b7ac6c1d-7b77-4ec4-9769-4f1817ae953c.gif",
+              "image": "shopify:\/\/shop_images\/yeti-c1-hompage.gif",
+              "image2": "shopify:\/\/shop_images\/yeti-mobile_214b2aaf-1f7b-4287-a291-e699cd4f536a.gif",
+              "title": "20% Off",
+              "subtitle": "2023 Yeti C1 & T1 Builds",
+              "text_position": "center",
+              "text_align": "center",
+              "button_label": "Shop Now",
+              "link": "https:\/\/www.probikesupply.com\/collections\/end-of-summer-bike-sale\/yeti?page=2&sort_by=best-selling"
+            }
+          },
+          "f681fd81-66e5-4043-b94c-623f866b1e95": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Specialized-now-shipping-direct-to-you-homepage_d0579c27-e358-4c07-bd70-6d427691650e.gif",
+              "image2": "shopify:\/\/shop_images\/Specialized-now-shipping-direct-to-you-mobile_1072b98a-e477-4159-b9b6-b6e87a5d86ab.gif",
               "title": "",
               "subtitle": "",
               "text_position": "center",
               "text_align": "center",
-              "button_label": "shop now",
-              "link": "https:\/\/www.probikesupply.com\/collections\/new-sram-gx-transmission-bronze-stealth-brakes"
+              "button_label": "",
+              "link": "https:\/\/www.probikesupply.com\/pages\/specialized-summer-sale"
             }
           },
-          "668454f7-a777-4d5d-901c-2ab8c6d1463f": {
+          "19d093e3-39d9-4bf1-931f-cac8723e28f8": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/ibis-homepage.gif",
-              "image2": "shopify:\/\/shop_images\/ibis-mobile.gif",
-              "title": "Ibis Summer Sale",
-              "subtitle": "25% Off  Ripmo V2S and Ripmo AF",
+              "image": "shopify:\/\/shop_images\/ibis-homepage_ce5fffc1-fea0-4c94-a3e7-a3daedf52a53.gif",
+              "image2": "shopify:\/\/shop_images\/ibis-mobile_5c846e67-22c0-4061-8b9a-fd0a0bad6c7a.gif",
+              "title": "25% Off IBIS",
+              "subtitle": "Ripley V4S, Ripmo V2S, Ripley AF, Ripmo AF & DV9  bikes & framesets",
               "text_position": "center",
               "text_align": "center",
               "button_label": "Shop Now",
-              "link": "https:\/\/www.probikesupply.com\/collections\/ibis-ripmo-v2s-ripmo-af-sale"
+              "link": "https:\/\/www.probikesupply.com\/pages\/ibis-summer-sale"
             }
           },
-          "194a5eeb-8a59-42df-bcd1-96e029275cc1": {
+          "d3c52ad1-f067-42ba-83e1-f26d8627ec56": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/160-e-homepage.gif",
-              "image2": "shopify:\/\/shop_images\/160-E-mobile.gif",
-              "title": "25% Off Yeti 160E",
-              "subtitle": "C Series. The Best Handling Ebike.",
+              "image": "shopify:\/\/shop_images\/rockshox-vivid_9169820c-c35d-41ea-85d5-4d5bcf7e2430.gif",
+              "image2": "shopify:\/\/shop_images\/rockshox-vivid-mobile_c3540911-cdac-4020-81fd-ecfa81e1a265.gif",
+              "title": "All New 2024 Rockshox",
+              "subtitle": "In Stock!",
               "text_position": "center",
               "text_align": "center",
               "button_label": "Shop Now",
-              "link": "https:\/\/www.probikesupply.com\/collections\/2023-yeti-160e-summer-sale"
+              "link": "https:\/\/www.probikesupply.com\/collections\/2024-rockshox-suspension"
             }
           },
           "555e3014-61ec-484c-9a7c-3cfd27701a93": {
@@ -3039,40 +3040,27 @@
               "link": "https:\/\/www.probikesupply.com\/collections\/fox-summer-sale?sort_by=created-descending"
             }
           },
-          "1e9dbfcd-2ee7-4e6b-9f8a-ac1ab9f9fb8d": {
+          "668454f7-a777-4d5d-901c-2ab8c6d1463f": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/SRAM-HOMEPAGE_5eb7f83d-148f-475d-87fb-583f7fbf0328.gif",
-              "image2": "shopify:\/\/shop_images\/SRAM-MOBILE_6931c798-b602-4a71-b652-61f477e70691.gif",
-              "title": "SRAM Transmission",
-              "subtitle": "The drivetrain evolved",
+              "image": "shopify:\/\/shop_images\/ibis-homepage.gif",
+              "image2": "shopify:\/\/shop_images\/ibis-mobile.gif",
+              "title": "Ibis Summer Sale",
+              "subtitle": "25% Off  Ripmo V2S and Ripmo AF",
               "text_position": "center",
               "text_align": "center",
               "button_label": "Shop Now",
-              "link": "https:\/\/www.probikesupply.com\/pages\/sram-eagle-transmission"
-            }
-          },
-          "c11eb9c4-c235-4218-92fa-205b5517ad49": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/levo-homepage_c0698a47-418d-452d-adf4-da55aa148552.gif",
-              "image2": "shopify:\/\/shop_images\/levo-mobile_16921a70-e0d1-4564-a14b-86b475a06495.gif",
-              "title": "",
-              "subtitle": "",
-              "text_position": "center",
-              "text_align": "center",
-              "button_label": "Shop Now",
-              "link": "https:\/\/www.probikesupply.com\/collections\/2023-turbo-levo-sl"
+              "link": "https:\/\/www.probikesupply.com\/collections\/ibis-ripmo-v2s-ripmo-af-sale"
             }
           }
         },
         "block_order": [
-          "bb18638e-944a-46ee-93d6-f121b6b15657",
-          "668454f7-a777-4d5d-901c-2ab8c6d1463f",
-          "194a5eeb-8a59-42df-bcd1-96e029275cc1",
+          "32482c34-14ae-4477-abc7-62a0532d6514",
+          "f681fd81-66e5-4043-b94c-623f866b1e95",
+          "19d093e3-39d9-4bf1-931f-cac8723e28f8",
+          "d3c52ad1-f067-42ba-83e1-f26d8627ec56",
           "555e3014-61ec-484c-9a7c-3cfd27701a93",
-          "1e9dbfcd-2ee7-4e6b-9f8a-ac1ab9f9fb8d",
-          "c11eb9c4-c235-4218-92fa-205b5517ad49"
+          "668454f7-a777-4d5d-901c-2ab8c6d1463f"
         ],
         "custom_css": [],
         "settings": {
@@ -3125,16 +3113,6 @@
           "position": "right"
         }
       },
-      "3720565183479497137": {
-        "type": "shopify:\/\/apps\/globo-product-options-variant\/blocks\/app-embed-block\/fdc9fad5-1a0f-4bd4-9c8a-1af6a6eef6b8",
-        "disabled": false,
-        "settings": {}
-      },
-      "5439026248262864547": {
-        "type": "shopify:\/\/apps\/preorder-globo-back-in-stock\/blocks\/app-embed\/e547a0ad-8212-4bcc-b02f-761faa9b8af2",
-        "disabled": false,
-        "settings": {}
-      },
       "7456567658179156570": {
         "type": "shopify:\/\/apps\/adroll-advertising-marketing\/blocks\/adroll-pixel\/c60853ed-1adb-4359-83ae-4ed43ed0b559",
         "disabled": false,
@@ -3144,11 +3122,6 @@
       },
       "11114424748574601643": {
         "type": "shopify:\/\/apps\/nibble-ai-make-an-offer-tool\/blocks\/app-embed\/4997283f-0c29-40c4-9156-2264df4893c3",
-        "disabled": false,
-        "settings": {}
-      },
-      "16735461377607925125": {
-        "type": "shopify:\/\/apps\/roar-terms-and-conditions-box\/blocks\/app-embed\/17661ca5-aeea-41b9-8091-d8f7233e8b22",
         "disabled": false,
         "settings": {}
       },
@@ -3178,6 +3151,16 @@
       },
       "29232347192224340": {
         "type": "shopify:\/\/apps\/dcart\/blocks\/app-embed\/731e2611-8bdf-4514-b5e4-f64f1cae3fb7",
+        "disabled": false,
+        "settings": {}
+      },
+      "3720565183479497137": {
+        "type": "shopify:\/\/apps\/globo-product-options-variant\/blocks\/app-embed-block\/fdc9fad5-1a0f-4bd4-9c8a-1af6a6eef6b8",
+        "disabled": false,
+        "settings": {}
+      },
+      "5439026248262864547": {
+        "type": "shopify:\/\/apps\/preorder-globo-restock\/blocks\/app-embed\/e547a0ad-8212-4bcc-b02f-761faa9b8af2",
         "disabled": false,
         "settings": {}
       }
