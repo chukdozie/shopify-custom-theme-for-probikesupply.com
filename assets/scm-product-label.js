@@ -1,24 +1,25 @@
 var loadScript = function(url, callback){
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    if (script.readyState){  // IE
-        script.onreadystatechange = function(){
-            if (script.readyState == "loaded" || script.readyState == "complete"){
-                script.onreadystatechange = null;
-                callback();
-            }
-        };
-    } else {  // Others
-        script.onreadystatechange = callback;
-        script.onload = callback;
-    }
+var script = document.createElement("script");
+script.type = "text/javascript";
+if (script.readyState){  // IE
+script.onreadystatechange = function(){
+if (script.readyState == "loaded" || script.readyState == "complete"){
+script.onreadystatechange = null;
+callback();
+}
+};
+} else {  // Others
+script.onreadystatechange = callback;
+script.onload = callback;
+}
 
-    script.src = url;
-    var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(script, x);
+script.src = url;
+var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(script, x);
 };
 
     var startProductLabel2 = function(SECOMAPP, jQuery) {
-    SECOMAPP.cookie=function(b,j,m){if(typeof j!="undefined"){m=m||{};if(j===null){j="";m.expires=-1}var e="";if(m.expires&&(typeof m.expires=="number"||m.expires.toUTCString)){var f;if(typeof m.expires=="number"){f=new Date();f.setTime(f.getTime()+(m.expires*24*60*60*1000))}else{f=m.expires}e="; expires="+f.toUTCString()}var l=m.path?"; path="+(m.path):"";var g=m.domain?"; domain="+(m.domain):"";var a=m.secure?"; secure":"";document.cookie=[b,"=",encodeURIComponent(j),e,l,g,a].join("")}else{var d=null;if(document.cookie&&document.cookie!=""){var k=document.cookie.split(";");for(var h=0;h<k.length;h++){var c=jQuery.trim(k[h]);if(c.substring(0,b.length+1)==(b+"=")){d=decodeURIComponent(c.substring(b.length+1));break}}}return d}};
+SECOMAPP.cookie=function(b,j,m){if(typeof j!="undefined"){m=m||{};if(j===null){j="";m.expires=-1}var e="";if(m.expires&&(typeof m.expires=="number"||m.expires.toUTCString)){var f;if(typeof m.expires=="number"){f=new Date();f.setTime(f.getTime()+(m.expires*24*60*60*1000))}else{f=m.expires}e="; expires="+f.toUTCString()}var l=m.path?"; path="+(m.path):"";var g=m.domain?"; domain="+(m.domain):"";var a=m.secure?"; secure":"";document.cookie=[b,"=",encodeURIComponent(j),e,l,g,a].join("")}else{var d=null;if(document.cookie&&document.cookie!=""){var k=document.cookie.split(";");for(var h=0;h
+<k.length;h++){var c=jQuery.trim(k[h]);if(c.substring(0,b.length+1)==(b+"=")){d=decodeURIComponent(c.substring(b.length+1));break}}}return d}};
 
     SECOMAPP.plCookie = {
         configuration: {
@@ -107,121 +108,6 @@ if ((typeof SECOMAPP) == 'undefined') {
     //label infos
     SECOMAPP.pl.labels = [
                     {
-            'id': 44299,
-            'priority': 0,
-            'hide': 0,
-            'image': 'https://d3azqz9xba9gwd.cloudfront.net/storage/labels/pro-bike-supply/64dd3e50a8088.png',
-                        'position': 'bottom_center',
-            'styles': '',
-            'text_styles': '',
-            'label_width': 70,
-            'label_height': 45,
-            'fixed_size': 0,
-            'page': 'product,collection,home,search',
-            'label_type': 0,
-            'ignore_page': '',
-            'top': 0,
-            'left': 0,
-            'customize_position': 0,
-            'rotate': 360,
-            'opacity': 1,
-            'link': '',
-            'alt': '',
-            'tooltip': '',
-            'animation': 'none',
-            'margin': {
-                'top':0,
-                'left':0,
-                'right':0,
-                'bottom':0,
-            },
-            'conditions': {
-                'variant_apply': 'matching_and_variants',
-                
-                'exclude_variants': '',
-                'include_variants': '',
-                                                                'is_new': 'any',
-                                                'is_on_sale': 'any',
-                                                'collections': '262682148919',
-                                                'exclude_collections': '266318741559',
-                                                                                'stock_status': 'any',
-                                                                'by_price': 'base_price',
-                                                                                                                                                    'discount_by': 'percentage',
-                                                    'discount_type': 'fixed',
-                                                                                                                    'new_days_threshold': 10,
-                                                    'low_stock_threshold': 1,
-                                                    'product_stock_computation': 'per_variant',
-                            },
-            'design': {
-                                                'border': {
-                    'size' : 0,
-                    'color' : '',
-                    'style' : 'none'
-                },
-                                                'shape_color': '#ffffff',
-                                                'text_color': '#5E5873',
-                                                'font_family': 'Arial',
-                                                'font_size': 12,
-                                                'font_style': {
-                    'style': 'normal',
-                    'weight': 'normal',
-                    'decoration': 'none',
-                },
-                                                                'shape_class': 'pl-text-rectangle',
-                                                'font_size_ratio': '0.22'
-                            }
-        },
-                {
-            'id': 42970,
-            'priority': 0,
-            'hide': 0,
-            'image': 'https://d3azqz9xba9gwd.cloudfront.net/storage/labels/pro-bike-supply/649f5d7ae4edf.png',
-                        'position': 'bottom_center',
-            'styles': '',
-            'text_styles': '',
-            'label_width': 45,
-            'label_height': 45,
-            'fixed_size': 0,
-            'page': 'product,collection,home,search',
-            'label_type': 0,
-            'ignore_page': '',
-            'top': 0,
-            'left': 0,
-            'customize_position': 0,
-            'rotate': 0,
-            'opacity': 1,
-            'link': '',
-            'alt': '',
-            'tooltip': '',
-            'animation': 'none',
-            'margin': {
-                'top':0,
-                'left':0,
-                'right':0,
-                'bottom':0,
-            },
-            'conditions': {
-                'variant_apply': 'matching_and_variants',
-                
-                'exclude_variants': '',
-                'include_variants': '',
-                                                                'is_new': 'any',
-                                                'is_on_sale': 'any',
-                                                                                'tags': 'july5,july10,july12,july15,july20,july25,july30,july35',
-                                                                'stock_status': 'any',
-                                                                'by_price': 'base_price',
-                                                                'starts_at': '2023/06/30 17:59:00',
-                                                'ends_at': '2023/07/04 23:59:00',
-                                                                                                    'discount_by': 'percentage',
-                                                    'discount_type': 'fixed',
-                                                                                                                    'new_days_threshold': 10,
-                                                    'low_stock_threshold': 1,
-                                                    'product_stock_computation': 'per_variant',
-                            },
-            'design': {
-                                                                                                                                                                            }
-        },
-                {
             'id': 36259,
             'priority': 0,
             'hide': 0,
@@ -251,8 +137,8 @@ if ((typeof SECOMAPP) == 'undefined') {
                 'bottom':0,
             },
             'conditions': {
-                'variant_apply': 'matching_and_variants',
-                
+                                'variant_apply': 'matching_and_variants',
+                                
                 'exclude_variants': '',
                 'include_variants': '',
                                                                 'is_new': 'any',
@@ -267,102 +153,24 @@ if ((typeof SECOMAPP) == 'undefined') {
                                                     'product_stock_computation': 'per_variant',
                             },
             'design': {
-                                                                                                                                                                            }
-        },
-                {
-            'id': 40365,
-            'priority': 0,
-            'hide': 0,
-            'image': 'https://d3azqz9xba9gwd.cloudfront.net/storage/labels/pro-bike-supply/1-01.jpg',
-                        'position': 'top_left',
-            'styles': '',
-            'text_styles': '',
-            'label_width': 30,
-            'label_height': 30,
-            'fixed_size': 0,
-            'page': 'product,collection',
-            'label_type': 0,
-            'ignore_page': '',
-            'top': 0,
-            'left': 0,
-            'customize_position': 0,
-            'rotate': 0,
-            'opacity': 1,
-            'link': '',
-            'alt': '',
-            'tooltip': '',
-            'animation': 'none',
-            'margin': {
-                'top':0,
-                'left':0,
-                'right':0,
-                'bottom':0,
-            },
-            'conditions': {
-                'variant_apply': 'matching_and_variants',
-                
-                'exclude_variants': '',
-                'include_variants': '',
-                                                                'is_new': 'any',
-                                                'is_on_sale': 'any',
-                                                'collections': '265705947191',
-                                                                                                                                'by_price': 'base_price',
-                                                                                                                                                    'discount_by': 'percentage',
-                                                    'discount_type': 'fixed',
-                                                                                                                    'new_days_threshold': 10,
-                                                    'low_stock_threshold': 1,
-                                                    'product_stock_computation': 'per_variant',
+                                                'border': {
+                    'size' : 0,
+                    'color' : '',
+                    'style' : 'none'
+                },
+                                                'shape_color': '#B9B9B9',
+                                                'text_color': '#5E5873',
+                                                'font_family': 'Arial',
+                                                'font_size': 12,
+                                                'font_style': {
+                    'style': 'normal',
+                    'weight': 'normal',
+                    'decoration': 'none',
+                },
+                                                                'shape_class': 'pl-text-rectangle',
+                                                'font_size_ratio': '0.58'
                             },
-            'design': {
-                                                                                                                                                                            }
-        },
-                {
-            'id': 39304,
-            'priority': 0,
-            'hide': 0,
-            'image': 'https://d3azqz9xba9gwd.cloudfront.net/storage/labels/pro-bike-supply/1-01.jpg',
-                        'position': 'top_left',
-            'styles': '',
-            'text_styles': '',
-            'label_width': 30,
-            'label_height': 30,
-            'fixed_size': 0,
-            'page': 'product,collection',
-            'label_type': 0,
-            'ignore_page': '',
-            'top': 0,
-            'left': 0,
-            'customize_position': 0,
-            'rotate': 0,
-            'opacity': 1,
-            'link': '',
-            'alt': '',
-            'tooltip': '',
-            'animation': 'none',
-            'margin': {
-                'top':0,
-                'left':0,
-                'right':0,
-                'bottom':0,
-            },
-            'conditions': {
-                'variant_apply': 'matching_and_variants',
-                
-                'exclude_variants': '',
-                'include_variants': '',
-                                                                'is_new': 'any',
-                                                'is_on_sale': 'any',
-                                                'collections': '265375678519',
-                                                                                                'stock_status': 'in_stock',
-                                                                'by_price': 'base_price',
-                                                                                                                                                    'discount_by': 'percentage',
-                                                    'discount_type': 'fixed',
-                                                                                                                    'new_days_threshold': 10,
-                                                    'low_stock_threshold': 1,
-                                                    'product_stock_computation': 'per_variant',
-                            },
-            'design': {
-                                                                                                                                                                            }
+            'group_ids': '',
         },
                 {
             'id': 39366,
@@ -394,8 +202,8 @@ if ((typeof SECOMAPP) == 'undefined') {
                 'bottom':0,
             },
             'conditions': {
-                'variant_apply': 'matching_and_variants',
-                
+                                'variant_apply': 'matching_and_variants',
+                                
                 'exclude_variants': '',
                 'include_variants': '',
                                                                 'is_new': 'any',
@@ -409,148 +217,8 @@ if ((typeof SECOMAPP) == 'undefined') {
                                                     'product_stock_computation': 'per_variant',
                             },
             'design': {
-                                                                                                                                                                            }
-        },
-                {
-            'id': 39866,
-            'priority': 0,
-            'hide': 0,
-            'image': 'https://d3azqz9xba9gwd.cloudfront.net/storage/labels/pro-bike-supply/63eaab6d2bf88.png',
-                        'position': 'top_right',
-            'styles': '',
-            'text_styles': '',
-            'label_width': 45,
-            'label_height': 45,
-            'fixed_size': 0,
-            'page': 'product,collection',
-            'label_type': 0,
-            'ignore_page': '',
-            'top': 0,
-            'left': 0,
-            'customize_position': 0,
-            'rotate': 0,
-            'opacity': 1,
-            'link': '',
-            'alt': '',
-            'tooltip': '',
-            'animation': 'none',
-            'margin': {
-                'top':0,
-                'left':0,
-                'right':0,
-                'bottom':0,
-            },
-            'conditions': {
-                'variant_apply': 'variants',
-                
-                'exclude_variants': '',
-                'include_variants': '',
-                                                                'is_new': 'any',
-                                                'is_on_sale': 'any',
-                                                                                                                                                'by_price': 'base_price',
-                                                                                                                                                    'discount_by': 'percentage',
-                                                    'discount_type': 'fixed',
-                                                                                                                    'new_days_threshold': 10,
-                                                    'low_stock_threshold': 1,
-                                                    'product_stock_computation': 'per_variant',
-                            },
-            'design': {
-                                                                                                                                                                            }
-        },
-                {
-            'id': 39865,
-            'priority': 0,
-            'hide': 0,
-            'image': 'https://d3azqz9xba9gwd.cloudfront.net/storage/labels/pro-bike-supply/in-stock-psd-for-siegmund-welding-tables-and-fixtures-usa-right-5aec2bf0-5764-11eb-be7d-5b566b979b96.png',
-                        'position': 'top_right',
-            'styles': '',
-            'text_styles': '',
-            'label_width': 30,
-            'label_height': 30,
-            'fixed_size': 0,
-            'page': 'product,collection',
-            'label_type': 0,
-            'ignore_page': '',
-            'top': 0,
-            'left': 0,
-            'customize_position': 0,
-            'rotate': 0,
-            'opacity': 1,
-            'link': '',
-            'alt': '',
-            'tooltip': '',
-            'animation': 'none',
-            'margin': {
-                'top':0,
-                'left':0,
-                'right':0,
-                'bottom':0,
-            },
-            'conditions': {
-                'variant_apply': 'matching_and_variants',
-                
-                'exclude_variants': '',
-                'include_variants': '',
-                                                                'is_new': 'any',
-                                                'is_on_sale': 'any',
-                                                                                'tags': 'wheeli9sale',
-                                                                                                'by_price': 'base_price',
-                                                                                                                                                    'discount_by': 'percentage',
-                                                    'discount_type': 'fixed',
-                                                                                                                    'new_days_threshold': 10,
-                                                    'low_stock_threshold': 1,
-                                                    'product_stock_computation': 'per_variant',
-                            },
-            'design': {
-                                                                                                                                                                            }
-        },
-                {
-            'id': 39513,
-            'priority': 0,
-            'hide': 0,
-            'image': 'https://d3azqz9xba9gwd.cloudfront.net/storage/labels/pro-bike-supply/1-01.jpg',
-                        'position': 'top_left',
-            'styles': '',
-            'text_styles': '',
-            'label_width': 30,
-            'label_height': 30,
-            'fixed_size': 0,
-            'page': 'product,collection',
-            'label_type': 0,
-            'ignore_page': '',
-            'top': 0,
-            'left': 0,
-            'customize_position': 0,
-            'rotate': 0,
-            'opacity': 1,
-            'link': '',
-            'alt': '',
-            'tooltip': '',
-            'animation': 'none',
-            'margin': {
-                'top':0,
-                'left':0,
-                'right':0,
-                'bottom':0,
-            },
-            'conditions': {
-                'variant_apply': 'matching_and_variants',
-                
-                'exclude_variants': '',
-                'include_variants': '',
-                                                                'is_new': 'any',
-                                                'is_on_sale': 'any',
-                                                'collections': '265461366839',
-                                                                                                'stock_status': 'out_of_stock',
-                                                                'by_price': 'base_price',
-                                                                                                                                                    'discount_by': 'percentage',
-                                                    'discount_type': 'fixed',
-                                                                                                                    'new_days_threshold': 10,
-                                                    'low_stock_threshold': 1,
-                                                    'product_stock_computation': 'per_variant',
-                            },
-            'design': {
-                                                                                                                                                                            }
+                                                                                                                                                                            },
+            'group_ids': '',
         },
                 {
             'id': 39766,
@@ -582,8 +250,8 @@ if ((typeof SECOMAPP) == 'undefined') {
                 'bottom':0,
             },
             'conditions': {
-                'variant_apply': 'matching_and_variants',
-                
+                                'variant_apply': 'matching_and_variants',
+                                
                 'exclude_variants': '',
                 'include_variants': '',
                                                                 'is_new': 'any',
@@ -597,17 +265,18 @@ if ((typeof SECOMAPP) == 'undefined') {
                                                     'product_stock_computation': 'per_variant',
                             },
             'design': {
-                                                                                                                                                                            }
+                                                                                                                                                                            },
+            'group_ids': '',
         },
                 {
-            'id': 39392,
-            'priority': 1,
+            'id': 39866,
+            'priority': 0,
             'hide': 0,
-            'image': 'https://d3azqz9xba9gwd.cloudfront.net/storage/labels/pro-bike-supply/63c5d6d9297a0.png',
-                        'position': 'bottom_center',
+            'image': 'https://d3azqz9xba9gwd.cloudfront.net/storage/labels/pro-bike-supply/63eaab6d2bf88.png',
+                        'position': 'top_right',
             'styles': '',
-            'text_styles': 'color:black;font-size:10px',
-            'label_width': 59,
+            'text_styles': '',
+            'label_width': 45,
             'label_height': 45,
             'fixed_size': 0,
             'page': 'product,collection',
@@ -629,14 +298,13 @@ if ((typeof SECOMAPP) == 'undefined') {
                 'bottom':0,
             },
             'conditions': {
-                'variant_apply': 'matching_and_variants',
-                
+                                'variant_apply': 'variants',
+                                
                 'exclude_variants': '',
                 'include_variants': '',
                                                                 'is_new': 'any',
                                                 'is_on_sale': 'any',
-                                                                                'tags': 'stockbuild',
-                                                                                                'by_price': 'base_price',
+                                                                                                                                                'by_price': 'base_price',
                                                                                                                                                     'discount_by': 'percentage',
                                                     'discount_type': 'fixed',
                                                                                                                     'new_days_threshold': 10,
@@ -644,18 +312,19 @@ if ((typeof SECOMAPP) == 'undefined') {
                                                     'product_stock_computation': 'per_variant',
                             },
             'design': {
-                                                                                                                                                                            }
+                                                                                                                                                                            },
+            'group_ids': '',
         },
                 {
-            'id': 41464,
-            'priority': 1,
+            'id': 40365,
+            'priority': 0,
             'hide': 0,
-            'image': 'https://d3azqz9xba9gwd.cloudfront.net/storage/labels/pro-bike-supply/645aafb71e06b.png',
-                        'position': 'bottom_center',
+            'image': 'https://d3azqz9xba9gwd.cloudfront.net/storage/labels/pro-bike-supply/1-01.jpg',
+                        'position': 'top_left',
             'styles': '',
             'text_styles': '',
-            'label_width': 60,
-            'label_height': 60,
+            'label_width': 30,
+            'label_height': 30,
             'fixed_size': 0,
             'page': 'product,collection',
             'label_type': 0,
@@ -676,15 +345,14 @@ if ((typeof SECOMAPP) == 'undefined') {
                 'bottom':0,
             },
             'conditions': {
-                'variant_apply': 'matching_and_variants',
-                
+                                'variant_apply': 'matching_and_variants',
+                                
                 'exclude_variants': '',
                 'include_variants': '',
                                                                 'is_new': 'any',
                                                 'is_on_sale': 'any',
-                                                'collections': '265974448183,261675876407,265937649719',
-                                                                                                'stock_status': 'in_stock',
-                                                                'by_price': 'base_price',
+                                                'collections': '265705947191',
+                                                                                                                                'by_price': 'base_price',
                                                                                                                                                     'discount_by': 'percentage',
                                                     'discount_type': 'fixed',
                                                                                                                     'new_days_threshold': 10,
@@ -692,27 +360,28 @@ if ((typeof SECOMAPP) == 'undefined') {
                                                     'product_stock_computation': 'per_variant',
                             },
             'design': {
-                                                                                                                                                                            }
+                                                                                                                                                                            },
+            'group_ids': '',
         },
                 {
-            'id': 40416,
-            'priority': 1,
+            'id': 42970,
+            'priority': 0,
             'hide': 0,
-            'image': 'https://d3azqz9xba9gwd.cloudfront.net/storage/labels/pro-bike-supply/64134b6db9818.png',
-                        'position': 'bottom_center',
+            'image': 'https://d3azqz9xba9gwd.cloudfront.net/storage/labels/pro-bike-supply/649f5d7ae4edf.png',
+                        'position': 'bottom_left',
             'styles': '',
             'text_styles': '',
-            'label_width': 75,
-            'label_height': 7,
+            'label_width': 45,
+            'label_height': 45,
             'fixed_size': 0,
-            'page': 'product,collection',
+            'page': 'product,collection,home,search',
             'label_type': 0,
             'ignore_page': '',
             'top': 0,
             'left': 0,
             'customize_position': 0,
             'rotate': 0,
-            'opacity': 1,
+            'opacity': 0.76,
             'link': '',
             'alt': '',
             'tooltip': '',
@@ -724,17 +393,17 @@ if ((typeof SECOMAPP) == 'undefined') {
                 'bottom':0,
             },
             'conditions': {
-                'variant_apply': 'matching_and_variants',
-                
+                                'variant_apply': 'matching_and_variants',
+                                
                 'exclude_variants': '',
                 'include_variants': '',
                                                                 'is_new': 'any',
                                                 'is_on_sale': 'any',
-                                                'collections': '265729933367',
-                                                                                                'stock_status': 'in_stock',
+                                                'collections': '262715015223,265222553655,267362631735,267362664503,267362697271,267362598967',
+                                                                                                'stock_status': 'any',
                                                                 'by_price': 'base_price',
-                                                                'starts_at': '2023/03/17 17:00:00',
-                                                'ends_at': '2023/03/20 02:00:00',
+                                                                'starts_at': '2023/11/22 03:58:00',
+                                                'ends_at': '2023/11/27 01:53:00',
                                                                                                     'discount_by': 'percentage',
                                                     'discount_type': 'fixed',
                                                                                                                     'new_days_threshold': 10,
@@ -742,20 +411,36 @@ if ((typeof SECOMAPP) == 'undefined') {
                                                     'product_stock_computation': 'per_variant',
                             },
             'design': {
-                                                                                                                                                                            }
+                                                'border': {
+                    'size' : 0,
+                    'color' : '',
+                    'style' : 'none'
+                },
+                                                'shape_color': '#B9B9B9',
+                                                'text_color': '#5E5873',
+                                                'font_family': 'Arial',
+                                                'font_size': 12,
+                                                'font_style': {
+                    'style': 'normal',
+                    'weight': 'normal',
+                    'decoration': 'none',
+                },
+                                                                'shape_class': 'pl-text-rectangle',
+                                            },
+            'group_ids': '',
         },
                 {
-            'id': 34675,
-            'priority': 1,
+            'id': 44799,
+            'priority': 0,
             'hide': 0,
-            'image': 'https://d3azqz9xba9gwd.cloudfront.net/storage/labels/pro-bike-supply/638a8e11e8276.png',
-                        'position': 'bottom_center',
+            'image': 'https://d3azqz9xba9gwd.cloudfront.net/storage/labels/pro-bike-supply/651736777cb4c.png',
+                        'position': 'bottom_left',
             'styles': '',
-            'text_styles': 'color:black;font-size:10px',
-            'label_width': 59,
+            'text_styles': '',
+            'label_width': 55,
             'label_height': 45,
             'fixed_size': 0,
-            'page': 'product,collection',
+            'page': 'product,collection,home,search',
             'label_type': 0,
             'ignore_page': '',
             'top': 0,
@@ -774,36 +459,59 @@ if ((typeof SECOMAPP) == 'undefined') {
                 'bottom':0,
             },
             'conditions': {
-                'variant_apply': 'matching_and_variants',
-                
+                                'variant_apply': 'matching_and_variants',
+                                
                 'exclude_variants': '',
                 'include_variants': '',
                                                                 'is_new': 'any',
                                                 'is_on_sale': 'any',
-                                                'collections': '262236536887',
+                                                'collections': '265816375351',
                                                                                                 'stock_status': 'any',
                                                                 'by_price': 'base_price',
-                                                                                                                                                    'discount_by': 'percentage',
+                                                                'starts_at': '2023/09/29 18:00:00',
+                                                'ends_at': '2023/10/02 02:00:00',
+                                                    'discount_from': 0,
+                                                    'discount_to': 10,
+                                                                    'discount_by': 'percentage',
                                                     'discount_type': 'fixed',
-                                                                                                                    'new_days_threshold': 10,
+                                                    'stock_from': 0,
+                                                    'stock_to': 10,
+                                                                                    'new_days_threshold': 10,
                                                     'low_stock_threshold': 1,
                                                     'product_stock_computation': 'per_variant',
                             },
             'design': {
-                                                                                                                                                                            }
+                                                'border': {
+                    'size' : 0,
+                    'color' : '',
+                    'style' : 'none'
+                },
+                                                'shape_color': '#ffffff',
+                                                'text_color': '#5E5873',
+                                                'font_family': 'Arial',
+                                                'font_size': 12,
+                                                'font_style': {
+                    'style': 'normal',
+                    'weight': 'normal',
+                    'decoration': 'none',
+                },
+                                                                'shape_class': 'pl-text-rectangle',
+                                                'font_size_ratio': '0.17'
+                            },
+            'group_ids': '',
         },
                 {
-            'id': 39391,
-            'priority': 1,
+            'id': 44984,
+            'priority': 0,
             'hide': 0,
-            'image': 'https://d3azqz9xba9gwd.cloudfront.net/storage/labels/pro-bike-supply/63c5c1fb48e41.png',
-                        'position': 'bottom_center',
+            'image': 'https://d3azqz9xba9gwd.cloudfront.net/storage/labels/pro-bike-supply/64fba3f95198b.png',
+                        'position': 'bottom_right',
             'styles': '',
-            'text_styles': 'color:black;font-size:10px',
-            'label_width': 59,
-            'label_height': 45,
+            'text_styles': '',
+            'label_width': 30,
+            'label_height': 30,
             'fixed_size': 0,
-            'page': 'product,collection',
+            'page': 'product,collection,home,search',
             'label_type': 0,
             'ignore_page': '',
             'top': 0,
@@ -822,41 +530,135 @@ if ((typeof SECOMAPP) == 'undefined') {
                 'bottom':0,
             },
             'conditions': {
-                'variant_apply': 'variants',
-                
+                                'variant_apply': 'matching_and_variants',
+                                
                 'exclude_variants': '',
-                'include_variants': '40073453436983,40073452781623',
+                'include_variants': '',
                                                                 'is_new': 'any',
                                                 'is_on_sale': 'any',
-                                                                                                                                                'by_price': 'base_price',
-                                                                                                                                                    'discount_by': 'percentage',
+                                                'collections': '266361700407,266361733175,266361765943,266361798711,266361831479',
+                                                                                                'stock_status': 'any',
+                                                                'by_price': 'base_price',
+                                                                'starts_at': '2023/09/08 12:00:00',
+                                                'ends_at': '2023/09/11 00:00:00',
+                                                    'discount_from': 0,
+                                                    'discount_to': 10,
+                                                                    'discount_by': 'percentage',
                                                     'discount_type': 'fixed',
-                                                                                                                    'new_days_threshold': 10,
+                                                    'stock_from': 0,
+                                                    'stock_to': 10,
+                                                                                    'new_days_threshold': 10,
                                                     'low_stock_threshold': 1,
                                                     'product_stock_computation': 'per_variant',
                             },
             'design': {
-                                                                                                                                                                            }
+                                                'border': {
+                    'size' : 0,
+                    'color' : '',
+                    'style' : 'none'
+                },
+                                                'shape_color': '#ffffff',
+                                                'text_color': '#5E5873',
+                                                'font_family': 'Arial',
+                                                'font_size': 12,
+                                                'font_style': {
+                    'style': 'normal',
+                    'weight': 'normal',
+                    'decoration': 'none',
+                },
+                                                                'shape_class': 'pl-text-rectangle',
+                                                'font_size_ratio': '0.47'
+                            },
+            'group_ids': '',
         },
                 {
-            'id': 39051,
-            'priority': 1,
+            'id': 45036,
+            'priority': 0,
             'hide': 0,
-            'image': 'https://d3azqz9xba9gwd.cloudfront.net/storage/labels/pro-bike-supply/639bad87bab07.png',
-                        'position': 'top_right',
+            'image': 'https://d3azqz9xba9gwd.cloudfront.net/storage/labels/pro-bike-supply/64ff6d273b648.png',
+                        'position': 'bottom_right',
+            'styles': '',
+            'text_styles': '',
+            'label_width': 30,
+            'label_height': 30,
+            'fixed_size': 0,
+            'page': 'product,collection,home,search',
+            'label_type': 0,
+            'ignore_page': '',
+            'top': 0,
+            'left': 0,
+            'customize_position': 0,
+            'rotate': 0,
+            'opacity': 1,
+            'link': '',
+            'alt': '',
+            'tooltip': '',
+            'animation': 'none',
+            'margin': {
+                'top':0,
+                'left':0,
+                'right':0,
+                'bottom':0,
+            },
+            'conditions': {
+                                'variant_apply': 'matching_and_variants',
+                                
+                'exclude_variants': '',
+                'include_variants': '',
+                                                                'is_new': 'any',
+                                                'is_on_sale': 'any',
+                                                'collections': '266403282999',
+                                                                                                'stock_status': 'any',
+                                                                'by_price': 'base_price',
+                                                                                                    'discount_from': 0,
+                                                    'discount_to': 10,
+                                                                    'discount_by': 'percentage',
+                                                    'discount_type': 'fixed',
+                                                    'stock_from': 0,
+                                                    'stock_to': 10,
+                                                                                    'new_days_threshold': 10,
+                                                    'low_stock_threshold': 1,
+                                                    'product_stock_computation': 'per_variant',
+                            },
+            'design': {
+                                                'border': {
+                    'size' : 0,
+                    'color' : '',
+                    'style' : 'none'
+                },
+                                                'shape_color': '#ffffff',
+                                                'text_color': '#5E5873',
+                                                'font_family': 'Arial',
+                                                'font_size': 12,
+                                                'font_style': {
+                    'style': 'normal',
+                    'weight': 'normal',
+                    'decoration': 'none',
+                },
+                                                                'shape_class': 'pl-text-rectangle',
+                                                'font_size_ratio': '0.53'
+                            },
+            'group_ids': '',
+        },
+                {
+            'id': 48372,
+            'priority': 0,
+            'hide': 0,
+            'image': 'https://d3azqz9xba9gwd.cloudfront.net/storage/labels/pro-bike-supply/655d27d2ec3d5.png',
+                        'position': 'bottom_left',
             'styles': '',
             'text_styles': '',
             'label_width': 45,
-            'label_height': 34,
+            'label_height': 15,
             'fixed_size': 0,
-            'page': 'product,collection',
+            'page': 'product,collection,home,search',
             'label_type': 0,
             'ignore_page': '',
             'top': 0,
             'left': 0,
             'customize_position': 0,
             'rotate': 0,
-            'opacity': 1,
+            'opacity': 0.79,
             'link': '',
             'alt': '',
             'tooltip': '',
@@ -868,195 +670,64 @@ if ((typeof SECOMAPP) == 'undefined') {
                 'bottom':0,
             },
             'conditions': {
-                'variant_apply': 'matching_and_variants',
-                
+                                'variant_apply': 'matching_and_variants',
+                                
                 'exclude_variants': '',
                 'include_variants': '',
                                                                 'is_new': 'any',
                                                 'is_on_sale': 'any',
-                                                'collections': '266032185399',
-                                                                                                'stock_status': 'in_stock',
-                                                                'by_price': 'base_price',
-                                                                                                                                                    'discount_by': 'percentage',
-                                                    'discount_type': 'fixed',
-                                                                                                                    'new_days_threshold': 10,
-                                                    'low_stock_threshold': 1,
-                                                    'product_stock_computation': 'per_variant',
-                            },
-            'design': {
-                                                                                                                                                                            }
-        },
-                {
-            'id': 38164,
-            'priority': 1,
-            'hide': 0,
-            'image': 'https://d3azqz9xba9gwd.cloudfront.net/storage/labels/pro-bike-supply/6373f7cd80013.png',
-                        'text': "STOCK IMAGE -  SEE DESC FOR INFO",
-                        'position': 'bottom_center',
-            'styles': '',
-            'text_styles': '',
-            'label_width': 100,
-            'label_height': 10,
-            'fixed_size': 0,
-            'page': 'product,collection',
-            'label_type': 1,
-            'ignore_page': '',
-            'top': 0,
-            'left': 0,
-            'customize_position': 0,
-            'rotate': 0,
-            'opacity': 1,
-            'link': '',
-            'alt': '',
-            'tooltip': '',
-            'animation': 'none',
-            'margin': {
-                'top':0,
-                'left':0,
-                'right':0,
-                'bottom':0,
-            },
-            'conditions': {
-                'variant_apply': 'variants',
-                
-                'exclude_variants': '',
-                'include_variants': '40019657261111,40019674890295',
-                                                                'is_new': 'any',
-                                                'is_on_sale': 'any',
-                                                                                                                                                'by_price': 'base_price',
-                                                                                                                                                    'discount_by': 'percentage',
-                                                    'discount_type': 'fixed',
-                                                                                                                    'new_days_threshold': 10,
-                                                    'low_stock_threshold': 1,
-                                                    'product_stock_computation': 'per_variant',
-                            },
-            'design': {
-                                                                                                                'font_size': 12,
-                                                                                            }
-        },
-                {
-            'id': 35929,
-            'priority': 1,
-            'hide': 0,
-            'image': 'https://d3azqz9xba9gwd.cloudfront.net/storage/labels/pro-bike-supply/r-1.png',
-                        'text': "Stock Image - See Specs for Build Kit",
-                        'position': 'bottom_center',
-            'styles': '',
-            'text_styles': 'font-size:10px',
-            'label_width': 100,
-            'label_height': 20,
-            'fixed_size': 0,
-            'page': 'product,collection',
-            'label_type': 1,
-            'ignore_page': '',
-            'top': 0,
-            'left': 0,
-            'customize_position': 0,
-            'rotate': 0,
-            'opacity': 1,
-            'link': '',
-            'alt': '',
-            'tooltip': '',
-            'animation': 'none',
-            'margin': {
-                'top':0,
-                'left':0,
-                'right':0,
-                'bottom':0,
-            },
-            'conditions': {
-                'variant_apply': 'matching_and_variants',
-                
-                'exclude_variants': '',
-                'include_variants': '',
-                                                                'is_new': 'any',
-                                                'is_on_sale': 'any',
-                                                'collections': '263618297911',
+                                                'collections': '267344576567',
                                                                                                 'stock_status': 'any',
-                                                'from_price': 3400,
-                                                'to_price': 999999.99,
-                                'by_price': 'base_price',
-                                                                                                                                                    'discount_by': 'percentage',
-                                                    'discount_type': 'fixed',
-                                                                                                                    'new_days_threshold': 10,
-                                                    'low_stock_threshold': 1,
-                                                    'product_stock_computation': 'per_variant',
-                            },
-            'design': {
-                                                                                                                'font_size': 12,
-                                                                                            }
-        },
-                {
-            'id': 36116,
-            'priority': 3,
-            'hide': 0,
-            'image': 'https://d3azqz9xba9gwd.cloudfront.net/storage/labels/pro-bike-supply/r-1_0b22fa60-23ca-11ed-a376-c1a8ac673769.png',
-                        'text': "Stock Image - Will include Bomber Z1 fork",
-                        'position': 'bottom_center',
-            'styles': '',
-            'text_styles': 'font-size:12px;',
-            'label_width': 100,
-            'label_height': 20,
-            'fixed_size': 0,
-            'page': 'product,collection',
-            'label_type': 1,
-            'ignore_page': '',
-            'top': 0,
-            'left': 0,
-            'customize_position': 0,
-            'rotate': 0,
-            'opacity': 1,
-            'link': '',
-            'alt': '',
-            'tooltip': '',
-            'animation': 'none',
-            'margin': {
-                'top':0,
-                'left':0,
-                'right':0,
-                'bottom':0,
-            },
-            'conditions': {
-                'variant_apply': 'matching_and_variants',
-                
-                'exclude_variants': '',
-                'include_variants': '',
-                                                                'is_new': 'any',
-                                                'is_on_sale': 'any',
-                                                'collections': '262681100343',
-                                                                'tags': 'ripmoafcomplete',
-                                                                'stock_status': 'any',
                                                                 'by_price': 'base_price',
-                                                                                                                                                    'discount_by': 'percentage',
+                                                                                'ends_at': '2023/11/28 01:00:15',
+                                                    'discount_from': 0,
+                                                    'discount_to': 10,
+                                                                    'discount_by': 'percentage',
                                                     'discount_type': 'fixed',
-                                                                                                                    'new_days_threshold': 10,
+                                                    'stock_from': 0,
+                                                    'stock_to': 10,
+                                                                                    'new_days_threshold': 10,
                                                     'low_stock_threshold': 1,
                                                     'product_stock_computation': 'per_variant',
                             },
             'design': {
-                                                                                                                'font_size': 12,
-                                                                                            }
+                                                'border': {
+                    'size' : 0,
+                    'color' : '',
+                    'style' : 'none'
+                },
+                                                'shape_color': '#ffffff',
+                                                'text_color': '#5E5873',
+                                                'font_family': 'Arial',
+                                                'font_size': 12,
+                                                'font_style': {
+                    'style': 'normal',
+                    'weight': 'normal',
+                    'decoration': 'none',
+                },
+                                                                'shape_class': 'pl-text-rectangle',
+                                            },
+            'group_ids': '',
         },
                 {
-            'id': 36239,
-            'priority': 9,
-            'hide': 1,
-            'image': 'https://d3azqz9xba9gwd.cloudfront.net/storage/labels/pro-bike-supply/blank-transparent-png-1_b1f0a310-3478-11ed-8be3-b79534b3bead.png',
-                        'text': "Free Carbon Logo Upgrade While Supplies Last",
-                        'position': 'bottom_center',
+            'id': 48463,
+            'priority': 0,
+            'hide': 0,
+            'image': 'https://d3azqz9xba9gwd.cloudfront.net/storage/labels/pro-bike-supply/655e9bd441d6c.gif',
+                        'position': 'bottom_left',
             'styles': '',
             'text_styles': '',
-            'label_width': 100,
-            'label_height': 20,
+            'label_width': 45,
+            'label_height': 15,
             'fixed_size': 0,
-            'page': 'product,collection',
-            'label_type': 1,
+            'page': 'product,collection,home,search',
+            'label_type': 0,
             'ignore_page': '',
             'top': 0,
             'left': 0,
             'customize_position': 0,
             'rotate': 0,
-            'opacity': 1,
+            'opacity': 0.8,
             'link': '',
             'alt': '',
             'tooltip': '',
@@ -1068,26 +739,50 @@ if ((typeof SECOMAPP) == 'undefined') {
                 'bottom':0,
             },
             'conditions': {
-                'variant_apply': 'matching_and_variants',
-                
+                                'variant_apply': 'matching_and_variants',
+                                
                 'exclude_variants': '',
                 'include_variants': '',
                                                                 'is_new': 'any',
                                                 'is_on_sale': 'any',
-                                                'collections': '163567534135',
-                                                                                                'stock_status': 'in_stock',
+                                                'collections': '266361700407,267363254327,267363287095,267363352631,267363385399',
+                                                                                                'stock_status': 'any',
                                                                 'by_price': 'base_price',
-                                                                                                                                                    'discount_by': 'percentage',
+                                                                'starts_at': '2023/11/22 17:59:00',
+                                                'ends_at': '2023/11/27 02:24:00',
+                                                    'discount_from': 0,
+                                                    'discount_to': 10,
+                                                                    'discount_by': 'percentage',
                                                     'discount_type': 'fixed',
-                                                                                                                    'new_days_threshold': 10,
+                                                    'stock_from': 0,
+                                                    'stock_to': 10,
+                                                                                    'new_days_threshold': 10,
                                                     'low_stock_threshold': 1,
                                                     'product_stock_computation': 'per_variant',
                             },
             'design': {
-                                                                                                                'font_size': 12,
-                                                                                            }
+                                                'border': {
+                    'size' : 0,
+                    'color' : '',
+                    'style' : 'none'
+                },
+                                                'shape_color': '#ffffff',
+                                                'text_color': '#5E5873',
+                                                'font_family': 'Arial',
+                                                'font_size': 12,
+                                                'font_style': {
+                    'style': 'normal',
+                    'weight': 'normal',
+                    'decoration': 'none',
+                },
+                                                                'shape_class': 'pl-text-rectangle',
+                                            },
+            'group_ids': '',
         },
             ];
+
+    SECOMAPP.pl.groups = [
+                ];
 
     SECOMAPP.isDefined = function (obj) {
         return ((typeof obj != 'undefined'));
@@ -1150,21 +845,10 @@ if ((typeof SECOMAPP) == 'undefined') {
     SECOMAPP.pl.labelProduct = function () {
         var image = getProductImage();
         // check flex-slider
-        var hasFlexSlider = false;
-        if (image.parents('.flexslider > .flex-viewport > .slides').length) {
-            hasFlexSlider = true;
-        } else if (image.parents('.flexslider > .slides').length) {
-            hasFlexSlider = true;
-        }
-        var imageParent;
-        if (hasFlexSlider) {
-            imageParent = image.parents(".flexslider").parent();
+        if ((typeof SECOMAPP.pl.lpPath) != 'undefined') {
+            imageParent = image.parents(SECOMAPP.pl.lpPath).first();
         } else {
-            if ((typeof SECOMAPP.pl.lpPath) != 'undefined') {
-                imageParent = image.parents(SECOMAPP.pl.lpPath).first();
-            } else {
-                imageParent = image.parents(":not(a):not(.zoomWrapper)").first();
-            }
+            imageParent = image.parents(":not(a):not(.zoomWrapper)").first();
         }
         imageParent.addClass("pl-parent");
 
@@ -1300,30 +984,36 @@ if ((typeof SECOMAPP) == 'undefined') {
             }
         }
 
-        var match_count = 0;
         var labels = SECOMAPP.pl.labels;
         var sku;
-        for (var j = 0; j < labels.length; j++) {
-            var label = labels[j];
-            if (label.page.indexOf('product') === -1) {
-                continue;
-            }
+        var groups = SECOMAPP.pl.groups;
+          var match_count = 0;
+          for (var j = 0; j < labels.length; j++) {
+              var label = labels[j];
+              if (label.page.indexOf('product') === -1) {
+                  continue;
+              }
 
 
-            var condition = label.conditions;
-            var design = label.design;
+              var condition = label.conditions;
+              var design = label.design;
+                var group_ids = label.group_ids.split(',').map(Number);
+              var match = true;
 
-            var match = true;
+              // Hide if label with higher priority is already applied
+              if (label.hide) {
+                  if (match_count > 0) {
+                      continue;
+                  }
+              }
 
-            // Hide if label with higher priority is already applied
-            if (label.hide) {
-                if (match_count > 0) {
-                    continue;
+            var label_groups = groups.map((group) => {
+                if (group_ids.includes(group.id)) {
+                    return group;
                 }
-            }
+            });
 
-            var labelNode = document.querySelector('.pl-product .pl-image[data-label-id="'+ label.id +'"]');
-            if (labelNode) {
+            if (document.querySelector('.pl-container.pl-product .pl-image[data-label-id="'+ label.id +'"]')) {
                 match_count++;
                 continue;
             }
@@ -1413,66 +1103,66 @@ if ((typeof SECOMAPP) == 'undefined') {
                 }
             }
 
-            // Collections
-            if (condition.collections) {
-                var collections = condition.collections.split(',').map(x => +x)
-                if (match) {
-                    match = false;
-                    for (i = 0; i < product.collections.length; i++) {
-                        var cId = product.collections[i];
-                        if (collections.indexOf(cId) >= 0) {
-                            match = true;
-                            break;
-                        }
-                    }
-                }
-            }
+              // Collections
+              if (condition.collections) {
+                  var collections = condition.collections.split(',').map(x => +x)
+                  if (match) {
+                      match = false;
+                      for (i = 0; i < product.collections.length; i++) {
+                          var cId = product.collections[i];
+                          if (collections.indexOf(cId) >= 0) {
+                              match = true;
+                              break;
+                          }
+                      }
+                  }
+              }
 
-            // Exclude Collections
-            if (condition.exclude_collections) {
-                var exclude_collections = condition.exclude_collections.split(',').map(x => +x)
-                if (match) {
-                    for (i = 0; i < product.collections.length; i++) {
-                        var cid = product.collections[i];
-                        if (exclude_collections.indexOf(cid) >= 0) {
-                            match = false;
-                            break;
-                        }
-                    }
-                }
-            }
+              // Exclude Collections
+              if (condition.exclude_collections) {
+                  var exclude_collections = condition.exclude_collections.split(',').map(x => +x)
+                  if (match) {
+                      for (i = 0; i < product.collections.length; i++) {
+                          var cid = product.collections[i];
+                          if (exclude_collections.indexOf(cid) >= 0) {
+                              match = false;
+                              break;
+                          }
+                      }
+                  }
+              }
 
-            // Tags
-            if (condition.tags) {
-                var tags = condition.tags.split(',')
-                if (match) {
-                    match = false;
+              // Tags
+              if (condition.tags) {
+                  var tags = condition.tags.split(',')
+                  if (match) {
+                      match = false;
 
-                    if (product.hasOwnProperty('tags')) {
-                        for (i = 0; i < product.tags.length; i++) {
-                            if (tags.indexOf(product.tags[i]) >= 0) {
-                                match = true;
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
+                      if (product.hasOwnProperty('tags')) {
+                          for (i = 0; i < product.tags.length; i++) {
+                              if (tags.indexOf(product.tags[i]) >= 0) {
+                                  match = true;
+                                  break;
+                              }
+                          }
+                      }
+                  }
+              }
 
-            // Exclude Tags
-            if (condition.exclude_tags) {
-                var exclude_tags = condition.exclude_tags.split(',')
-                if (match) {
-                    if (product.hasOwnProperty('tags')) {
-                        for (i = 0; i < product.tags.length; i++) {
-                            if (exclude_tags.indexOf(product.tags[i]) >= 0) {
-                                match = false;
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
+              // Exclude Tags
+              if (condition.exclude_tags) {
+                  var exclude_tags = condition.exclude_tags.split(',')
+                  if (match) {
+                      if (product.hasOwnProperty('tags')) {
+                          for (i = 0; i < product.tags.length; i++) {
+                              if (exclude_tags.indexOf(product.tags[i]) >= 0) {
+                                  match = false;
+                                  break;
+                              }
+                          }
+                      }
+                  }
+              }
 
             // Stock
             if (condition.stock_status === 'in_stock') {
@@ -1535,121 +1225,109 @@ if ((typeof SECOMAPP) == 'undefined') {
                 }
             }
 
-            // Weight Range
-            if (condition.hasOwnProperty('from_weight') || condition.hasOwnProperty('to_weight')) {
-                if (match) {
-                    if (condition.hasOwnProperty('from_weight')) {
-                        if (!variant.hasOwnProperty('weight') || variant.weight === 0 || variant.weight < condition.from_weight) {
-                            match = false;
-                        }
-                    }
-                    if (condition.hasOwnProperty('to_weight') && match) {
-                        if (!variant.hasOwnProperty('weight') || variant.weight === 0 || variant.weight > condition.to_weight) {
-                            match = false;
-                        }
-                    }
-                }
-            }
-
-            // Variants
-            var includeVariants;
-            if (condition.variant_apply === 'matching_and_variants') {
-                if (!match) {
-                    includeVariants = condition.include_variants.split(",");
-                    if (jQuery.inArray(variant.id + "", includeVariants) >= 0) {
-                        match = true;
-                    }
-                } else {
-                    var exceptVariants = condition.exclude_variants.split(",");
-                    if (jQuery.inArray(variant.id + "", exceptVariants) >= 0) {
-                        match = false;
-                    }
-                }
-            } else if (condition.variant_apply === 'variants') {
-                match = false;
-                includeVariants = condition.include_variants.split(",");
-                if (jQuery.inArray(variant.id + "", includeVariants) >= 0) {
-                    match = true;
-                }
-            } else if (condition.variant_apply === 'select_all') {
-                match = true;
-            }
-
-        if (condition.starts_at || condition.ends_at) {
-            if (match) {
-                // Scheduled
-                if (condition.starts_at) {
-                    if (Date.now() < Date.parse(condition.starts_at)){
-                        match = false;
-                    }
-                }
-                if (condition.ends_at && match) {
-                    if (Date.now() > Date.parse(condition.ends_at)){
-                        match = false;
-                    }
-                }
-            }
-        }
-
-        if (match) {
-            match_count++;
-        } else {
-            continue;
-        }
-
-            // show label or create new
-            var labelNodes = jQuery(".pl-container.pl-product .pl-image[data-label-id='" + label.id + "']");
-            if (labelNodes.length > 0 && (
-                !label.text ||
-                label.text.indexOf("{") < 0 ||
-                label.text.indexOf("}") < 0
-            )
-            ) {
-                labelNodes.first().show();
-            } else {
-                // create node
-
-                var newNode = document.createElement("div");
-                newNode.setAttribute("data-label-id", label.id);
-                newNode.classList.add("pl-image");
-                newNode.classList.add("pl-animation");
-                if (label.customize_position === 0) {
-                  newNode.classList.add(label.position);
-                }
-                newNode.style.width = (label.label_width >= 0 ? label.label_width : 30) + (label.fixed_size ? 'px' : '%');
-                if (label.customize_position === 1) {
-                  newNode.style.top = label.top + '%';
-                  newNode.style.left = label.left + '%';
-                }
-                newNode.style.margin = label.margin.top + 'px ' + label.margin.right + 'px ' + label.margin.bottom + 'px ' + label.margin.left + 'px';
-                newNode.style.transform = 'rotate(' + label.rotate + 'deg)';
-                newNode.style.opacity = label.opacity;
-                newNode.style.animationName = label.animation;
-                if (label.label_type === 0) {
-                  newNode.style.height = 'auto';
-                  newNode.style.cssText += label.styles;
-                  var imageLabel = document.createElement('img');
-                  imageLabel.classList.add("pl-w-100");
-                  imageLabel.setAttribute("src", label.image);
-                  if (label.alt?.length) {
-                     imageLabel.setAttribute("alt", label.alt);
-                  } else {
-                    imageLabel.setAttribute("alt", "Deco product label");
+              // Weight Range
+              if (condition.hasOwnProperty('from_weight') || condition.hasOwnProperty('to_weight')) {
+                  if (match) {
+                      if (condition.hasOwnProperty('from_weight')) {
+                          if (!variant.hasOwnProperty('weight') || variant.weight === 0 || variant.weight < condition.from_weight) {
+                              match = false;
+                          }
+                      }
+                      if (condition.hasOwnProperty('to_weight') && match) {
+                          if (!variant.hasOwnProperty('weight') || variant.weight === 0 || variant.weight > condition.to_weight) {
+                              match = false;
+                          }
+                      }
                   }
-                  newNode.appendChild(imageLabel);
-                } else {
-                  if (label.image.length === 0) {
-                    if (design.shape_class) {
-                      newNode.classList.add(design.shape_class);
-                    }
-                    newNode.style.backgroundColor = design.shape_color  ;
-                    newNode.style.height = (label.label_height >= 0 ? label.label_height : 30) + (label.fixed_size ? 'px' : '%');
+              }
+
+              // Variants
+              var includeVariants;
+              if (condition.variant_apply === 'matching_and_variants') {
+                  if (!match) {
+                      includeVariants = condition.include_variants.split(",");
+                      if (jQuery.inArray(variant.id + "", includeVariants) >= 0) {
+                          match = true;
+                      }
+                  } else {
+                      var exceptVariants = condition.exclude_variants.split(",");
+                      if (jQuery.inArray(variant.id + "", exceptVariants) >= 0) {
+                          match = false;
+                      }
+                  }
+              } else if (condition.variant_apply === 'variants') {
+                  match = false;
+                  includeVariants = condition.include_variants.split(",");
+                  if (jQuery.inArray(variant.id + "", includeVariants) >= 0) {
+                      match = true;
+                  }
+              } else if (condition.variant_apply === 'select_all') {
+                  match = true;
+              }
+
+          if (condition.starts_at || condition.ends_at) {
+              if (match) {
+                  // Scheduled
+                  if (condition.starts_at) {
+                      if (Date.now() < Date.parse(condition.starts_at)){
+                          match = false;
+                      }
+                  }
+                  if (condition.ends_at && match) {
+                      if (Date.now() > Date.parse(condition.ends_at)){
+                          match = false;
+                      }
+                  }
+              }
+          }
+
+          if (match) {
+              match_count++;
+          } else {
+              continue;
+          }
+
+              var newNode = document.createElement("div");
+              newNode.setAttribute("data-label-id", label.id);
+              newNode.classList.add("pl-image");
+              newNode.classList.add("pl-animation");
+              if (label.customize_position === 0) {
+                newNode.classList.add(label.position);
+              }
+              newNode.style.width = (label.label_width >= 0 ? label.label_width : 30) + (label.fixed_size ? 'px' : '%');
+              if (label.customize_position === 1) {
+                newNode.style.top = label.top + '%';
+                newNode.style.left = label.left + '%';
+              }
+              newNode.style.margin = label.margin.top + 'px ' + label.margin.right + 'px ' + label.margin.bottom + 'px ' + label.margin.left + 'px';
+              newNode.style.transform = 'rotate(' + label.rotate + 'deg)';
+              newNode.style.opacity = label.opacity;
+              newNode.style.animationName = label.animation;
+              if (label.label_type === 0) {
+                newNode.style.height = 'fit-content';
+                newNode.style.cssText += label.styles;
+                var imageLabel = document.createElement('img');
+                imageLabel.classList.add("pl-w-100");
+                imageLabel.setAttribute("src", label.image);
+                newNode.appendChild(imageLabel);
+              } else {
+                if (label.image.length === 0) {
+                  if (design.shape_class) {
+                    newNode.classList.add(design.shape_class);
+                  }
+                  newNode.style.backgroundColor = design.shape_color  ;
+                  newNode.style.height = (label.label_height >= 0 ? label.label_height : 30) + (label.fixed_size ? 'px' : '%');
 
                   } else {
-                    newNode.style.height = 'auto';
+                    newNode.style.height = 'fit-content';
                     var imageLabel = document.createElement('img');
                     imageLabel.classList.add("pl-w-100");
                     imageLabel.setAttribute("src", label.image);
+                    if (label.alt?.length) {
+                        imageLabel.setAttribute("alt", label.alt);
+                    } else {
+                        imageLabel.setAttribute("alt", "Deco product label");
+                    }
                     if (label.alt?.length) {
                         imageLabel.setAttribute("alt", label.alt);
                     } else {
@@ -1666,121 +1344,184 @@ if ((typeof SECOMAPP) == 'undefined') {
                     newNode.style.cssText += label.styles;
                 }
 
-                if (label.text && label.label_type === 1) {
-                    var text = SECOMAPP.decode(label.text);
-                    if (text.indexOf("{SAVE_PERCENT}") >= 0) {
-                        var save_percent = 0;
-                        if (variant.hasOwnProperty('compare_at_price') && variant.price < variant.compare_at_price) {
-                            save_percent = (variant.compare_at_price - variant.price) * 100 / variant.compare_at_price;
-                            save_percent = Math.round(save_percent);
-                        }
-                        text = text.replace('{SAVE_PERCENT}', save_percent);
-                    }
-                    if (text.indexOf("{MAX_SALE}") >= 0) {
-                        var max_percent = 0;
-                        for (i = 0; i < product.variants.length; i++) {
-                            if (product.variants[i].hasOwnProperty('compare_at_price') && product.variants[i].price < product.variants[i].compare_at_price) {
-                                save_percent = (product.variants[i].compare_at_price - product.variants[i].price) * 100 / product.variants[i].compare_at_price;
-                                save_percent = Math.round(save_percent);
-                                if (save_percent > max_percent) {
-                                    max_percent = save_percent;
-                                }
+              if (label.text && label.label_type === 1) {
+                  var text = SECOMAPP.decode(label.text);
+                  if (text.indexOf("{SAVE_PERCENT}") >= 0) {
+                      var save_percent = 0;
+                      if (variant.hasOwnProperty('compare_at_price') && variant.price < variant.compare_at_price) {
+                          save_percent = (variant.compare_at_price - variant.price) * 100 / variant.compare_at_price;
+                          save_percent = Math.round(save_percent);
+                      }
+                      text = text.replace('{SAVE_PERCENT}', save_percent);
+                  }
+                  if (text.indexOf("{MAX_SALE}") >= 0) {
+                      var max_percent = 0;
+                      for (i = 0; i < product.variants.length; i++) {
+                          if (product.variants[i].hasOwnProperty('compare_at_price') && product.variants[i].price < product.variants[i].compare_at_price) {
+                              save_percent = (product.variants[i].compare_at_price - product.variants[i].price) * 100 / product.variants[i].compare_at_price;
+                              save_percent = Math.round(save_percent);
+                              if (save_percent > max_percent) {
+                                  max_percent = save_percent;
+                              }
+                          }
+                      }
+                      text = text.replace('{MAX_SALE}', max_percent);
+                  }
+                  if (text.indexOf("{MIN_SALE}") >= 0) {
+                      var min_percent = 100;
+                      for (var i = 0; i < product.variants.length; i++) {
+                          if (product.variants[i].hasOwnProperty('compare_at_price') && product.variants[i].price < product.variants[i].compare_at_price) {
+                              save_percent = (product.variants[i].compare_at_price - product.variants[i].price) * 100 / product.variants[i].compare_at_price;
+                              save_percent = Math.round(save_percent);
+                              if (save_percent < min_percent) {
+                                  min_percent = save_percent;
+                              }
+                          }
+                      }
+                      text = text.replace('{MIN_SALE}', min_percent);
+                  }
+                  if (text.indexOf("{SAVE_AMOUNT}") >= 0) {
+                      var save_amount = 0;
+                      if (variant.hasOwnProperty('compare_at_price') && variant.price < variant.compare_at_price) {
+                          save_amount = variant.compare_at_price - variant.price;
+                      }
+                      if (save_amount % 100 === 0) {
+                          text = text.replace('{SAVE_AMOUNT}', (save_amount / 100));
+                      } else if (save_amount % 10 === 0) {
+                          text = text.replace('{SAVE_AMOUNT}', (save_amount / 100).toFixed(1));
+                      } else {
+                          text = text.replace('{SAVE_AMOUNT}', (save_amount / 100).toFixed(2));
+                      }
+                  }
+                  if (text.indexOf("{PRICE}") >= 0) {
+                      text = text.replace('{PRICE}', (variant.price / 100).toFixed(2));
+                  }
+                  if (text.indexOf("{MIN_PRICE}") >= 0) {
+                      text = text.replace('{MIN_PRICE}', (product.price / 100).toFixed(2));
+                  }
+                  if (text.indexOf("{MAX_PRICE}") >= 0) {
+                      var max_price = 0;
+                      for (i = 0; i < product.variants.length; i++) {
+                          if (product.variants[i].price > max_price) {
+                              max_price = product.variants[i].price;
+                          }
+                      }
+                      text = text.replace('{MAX_PRICE}', (max_price / 100).toFixed(2));
+                  }
+                  if (text.indexOf("{NEW_FOR}") >= 0) {
+                      var date_difference = (new Date() - Date.parse(product.published_at)) / 86400000;
+                      date_difference = date_difference < 0 ? 0 : Math.ceil(date_difference);
+                      text = text.replace('{NEW_FOR}', date_difference);
+                  }
+                  if (text.indexOf("{SKU}") >= 0) {
+                      sku = variant.sku ? variant.sku : '';
+                      text = text.replace('{SKU}', sku);
+                  }
+                  if (text.indexOf("{STOCK}") >= 0) {
+                      var stock = variant.inventory_quantity >= 0 ? variant.inventory_quantity : 0;
+                      text = text.replace('{STOCK}', stock);
+                  }
+                  var font_size;
+                  if (design.font_size_ratio !== 0) {
+                      var image = getProductImage();
+                      if (label.fixed_size) {
+                          font_size = Math.sqrt(label.label_height/design.font_size_ratio);
+                      } else {
+                          font_size = Math.sqrt((image.get(0).height * label.label_height /100)/ design.font_size_ratio);
+                      }
+                  }
+                  font_size = font_size ? font_size : design.font_size;
+                  var textElement = document.createElement("span");
+                  textElement.classList.add("pl-text");
+                  textElement.style.color = design.text_color ? design.text_color : '';
+                  textElement.style.fontSize = design.font_size ? (design.font_size_ratio === 0 ? design.font_size : font_size) + 'px' : '';
+                  if (design.font_style) {
+                  textElement.style.fontWeight = design.font_style.weight;
+                  textElement.style.fontStyle = design.font_style.style;
+                  textElement.style.textDecoration = design.font_style.decoration;
+                  }
+                  textElement.style.letterSpacing = design.letter_spacing ? design.letter_spacing + 'px' : '';
+                  textElement.style.cssText += label.text_styles;
+                  textElement.style.wordBreak = 'break-word';
+                  textElement.innerHTML += text;
+                  newNode.appendChild(textElement);
+              }
+            if (label.link?.length > 0) {
+                newNode.addEventListener("click", function(){ window.open(label.link, '_blank'); });
+            }
+            if (label.tooltip?.length > 0) {
+                var tooltipElement = document.createElement("span");
+                tooltipElement.classList.add("pl-tooltip");
+                var tooltipText = SECOMAPP.decode(label.tooltip)
+                tooltipElement.innerHTML = tooltipText;
+                newNode.appendChild(tooltipElement);
+            }
+              if (group_ids.length) {
+                var in_group = false;
+                for (var g = 0; g < label_groups.length; g++) {
+                    var group = label_groups[g];
+                    if (group) {
+                        var groupNode = document.querySelector('.pl-container.pl-product .pl-group[data-group-id="'+ group.id +'"]');
+                        if (groupNode) {
+                          if (groupNode.querySelector('.pl-image[data-label-id="'+ label.id +'"]')) {
+                            continue;
+                          } else {
+                            if (label.customize_position === 0) {
+                                newNode.classList.remove(label.position);
                             }
-                        }
-                        text = text.replace('{MAX_SALE}', max_percent);
-                    }
-                    if (text.indexOf("{MIN_SALE}") >= 0) {
-                        var min_percent = 100;
-                        for (var i = 0; i < product.variants.length; i++) {
-                            if (product.variants[i].hasOwnProperty('compare_at_price') && product.variants[i].price < product.variants[i].compare_at_price) {
-                                save_percent = (product.variants[i].compare_at_price - product.variants[i].price) * 100 / product.variants[i].compare_at_price;
-                                save_percent = Math.round(save_percent);
-                                if (save_percent < min_percent) {
-                                    min_percent = save_percent;
-                                }
-                            }
-                        }
-                        text = text.replace('{MIN_SALE}', min_percent);
-                    }
-                    if (text.indexOf("{SAVE_AMOUNT}") >= 0) {
-                        var save_amount = 0;
-                        if (variant.hasOwnProperty('compare_at_price') && variant.price < variant.compare_at_price) {
-                            save_amount = variant.compare_at_price - variant.price;
-                        }
-                        if (save_amount % 100 === 0) {
-                            text = text.replace('{SAVE_AMOUNT}', (save_amount / 100));
-                        } else if (save_amount % 10 === 0) {
-                            text = text.replace('{SAVE_AMOUNT}', (save_amount / 100).toFixed(1));
+                            groupNode.appendChild(newNode);
+                          }
                         } else {
-                            text = text.replace('{SAVE_AMOUNT}', (save_amount / 100).toFixed(2));
-                        }
-                    }
-                    if (text.indexOf("{PRICE}") >= 0) {
-                        text = text.replace('{PRICE}', (variant.price / 100).toFixed(2));
-                    }
-                    if (text.indexOf("{MIN_PRICE}") >= 0) {
-                        text = text.replace('{MIN_PRICE}', (product.price / 100).toFixed(2));
-                    }
-                    if (text.indexOf("{MAX_PRICE}") >= 0) {
-                        var max_price = 0;
-                        for (i = 0; i < product.variants.length; i++) {
-                            if (product.variants[i].price > max_price) {
-                                max_price = product.variants[i].price;
+                          var newGroupNode = document.createElement('div');
+                          newGroupNode.classList.add('pl-group');
+                          newGroupNode.classList.add(group.direction);
+                          newGroupNode.classList.add(group.position);
+                          newGroupNode.setAttribute('data-group-id', group.id);
+                          newGroupNode.style.gap = group.gap + 'px';
+                          var position_unit = group.position_unit_type === 'fixed' ? 'px' : '%';
+                          var vertical = group.position.split('_')[1];
+                          if (vertical == 'top') {
+                            newGroupNode.style.top = group.vertical + position_unit;
+                          } else if (vertical == 'bottom') {
+                            newGroupNode.style.bottom = group.vertical + position_unit;
+                          }
+                            var horizontal = group.position.split('_')[2];
+                            if (horizontal == 'left') {
+                                newGroupNode.style.left = group.horizontal + position_unit;
+                            } else if (horizontal == 'right') {
+                                newGroupNode.style.right = group.horizontal + position_unit;
                             }
+                          newGroupNode.style.cssText += group.styles;
+                            if (label.customize_position === 0) {
+                                newNode.classList.remove(label.position);
+                            }
+                          newGroupNode.appendChild(newNode);
+                          document.querySelector('.pl-container.pl-product')?.appendChild(newGroupNode);
                         }
-                        text = text.replace('{MAX_PRICE}', (max_price / 100).toFixed(2));
+                        in_group = true;
                     }
-                    if (text.indexOf("{NEW_FOR}") >= 0) {
-                        var date_difference = (new Date() - Date.parse(product.published_at)) / 86400000;
-                        date_difference = date_difference < 0 ? 0 : Math.ceil(date_difference);
-                        text = text.replace('{NEW_FOR}', date_difference);
-                    }
-                    if (text.indexOf("{SKU}") >= 0) {
-                        sku = variant.sku ? variant.sku : '';
-                        text = text.replace('{SKU}', sku);
-                    }
-                    if (text.indexOf("{STOCK}") >= 0) {
-                        var stock = variant.inventory_quantity >= 0 ? variant.inventory_quantity : 0;
-                        text = text.replace('{STOCK}', stock);
-                    }
-                    var font_size;
-                    if (design.font_size_ratio !== 0) {
-                        var image = getProductImage();
-                        if (label.fixed_size) {
-                            font_size = Math.sqrt(label.label_height/design.font_size_ratio);
-                        } else {
-                            font_size = Math.sqrt((image.get(0).height * label.label_height /100)/ design.font_size_ratio);
+                }
+                if (!in_group) {
+                    document.querySelector('.pl-container.pl-product')?.appendChild(newNode);
+                }
+              } else {
+                  document.querySelector('.pl-container.pl-product')?.appendChild(newNode);
+              }
+
+            for (var g = 0; g < label_groups.length; g++) {
+                var group = label_groups[g];
+                if (group) {
+                    var groupNode = document.querySelector('.pl-product .pl-group[data-group-id="'+ group.id +'"]');
+                    var label_ids = group.label_ids.split(',').map(Number);
+                    for (var k = 0; k < label_ids.length; k++) {
+                        var label = groupNode?.querySelector('.pl-image[data-label-id="'+ label_ids[k] +'"]');
+                        if (label) {
+                            var newNode = label;
+                            label.remove();
+                            groupNode.appendChild(newNode);
                         }
                     }
-                    font_size = font_size ? font_size : design.font_size;
-                    var textElement = document.createElement("span");
-                    textElement.classList.add("pl-text");
-                    textElement.style.color = design.text_color ? design.text_color : '';
-                    textElement.style.fontSize = design.font_size ? (design.font_size_ratio === 0 ? design.font_size : font_size) + 'px' : '';
-                    if (design.font_style) {
-                    textElement.style.fontWeight = design.font_style.weight;
-                    textElement.style.fontStyle = design.font_style.style;
-                    textElement.style.textDecoration = design.font_style.decoration;
-                    }
-                    textElement.style.letterSpacing = design.letter_spacing ? design.letter_spacing + 'px' : '';
-                    textElement.style.cssText += label.text_styles;
-                    textElement.style.wordBreak = 'break-word';
-                    textElement.innerHTML += text;
-                    newNode.appendChild(textElement);
                 }
-                if (label.link?.length > 0) {
-                    newNode.addEventListener("click", function(){ window.open(label.link, '_blank'); });
-                }
-                if (label.tooltip?.length > 0) {
-                    var tooltipElement = document.createElement("span");
-                    tooltipElement.classList.add("pl-tooltip");
-                    var tooltipText = SECOMAPP.decode(label.tooltip)
-                    tooltipElement.innerHTML = tooltipText;
-                    newNode.appendChild(tooltipElement);
-                    newNode.addEventListener("mouseover", function(){ tooltipElement.style.visibility = 'visible'; });
-                    newNode.addEventListener("mouseout", function(){ tooltipElement.style.visibility = 'hidden'; });
-                }
-                jQuery('.pl-container.pl-product').append(newNode);
             }
         }
     };
@@ -1799,60 +1540,52 @@ if ((typeof SECOMAPP) == 'undefined') {
             }
         }
         var collectionNode;
+
         if ((typeof SECOMAPP.pl.lpsPath) == 'undefined') {
-            collectionNode = jQuery('.pl-container', element);
+          collectionNode = jQuery('.pl-container', element);
         } else {
             if (jQuery(element).parents('.pl-parent').length === 0) {
-                collectionNode = jQuery('.pl-container', element);
+               collectionNode = jQuery('.pl-container', element);
             } else {
-                collectionNode = jQuery('.pl-container', jQuery(element).parents('.pl-parent').first());
+               collectionNode = jQuery('.pl-container', jQuery(element).parents('.pl-parent').first());
             }
         }
-        var match_count = 0;
+
+        if (collectionNode.length === 0) {
+            return;
+        }
+
         var labels = SECOMAPP.pl.labels;
-        for (var j = 0; j < labels.length; j++) {
-            var label = labels[j];
-            if (label.page.indexOf(SECOMAPP.page) === -1) {
-                continue;
-            }
+        var groups = SECOMAPP.pl.groups;
+        var match_count = 0;
+          for (var j = 0; j < labels.length; j++) {
+              var label = labels[j];
+              if (label.page.indexOf(SECOMAPP.page) === -1) {
+                  continue;
+              }
 
-            var condition = label.conditions;
-            var design = label.design;
+              var condition = label.conditions;
+              var design = label.design;
+              var group_ids = label.group_ids.split(',').map(Number);
+              var match = true;
 
-            var match = true;
+              // Hide if label with higher priority is already applied
+              if (label.hide) {
+                  if (match_count > 0) {
+                      continue;
+                  }
+              }
 
-            // Hide if label with higher priority is already applied
-            if (label.hide) {
-                if (match_count > 0) {
-                    continue;
-                }
+        var label_groups = groups.map((group) => {
+            if (group_ids.includes(group.id)) {
+                return group;
             }
+        });
 
-            if (collectionNode.length == 0) {
-                continue;
-            }
-            if (collectionNode[0].querySelector('.pl-image[data-label-id="'+ label.id +'"]')) {
-                match_count++;
-                continue;
-            }
-
-            var labelNode;
-            if ((typeof SECOMAPP.pl.lpsPath) == 'undefined') {
-                labelNode = jQuery('.pl-container', element);
-            } else {
-                if (jQuery(element).parents('.pl-parent').length === 0) {
-                    labelNode = jQuery('.pl-container', element);
-                } else {
-                    labelNode = jQuery('.pl-container', jQuery(element).parents('.pl-parent').first());
-                }
-            }
-            if (labelNode.length) {
-                if (labelNode[0].querySelector('div[data-label-id="'+ label.id +'"]')) {
-                    match_count++;
-                    continue;
-                }
-            }
-
+        if (collectionNode[0].querySelector('.pl-image[data-label-id="'+ label.id +'"]')) {
+            match_count++;
+            continue;
+        }
 
         var compare_at_price_threshold;
             if (condition.is_on_sale === 'yes') {
@@ -1939,65 +1672,65 @@ if ((typeof SECOMAPP) == 'undefined') {
                 }
             }
 
-            // Collections
-            if (condition.collections) {
-                var collections = condition.collections.split(',').map(x => +x)
-                if (match) {
-                    match = false;
-                    for (i = 0; i < product.collections.length; i++) {
-                        var cId = product.collections[i];
-                        if (collections.indexOf(cId) >= 0) {
-                            match = true;
-                            break;
-                        }
-                    }
-                }
-            }
+              // Collections
+              if (condition.collections) {
+                  var collections = condition.collections.split(',').map(x => +x)
+                  if (match) {
+                      match = false;
+                      for (i = 0; i < product.collections.length; i++) {
+                          var cId = product.collections[i];
+                          if (collections.indexOf(cId) >= 0) {
+                              match = true;
+                              break;
+                          }
+                      }
+                  }
+              }
 
-            // Exclude Collections
-            if (condition.exclude_collections) {
-                var exclude_collections = condition.exclude_collections.split(',').map(x => +x)
-                if (match) {
-                    for (i = 0; i < product.collections.length; i++) {
-                        cId = product.collections[i];
-                        if (exclude_collections.indexOf(cId) >= 0) {
-                            match = false;
-                            break;
-                        }
-                    }
-                }
-            }
+              // Exclude Collections
+              if (condition.exclude_collections) {
+                  var exclude_collections = condition.exclude_collections.split(',').map(x => +x)
+                  if (match) {
+                      for (i = 0; i < product.collections.length; i++) {
+                          cId = product.collections[i];
+                          if (exclude_collections.indexOf(cId) >= 0) {
+                              match = false;
+                              break;
+                          }
+                      }
+                  }
+              }
 
-            // Tags
-            if (condition.tags) {
-                var tags = condition.tags.split(',')
-                if (match) {
-                    match = false;
-                    if (product.hasOwnProperty('tags')) {
-                        for (i = 0; i < product.tags.length; i++) {
-                            if (tags.indexOf(product.tags[i]) >= 0) {
-                                match = true;
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
+              // Tags
+              if (condition.tags) {
+                  var tags = condition.tags.split(',')
+                  if (match) {
+                      match = false;
+                      if (product.hasOwnProperty('tags')) {
+                          for (i = 0; i < product.tags.length; i++) {
+                              if (tags.indexOf(product.tags[i]) >= 0) {
+                                  match = true;
+                                  break;
+                              }
+                          }
+                      }
+                  }
+              }
 
-            // Exclude Tags
-            if (condition.exclude_tags) {
-                var exclude_tags = condition.exclude_tags.split(',')
-                if (match) {
-                    if (product.hasOwnProperty('tags')) {
-                        for (i = 0; i < product.tags.length; i++) {
-                            if (exclude_tags.indexOf(product.tags[i]) >= 0) {
-                                match = false;
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
+              // Exclude Tags
+              if (condition.exclude_tags) {
+                  var exclude_tags = condition.exclude_tags.split(',')
+                  if (match) {
+                      if (product.hasOwnProperty('tags')) {
+                          for (i = 0; i < product.tags.length; i++) {
+                              if (exclude_tags.indexOf(product.tags[i]) >= 0) {
+                                  match = false;
+                                  break;
+                              }
+                          }
+                      }
+                  }
+              }
 
             // Stock
             var variant;
@@ -2096,298 +1829,285 @@ if ((typeof SECOMAPP) == 'undefined') {
                 }
             }
 
-            // Price Range
-            if (condition.hasOwnProperty('from_price') || condition.hasOwnProperty('to_price')) {
-                if (match) {
-                    if (condition.hasOwnProperty('from_price')) {
-                        if (product.price < condition.from_price * 100) {
-                            match = false;
-                        }
-                    }
-                    if (condition.hasOwnProperty('to_price') && match) {
-                        if (match === true && product.price > condition.to_price * 100) {
-                            match = false;
-                        }
-                    }
-                }
-            }
+              // Price Range
+              if (condition.hasOwnProperty('from_price') || condition.hasOwnProperty('to_price')) {
+                  if (match) {
+                      if (condition.hasOwnProperty('from_price')) {
+                          if (product.price < condition.from_price * 100) {
+                              match = false;
+                          }
+                      }
+                      if (condition.hasOwnProperty('to_price') && match) {
+                          if (match === true && product.price > condition.to_price * 100) {
+                              match = false;
+                          }
+                      }
+                  }
+              }
 
-            // Weight Range
-            if (condition.hasOwnProperty('from_weight') || condition.hasOwnProperty('to_weight')) {
-                if (match) {
-                    // check if any variant match
-                    match = false;
-                    for (i = 0; i < product.variants.length; i++) {
-                        variant = product.variants[i];
-                        match = true;
-                        if (condition.hasOwnProperty('from_weight')) {
-                            if (!variant.hasOwnProperty('weight') || variant.weight === 0 || variant.weight < condition.from_weight) {
-                                match = false;
-                            }
-                        }
-                        if (condition.hasOwnProperty('to_weight') && match) {
-                            if (!variant.hasOwnProperty('weight') || variant.weight === 0 || variant.weight > condition.to_weight) {
-                                match = false;
-                            }
-                        }
-                        if (match) break;
-                    }
-                }
-            }
+              // Weight Range
+              if (condition.hasOwnProperty('from_weight') || condition.hasOwnProperty('to_weight')) {
+                  if (match) {
+                      // check if any variant match
+                      match = false;
+                      for (i = 0; i < product.variants.length; i++) {
+                          variant = product.variants[i];
+                          match = true;
+                          if (condition.hasOwnProperty('from_weight')) {
+                              if (!variant.hasOwnProperty('weight') || variant.weight === 0 || variant.weight < condition.from_weight) {
+                                  match = false;
+                              }
+                          }
+                          if (condition.hasOwnProperty('to_weight') && match) {
+                              if (!variant.hasOwnProperty('weight') || variant.weight === 0 || variant.weight > condition.to_weight) {
+                                  match = false;
+                              }
+                          }
+                          if (match) break;
+                      }
+                  }
+              }
 
-            // Variants
-            if (condition.variant_apply === 'matching_and_variants') {
-                if (!match) {
-                    var includeVariants = condition.include_variants.split(",");
-                    for (i = 0; i < product.variants.length; i++) {
-                        variant = product.variants[i];
-                        if (jQuery.inArray(variant.id + "", includeVariants) >= 0) {
-                            match = true;
-                            break;
-                        }
-                    }
-                } else {
-                    var exceptVariants = condition.exclude_variants.split(",");
-                    for (i = 0; i < product.variants.length; i++) {
-                        variant = product.variants[i];
-                        if (jQuery.inArray(variant.id + "", exceptVariants) >= 0) {
-                            match = false;
-                            break;
-                        }
-                    }
-                }
-            } else if (condition.variant_apply === 'variants') {
-                match = false;
-                includeVariants = condition.include_variants.split(",");
-                for (i = 0; i < product.variants.length; i++) {
-                    variant = product.variants[i];
-                    if (jQuery.inArray(variant.id + "", includeVariants) >= 0) {
-                        match = true;
-                        break;
-                    }
-                }
-            } else if (condition.variant_apply === 'select_all') {
-                match = true;
-            }
+              // Variants
+              if (condition.variant_apply === 'matching_and_variants') {
+                  if (!match) {
+                      var includeVariants = condition.include_variants.split(",");
+                      for (i = 0; i < product.variants.length; i++) {
+                          variant = product.variants[i];
+                          if (jQuery.inArray(variant.id + "", includeVariants) >= 0) {
+                              match = true;
+                              break;
+                          }
+                      }
+                  } else {
+                      var exceptVariants = condition.exclude_variants.split(",");
+                      for (i = 0; i < product.variants.length; i++) {
+                          variant = product.variants[i];
+                          if (jQuery.inArray(variant.id + "", exceptVariants) >= 0) {
+                              match = false;
+                              break;
+                          }
+                      }
+                  }
+              } else if (condition.variant_apply === 'variants') {
+                  match = false;
+                  includeVariants = condition.include_variants.split(",");
+                  for (i = 0; i < product.variants.length; i++) {
+                      variant = product.variants[i];
+                      if (jQuery.inArray(variant.id + "", includeVariants) >= 0) {
+                          match = true;
+                          break;
+                      }
+                  }
+              } else if (condition.variant_apply === 'select_all') {
+                  match = true;
+              }
 
-            if (condition.starts_at || condition.ends_at) {
-                if (match) {
-                    // Scheduled
-                    if (condition.starts_at) {
-                        if (Date.now() < Date.parse(condition.starts_at)) {
-                            match = false;
-                        }
-                    }
-                    if (condition.ends_at && match) {
-                        if (Date.now() > Date.parse(condition.ends_at)) {
-                            match = false;
-                        }
-                    }
-                }
-            }
+              if (condition.starts_at || condition.ends_at) {
+                  if (match) {
+                      // Scheduled
+                      if (condition.starts_at) {
+                          if (Date.now() < Date.parse(condition.starts_at)) {
+                              match = false;
+                          }
+                      }
+                      if (condition.ends_at && match) {
+                          if (Date.now() > Date.parse(condition.ends_at)) {
+                              match = false;
+                          }
+                      }
+                  }
+              }
 
-            if (match) {
-                match_count++;
-            } else {
-                continue;
-            }
+              if (match) {
+                  match_count++;
+              } else {
+                  continue;
+              }
 
-            // show label or create new
-            // var labelNodes = jQuery(".pl-container .pl-image[data-label-id='"+label.id+"']");
-
-            var labelNodes;
-            if ((typeof SECOMAPP.pl.lpsPath) == 'undefined') {
-                labelNodes = jQuery(".pl-container .pl-image[data-label-id='" + label.id + "']", element);
-            } else {
-                labelNodes = jQuery(".pl-container .pl-image[data-label-id='" + label.id + "']", jQuery(element).parents('.pl-parent').first());
-            }
-
-            if (labelNodes.length > 0) {
-                labelNodes.first().show();
-            } else {
-                // create node
-                var newNode = document.createElement("div");
-                newNode.setAttribute("data-label-id", label.id);
-                newNode.classList.add("pl-image");
-                newNode.classList.add("pl-animation");
-                if (label.customize_position === 0) {
-                 newNode.classList.add(label.position);
-                }
-                newNode.style.width = (label.label_width >= 0 ? label.label_width : 30) + (label.fixed_size ? 'px' : '%');
-                if (label.customize_position === 1) {
-                    newNode.style.top = label.top + '%';
-                    newNode.style.left = label.left + '%';
-                }
-                newNode.style.margin = label.margin.top + 'px ' + label.margin.right + 'px ' + label.margin.bottom + 'px ' + label.margin.left + 'px';
-                newNode.style.transform = 'rotate('+ label.rotate +'deg)';
-                newNode.style.opacity = label.opacity;
-                newNode.style.animationName = label.animation;
-                if (label.label_type === 0) {
-                    newNode.style.height = 'auto';
-                    newNode.style.cssText += label.styles;
-                    var imageLabel = document.createElement('img');
-                    imageLabel.classList.add("pl-w-100");
-                    imageLabel.setAttribute("src", label.image);
+              // show label or create new
+                  var newNode = document.createElement("div");
+                  newNode.setAttribute("data-label-id", label.id);
+                  newNode.classList.add("pl-image");
+                  newNode.classList.add("pl-animation");
+                  if (label.customize_position === 0) {
+                    newNode.classList.add(label.position);
+                  }
+                  newNode.style.width = (label.label_width >= 0 ? label.label_width : 30) + (label.fixed_size ? 'px' : '%');
+                  if (label.customize_position === 1) {
+                      newNode.style.top = label.top + '%';
+                      newNode.style.left = label.left + '%';
+                  }
+                  newNode.style.margin = label.margin.top + 'px ' + label.margin.right + 'px ' + label.margin.bottom + 'px ' + label.margin.left + 'px';
+                  newNode.style.transform = 'rotate('+ label.rotate +'deg)';
+                  newNode.style.opacity = label.opacity;
+                  newNode.style.animationName = label.animation;
+                  if (label.label_type === 0) {
+                      newNode.style.height = 'fit-content';
+                      newNode.style.cssText += label.styles;
+                      var imageLabel = document.createElement('img');
+                      imageLabel.classList.add("pl-w-100");
+                      imageLabel.setAttribute("src", label.image);
                     if (label.alt?.length) {
                         imageLabel.setAttribute("alt", label.alt);
                     } else {
                         imageLabel.setAttribute("alt", product.handle);
                     }
-                    newNode.appendChild(imageLabel);
-                } else {
-                    if (label.image.length === 0) {
-                        if (design.shape_class) {
-                            newNode.classList.add(design.shape_class);
-                        }
-                        newNode.style.backgroundColor = design.shape_color;
-                        newNode.style.height = (label.label_height >= 0 ? label.label_height : 30) + (label.fixed_size ? 'px' : '%');
+                      newNode.appendChild(imageLabel);
+                  } else {
+                      if (label.image.length === 0) {
+                          if (design.shape_class) {
+                              newNode.classList.add(design.shape_class);
+                          }
+                          newNode.style.backgroundColor = design.shape_color;
+                          newNode.style.height = (label.label_height >= 0 ? label.label_height : 30) + (label.fixed_size ? 'px' : '%');
 
-                    } else {
-                        newNode.style.height = 'auto';
-                        var imageLabel = document.createElement('img');
-                        imageLabel.classList.add("pl-w-100");
-                        imageLabel.setAttribute("src", label.image);
+                      } else {
+                          newNode.style.height = 'fit-content';
+                          var imageLabel = document.createElement('img');
+                          imageLabel.classList.add("pl-w-100");
+                          imageLabel.setAttribute("src", label.image);
                         if (label.alt?.length) {
                             imageLabel.setAttribute("alt", label.alt);
                         } else {
                             imageLabel.setAttribute("alt", product.handle);
                         }
-                        newNode.appendChild(imageLabel);
-                    }
-                    if (design.border) {
-                        newNode.style.border = design.border.style + ' ' + design.border.size + 'px ' + design.border.color;
-                    }
-                    if (design.border_radius) {
-                        newNode.style.borderRadius = design.border_radius + 'px'
-                    }
-                    newNode.style.cssText += label.styles;
-                }
+                          newNode.appendChild(imageLabel);
+                      }
+                      if (design.border) {
+                          newNode.style.border = design.border.style + ' ' + design.border.size + 'px ' + design.border.color;
+                      }
+                      if (design.border_radius) {
+                          newNode.style.borderRadius = design.border_radius + 'px'
+                      }
+                      newNode.style.cssText += label.styles;
+                  }
 
-                if (label.text && label.label_type === 1) {
-                  var text = SECOMAPP.decode(label.text);
-                  if (text.indexOf("{SAVE_PERCENT}") >= 0) {
-                      var save_percent = 0;
-                      if (firstVariant) {
-                          if (firstVariant.hasOwnProperty('compare_at_price') && firstVariant.price < firstVariant.compare_at_price) {
-                              save_percent = (firstVariant.compare_at_price - firstVariant.price) * 100 / firstVariant.compare_at_price;
-                              save_percent = Math.round(save_percent);
-                          }
-                      } else {
-                          if (product.hasOwnProperty('compare_at_price') && product.price < product.compare_at_price) {
-                              save_percent = (product.compare_at_price - product.price) * 100 / product.compare_at_price;
-                              save_percent = Math.round(save_percent);
-                          }
-                      }
-                      text = text.replace('{SAVE_PERCENT}', save_percent);
-                  }
-                  if (text.indexOf("{MAX_SALE}") >= 0) {
-                      var max_percent = 0;
-                      for (i = 0; i < product.variants.length; i++) {
-                          if (product.variants[i].hasOwnProperty('compare_at_price') && product.variants[i].price < product.variants[i].compare_at_price) {
-                              save_percent = (product.variants[i].compare_at_price - product.variants[i].price) * 100 / product.variants[i].compare_at_price;
-                              save_percent = Math.round(save_percent);
-                              if (save_percent > max_percent) {
-                                  max_percent = save_percent;
-                              }
-                          }
-                      }
-                      text = text.replace('{MAX_SALE}', max_percent);
-                  }
-                  if (text.indexOf("{MIN_SALE}") >= 0) {
-                      var min_percent = 100;
-                      for (i = 0; i < product.variants.length; i++) {
-                          if (product.variants[i].hasOwnProperty('compare_at_price') && product.variants[i].price < product.variants[i].compare_at_price) {
-                              save_percent = (product.variants[i].compare_at_price - product.variants[i].price) * 100 / product.variants[i].compare_at_price;
-                              save_percent = Math.round(save_percent);
-                              if (save_percent < max_percent) {
-                                  min_percent = save_percent;
-                              }
-                          }
-                      }
-                      text = text.replace('{MIN_SALE}', min_percent);
-                  }
-                  if (text.indexOf("{SAVE_AMOUNT}") >= 0) {
-                      var save_amount = 0;
-                      if (firstVariant) {
-                          if (firstVariant.hasOwnProperty('compare_at_price') && firstVariant.price < firstVariant.compare_at_price) {
-                              save_amount = firstVariant.compare_at_price - firstVariant.price;
-                          }
-                      } else {
-                          if (product.hasOwnProperty('compare_at_price') && product.price < product.compare_at_price) {
-                              save_amount = product.compare_at_price - product.price;
-                          }
-                      }
-
-                      if (save_amount % 100 === 0) {
-                          text = text.replace('{SAVE_AMOUNT}', (save_amount / 100));
-                      } else if (save_amount % 10 === 0) {
-                          text = text.replace('{SAVE_AMOUNT}', (save_amount / 100).toFixed(1));
-                      } else {
-                          text = text.replace('{SAVE_AMOUNT}', (save_amount / 100).toFixed(2));
-                      }
-                  }
-                  if (text.indexOf("{PRICE}") >= 0) {
-                      if (firstVariant) {
-                          text = text.replace('{PRICE}', (firstVariant.price / 100).toFixed(2));
-                      } else {
-                          text = text.replace('{PRICE}', (product.price / 100).toFixed(2));
-                      }
-                  }
-                  if (text.indexOf("{MIN_PRICE}") >= 0) {
-                      text = text.replace('{MIN_PRICE}', (product.price / 100).toFixed(2));
-                  }
-                  if (text.indexOf("{MAX_PRICE}") >= 0) {
-                      var max_price = 0;
-                      for (var i = 0; i < product.variants.length; i++) {
-                          if (product.variants[i].price > max_price) {
-                              max_price = product.variants[i].price;
-                          }
-                      }
-                      text = text.replace('{MAX_PRICE}', (max_price / 100).toFixed(2));
-                  }
-                  if (text.indexOf("{NEW_FOR}") >= 0) {
-                      var date_difference = (new Date() - Date.parse(product.published_at)) / 86400000;
-                      date_difference = date_difference < 0 ? 0 : Math.ceil(date_difference);
-                      text = text.replace('{NEW_FOR}', date_difference);
-                  }
-                  if (text.indexOf("{STOCK}") >= 0) {
-                      var product_inventory_quantity = 0;
-                      for (i = 0; i < product.variants.length; i++) {
-                          variant = product.variants[i];
-                          if (!variant.hasOwnProperty('inventory_management')) {
-
-                          } else {
-                              if (variant.inventory_quantity >= 0) {
-                                  product_inventory_quantity += variant.inventory_quantity;
-                              }
-                          }
-                      }
-                      text = text.replace('{STOCK}', product_inventory_quantity);
-                  }
-                  var font_size;
-                  if (design.font_size_ratio !== 0 && element.get(0) !== undefined) {
-                    if (label.fixed_size) {
-                      font_size = Math.sqrt(label.label_height/design.font_size_ratio) - 2;
-                    } else {
-                      font_size = Math.sqrt((element.get(0).offsetHeight * label.label_height /100)/ design.font_size_ratio) - 2;
+                  if (label.text && label.label_type === 1) {
+                    var text = SECOMAPP.decode(label.text);
+                    if (text.indexOf("{SAVE_PERCENT}") >= 0) {
+                        var save_percent = 0;
+                        if (firstVariant) {
+                            if (firstVariant.hasOwnProperty('compare_at_price') && firstVariant.price < firstVariant.compare_at_price) {
+                                save_percent = (firstVariant.compare_at_price - firstVariant.price) * 100 / firstVariant.compare_at_price;
+                                save_percent = Math.round(save_percent);
+                            }
+                        } else {
+                            if (product.hasOwnProperty('compare_at_price') && product.price < product.compare_at_price) {
+                                save_percent = (product.compare_at_price - product.price) * 100 / product.compare_at_price;
+                                save_percent = Math.round(save_percent);
+                            }
+                        }
+                        text = text.replace('{SAVE_PERCENT}', save_percent);
                     }
-                  } 
-                  font_size = font_size ? font_size : design.font_size;
-                  var textElement = document.createElement("span");
-                  textElement.classList.add("pl-text");
-                  textElement.style.color = design.text_color ? design.text_color : '';
-                  textElement.style.fontSize = design.font_size ? (design.font_size_ratio === 0 ? design.font_size : font_size) + 'px' : '';
-                  if (design.font_style) {
-                      textElement.style.fontWeight = design.font_style.weight;
-                      textElement.style.fontStyle = design.font_style.style;
-                      textElement.style.textDecoration = design.font_style.decoration;
+                    if (text.indexOf("{MAX_SALE}") >= 0) {
+                        var max_percent = 0;
+                        for (i = 0; i < product.variants.length; i++) {
+                            if (product.variants[i].hasOwnProperty('compare_at_price') && product.variants[i].price < product.variants[i].compare_at_price) {
+                                save_percent = (product.variants[i].compare_at_price - product.variants[i].price) * 100 / product.variants[i].compare_at_price;
+                                save_percent = Math.round(save_percent);
+                                if (save_percent > max_percent) {
+                                    max_percent = save_percent;
+                                }
+                            }
+                        }
+                        text = text.replace('{MAX_SALE}', max_percent);
+                    }
+                    if (text.indexOf("{MIN_SALE}") >= 0) {
+                        var min_percent = 100;
+                        for (i = 0; i < product.variants.length; i++) {
+                            if (product.variants[i].hasOwnProperty('compare_at_price') && product.variants[i].price < product.variants[i].compare_at_price) {
+                                save_percent = (product.variants[i].compare_at_price - product.variants[i].price) * 100 / product.variants[i].compare_at_price;
+                                save_percent = Math.round(save_percent);
+                                if (save_percent < max_percent) {
+                                    min_percent = save_percent;
+                                }
+                            }
+                        }
+                        text = text.replace('{MIN_SALE}', min_percent);
+                    }
+                    if (text.indexOf("{SAVE_AMOUNT}") >= 0) {
+                        var save_amount = 0;
+                        if (firstVariant) {
+                            if (firstVariant.hasOwnProperty('compare_at_price') && firstVariant.price < firstVariant.compare_at_price) {
+                                save_amount = firstVariant.compare_at_price - firstVariant.price;
+                            }
+                        } else {
+                            if (product.hasOwnProperty('compare_at_price') && product.price < product.compare_at_price) {
+                                save_amount = product.compare_at_price - product.price;
+                            }
+                        }
+
+                        if (save_amount % 100 === 0) {
+                            text = text.replace('{SAVE_AMOUNT}', (save_amount / 100));
+                        } else if (save_amount % 10 === 0) {
+                            text = text.replace('{SAVE_AMOUNT}', (save_amount / 100).toFixed(1));
+                        } else {
+                            text = text.replace('{SAVE_AMOUNT}', (save_amount / 100).toFixed(2));
+                        }
+                    }
+                    if (text.indexOf("{PRICE}") >= 0) {
+                        if (firstVariant) {
+                            text = text.replace('{PRICE}', (firstVariant.price / 100).toFixed(2));
+                        } else {
+                            text = text.replace('{PRICE}', (product.price / 100).toFixed(2));
+                        }
+                    }
+                    if (text.indexOf("{MIN_PRICE}") >= 0) {
+                        text = text.replace('{MIN_PRICE}', (product.price / 100).toFixed(2));
+                    }
+                    if (text.indexOf("{MAX_PRICE}") >= 0) {
+                        var max_price = 0;
+                        for (var i = 0; i < product.variants.length; i++) {
+                            if (product.variants[i].price > max_price) {
+                                max_price = product.variants[i].price;
+                            }
+                        }
+                        text = text.replace('{MAX_PRICE}', (max_price / 100).toFixed(2));
+                    }
+                    if (text.indexOf("{NEW_FOR}") >= 0) {
+                        var date_difference = (new Date() - Date.parse(product.published_at)) / 86400000;
+                        date_difference = date_difference < 0 ? 0 : Math.ceil(date_difference);
+                        text = text.replace('{NEW_FOR}', date_difference);
+                    }
+                    if (text.indexOf("{STOCK}") >= 0) {
+                        var product_inventory_quantity = 0;
+                        for (i = 0; i < product.variants.length; i++) {
+                            variant = product.variants[i];
+                            if (!variant.hasOwnProperty('inventory_management')) {
+
+                            } else {
+                                if (variant.inventory_quantity >= 0) {
+                                    product_inventory_quantity += variant.inventory_quantity;
+                                }
+                            }
+                        }
+                        text = text.replace('{STOCK}', product_inventory_quantity);
+                    }
+                    var font_size;
+                    if (design.font_size_ratio !== 0 && element.get(0) !== undefined) {
+                      if (label.fixed_size) {
+                        font_size = Math.sqrt(label.label_height/design.font_size_ratio) - 3;
+                      } else {
+                        font_size = Math.sqrt((element.get(0).offsetHeight * label.label_height /100)/ design.font_size_ratio) - 3;
+                      }
+                    }
+                    font_size = font_size ? font_size : design.font_size;
+                    var textElement = document.createElement("span");
+                    textElement.classList.add("pl-text");
+                    textElement.style.color = design.text_color ? design.text_color : '';
+                    textElement.style.fontSize = design.font_size ? (design.font_size_ratio === 0 ? design.font_size : font_size) + 'px' : '';
+                    if (design.font_style) {
+                        textElement.style.fontWeight = design.font_style.weight;
+                        textElement.style.fontStyle = design.font_style.style;
+                        textElement.style.textDecoration = design.font_style.decoration;
+                    }
+                    textElement.style.letterSpacing = design.letter_spacing ? design.letter_spacing + 'px' : '';
+                    textElement.style.cssText += label.text_styles;
+                    textElement.style.wordBreak = 'break-word';
+                    textElement.innerHTML += text;
+                    newNode.appendChild(textElement);
                   }
-                  textElement.style.letterSpacing = design.letter_spacing ? design.letter_spacing + 'px' : '';
-                  textElement.style.cssText += label.text_styles;
-                  textElement.style.wordBreak = 'break-word';
-                  textElement.innerHTML += text;
-                  newNode.appendChild(textElement);
-                }
                 if (label.link?.length > 0) {
                     newNode.addEventListener("click", function(){ window.open(label.link, '_blank'); });
                 }
@@ -2397,13 +2117,79 @@ if ((typeof SECOMAPP) == 'undefined') {
                     var tooltipText = SECOMAPP.decode(label.tooltip);
                     tooltipElement.innerHTML = tooltipText;
                     newNode.appendChild(tooltipElement);
-                    newNode.addEventListener("mouseover", function(){ tooltipElement.style.visibility = 'visible'; });
-                    newNode.addEventListener("mouseout", function(){ tooltipElement.style.visibility = 'hidden'; });
+
                 }
-                collectionNode.append(newNode);
+                if (group_ids.length) {
+                    var in_group = false;
+                    for (var g = 0; g < label_groups.length; g++) {
+                        var group = label_groups[g];
+                        if (group) {
+                            var groupNode = collectionNode[0].querySelector('.pl-group[data-group-id="'+ group.id +'"]');
+                            if (groupNode) {
+                                if (groupNode.querySelector('.pl-image[data-label-id="'+ label.id +'"]')) {
+                                    continue;
+                                } else {
+                                    var nodeTmp = newNode.cloneNode(true);
+                                    if (label.customize_position === 0) {
+                                        nodeTmp.classList.remove(label.position);
+                                    }
+                                    groupNode.appendChild(nodeTmp);
+                                }
+                            } else {
+                                var newGroupNode = document.createElement('div');
+                                newGroupNode.classList.add('pl-group');
+                                newGroupNode.classList.add(group.direction);
+                                newGroupNode.classList.add(group.position);
+                                newGroupNode.setAttribute('data-group-id', group.id)
+                                newGroupNode.style.gap = group.gap + 'px';
+                                var position_unit = group.position_unit_type === 'fixed' ? 'px' : '%';
+                                var vertical = group.position.split('_')[1];
+                                if (vertical == 'top') {
+                                    newGroupNode.style.top = group.vertical + position_unit;
+                                } else if (vertical == 'bottom') {
+                                    newGroupNode.style.bottom = group.vertical + position_unit;
+                                }
+                                var horizontal = group.position.split('_')[2];
+                                if (horizontal == 'left') {
+                                    newGroupNode.style.left = group.horizontal + position_unit;
+                                } else if (horizontal == 'right') {
+                                    newGroupNode.style.right = group.horizontal + position_unit;
+                                }
+                                newGroupNode.style.cssText += group.styles;
+                                var nodeTmp = newNode.cloneNode(true);
+                                if (label.customize_position === 0) {
+                                    nodeTmp.classList.remove(label.position);
+                                }
+                                newGroupNode.appendChild(nodeTmp);
+                                collectionNode.append(newGroupNode);
+                            }
+                            in_group = true;
+                        }
+                    }
+                    if (!in_group) {
+                        collectionNode.append(newNode);
+                    }
+                } else {
+                    collectionNode.append(newNode);
+                }
+        }
+        if (collectionNode.length) {
+            for (var g = 0; g < label_groups.length; g++) {
+                var group = label_groups[g];
+                if (group) {
+                    var groupNode = collectionNode[0].querySelector('.pl-group[data-group-id="'+ group.id +'"]');
+                    var label_ids = group.label_ids.split(',').map(Number);
+                    for (var k = 0; k < label_ids.length; k++) {
+                    var label = groupNode?.querySelector('.pl-image[data-label-id="'+ label_ids[k] +'"]');
+                        if (label) {
+                            var newNode = label;
+                            label.remove();
+                            groupNode.appendChild(newNode);
+                        }
+                    }
+                }
             }
         }
-
         return null;
     };
 
@@ -2482,7 +2268,7 @@ if ((typeof SECOMAPP) == 'undefined') {
         var mainImage;
         var title = jQuery("meta[property='og:title']").attr("content");
         if ((typeof SECOMAPP.pl.piRegex) != 'undefined' && images.length === 1) {
-            mainImage = images[0];
+            mainImage = images.first();
         } else {
             images.each(function (index, image) {
                 if (jQuery(image).css('opacity') === "0" || jQuery(image).css('visibility') === "hidden" || jQuery(image).css('display') === "none") {
@@ -2509,21 +2295,13 @@ if ((typeof SECOMAPP) == 'undefined') {
                     return;
                 }
                 var currentWidth = image.width;
-                if (title) {
-                    var alt = jQuery(image).attr('alt');
-                    if (alt) {
-                        if (alt.indexOf(title) >= 0) {
-                            currentWidth *= 2;
-                        }
-                    }
-                }
                 if (currentWidth > maxWidth) {
                     maxWidth = currentWidth;
                     mainImage = image;
                 }
             });
         }
-        if (mainImage === undefined && images.length > 0) mainImage = images[0];
+        if (mainImage === undefined && images.length > 0) mainImage = images.first();
         return jQuery(mainImage);
     }
 
@@ -2694,19 +2472,15 @@ if ((typeof SECOMAPP) == 'undefined') {
             SECOMAPP.jQuery.ajaxSetup({
                 cache: true
             });
-            SECOMAPP.jQuery(document).ready(function() {
-                SECOMAPP.pl.jQuery = SECOMAPP.jQuery;
-                SECOMAPP.pl.loadedJs = true;
-                startProductLabel2(SECOMAPP, SECOMAPP.jQuery);
-            });
+            SECOMAPP.pl.jQuery = SECOMAPP.jQuery;
+            SECOMAPP.pl.loadedJs = true;
+            startProductLabel2(SECOMAPP, SECOMAPP.jQuery);
         });
     } else {
         jQuery.ajaxSetup({
             cache: true
         });
-        jQuery(document).ready(function() {
-            SECOMAPP.pl.jQuery = jQuery;
-            SECOMAPP.pl.loadedJs = true;
-            startProductLabel2(SECOMAPP, jQuery);
-        });
+        SECOMAPP.pl.jQuery = jQuery;
+        SECOMAPP.pl.loadedJs = true;
+        startProductLabel2(SECOMAPP, jQuery);
     }

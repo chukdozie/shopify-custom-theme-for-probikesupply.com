@@ -28,6 +28,7 @@
     background-size: contain !important;
     background-repeat: no-repeat !important;
     z-index: 1;
+    display: initial !important;
 }
 
 .top_right {

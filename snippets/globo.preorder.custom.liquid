@@ -1,19 +1,26 @@
 <script>
    window.GloboPreorderParams = window.GloboPreorderParams || {};
    window.GloboPreorderParams.selectors = window.GloboPreorderParams.selectors || {};
-   window.GloboPreorderParams.selectors.collectionProductForms = "";
+   window.GloboPreorderParams.selectors.collectionProductForms = ".collection";
    window.GloboPreorderParams.selectors.productPositionMessage = ".inline_purchase";
-
+   window.GloboPreorderParams.selectors.productAddToCartTextELement = ".text";
    window.GloboPreorderParams.advancedSettings = window.GloboPreorderParams.advancedSettings || {};
-   window.GloboPreorderParams.advancedSettings.isDuplicateBtn = false;
+    window.GloboPreorderParams.advancedSettings.draftOrderCallBack = 500;
   
   document.addEventListener("globo.preorder.show.preorder", function(e) {
-  	const form = e.detail.form;
-    form.find('.add_to_cart').removeClass('gPreorderHidden').addClass('gPreorderBtn')
+      const form = e.detail.form;
+      const message = e.detail.profile.message
+      const adtocart = form.querySelector('.add_to_cart')
+      const preorderBtn = form.querySelector('.gPreorderBtn')
+      preorderBtn.querySelector(window.GloboPreorderParams.selectors.productAddToCartTextELement).innerHTML = message.preorderText
+      adtocart.classList.remove('gPreorderHidden')
+      adtocart.classList.add('gPreorderBtn')
   });
   document.addEventListener("globo.preorder.show.addtocart", function(e) {
   	const form = e.detail.form;
-    form.find('.add_to_cart').removeClass('gPreorderHidden').addClass('gPreorderBtn')
+    const adtocart = form.querySelector('.add_to_cart')
+    adtocart.classList.remove('gPreorderHidden')
+    adtocart.classList.add('gPreorderBtn')
   });
   document.addEventListener("gpoRenderCompleted", function(e) {
   	const form = GPOConfigs.form;

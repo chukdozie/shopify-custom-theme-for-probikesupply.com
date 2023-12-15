@@ -1,73 +1,10 @@
+.pl-collection {
+    top: 0;
+    left: 0;
+}
+
 .limespot-recommendation-box-item .pl-collection {
     top: 0;
-}
-
-.pl-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute !important;
-    background-size: contain !important;
-    background-repeat: no-repeat !important;
-    z-index: 1;
-}
-
-.pl-text-rectangle {
-    clip-path: polygon(100% 0%, 100% 100%, 0 100%, 0 0);
-}
-
-.pl-text-circle {
-    clip-path: circle(50% at 50% 50%);
-}
-
-.pl-text-left-point {
-    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
-}
-
-.pl-text-left-point .pl-text {
-    left: 60% !important;
-}
-
-.pl-text-shape-5 {
-    clip-path: polygon(100% 0, 100% 100%, 0% 100%, 25% 50%, 0% 0%);
-}
-
-.pl-text-shape-5 .pl-text {
-    left: 60% !important;
-}
-
-.pl-text-star {
-    clip-path: polygon(50% 0%, 63.23% 9.30%, 79.39% 9.55%, 84.62% 24.84%, 97.55% 34.55%, 92.80% 50%, 97.55% 65.45%, 84.62% 75.16%, 79.39% 90.45%, 63.23% 90.70%, 50% 100%, 36.77% 90.70%, 20.61% 90.45%, 15.38% 75.16%, 2.45% 65.45%, 7.20% 50%, 2.45% 34.55%, 15.38% 24.84%, 20.61% 9.55%, 36.77% 9.30%);
-}
-
-.pl-text-star .pl-text {
-    width: 70%;
-}
-
-.pl-text-trapezoid {
-    clip-path: polygon(40% 0, 100% 60%, 100% 100%, 0 0);
-}
-
-.pl-text-trapezoid .pl-text {
-    transform: translateX(-50%) translateY(-50%) rotate(45deg);
-    top: 40%;
-    left: 60%;
-}
-
-.pl-text-triangle {
-    clip-path: polygon(100% 0, 0 0, 100% 100%);
-}
-
-.pl-text-triangle  .pl-text {
-    transform: translateX(-50%) translateY(-50%) rotate(45deg);
-    left: 66%;
-    top: 34%;
-    padding-left: 15%;
-    padding-right: 15%;
-}
-
-.pl-w-100 {
-    width: 100%;
 }
 
 .pl-animation {
@@ -220,4 +157,58 @@
 
 .pl-image:hover .pl-tooltip{
     visibility: visible;
+}
+
+.pl-group {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.pl-group .pl-image{
+    position: static !important;
+}
+
+.pl-flex-column {
+    flex-direction: column;
+}
+
+.pl-flex-row {
+    flex-direction: row;
+}
+
+.group_top_left {
+    top: 0;
+    left: 0;
+}
+
+.pl-flex-column.group_top_right {
+    align-items: end;
+}
+
+.pl-flex-row.group_top_right {
+    justify-content: end;
+
+}
+
+.pl-flex-column.group_bottom_left {
+    justify-content: end;
+}
+
+.pl-flex-row.group_bottom_left {
+    align-items: end;
+}
+
+.group_bottom_right {
+    bottom: 0;
+    justify-content: end;
+    align-items: end;
+}
+
+.pl-w-100 {
+    width: 100%;
+    height: auto;
+    max-height: initial !important;
+    background-color: transparent !important;
 }

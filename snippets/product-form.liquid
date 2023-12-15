@@ -38,59 +38,7 @@
 
 
 
-      jQuery(this).children('.single-option-selector').prepend('<option value="" selected="selected">Please make a selection</option>');
-    });  
-
-
-    jQuery(".single-option-selector").change(function () {
-      var selectedText = jQuery(this).find("option:selected").text();
-
-      var selectedValue = jQuery(this).val();
-
-      if (selectedText == 'Please make a selection'){
-        jQuery('.notify_form').hide();
-      }
-    });
-
-
-
-
-  });
-
-  jQuery( document ).ready(function() {
-
-    setTimeout(function(){
-      jQuery('.single-option-selector').each(function(){
-        if (jQuery(this).children(".single-option-selector :selected").text() == 'Please make a selection'){
-          jQuery('.notify_form').hide();
-        }
-      });
-    }, 1400);
-  });
-
-
-  $(window).load(function() {
-
-    $('.selector-wrapper').each(function(){
-
-      var texts = $(this).children('.single-option-selector').children("option:selected").text();
-
-      var value="Please make a selection";
-      if(texts==value)
-      {
-
-        $('.product_form .purchase .action_button').css('pointer-events','none');
-        $('.product_form .purchase .action_button').attr('data-label','Make Selection');
-        $('.product_form .purchase .action_button > span').text('Make Selection');
-        $('.product_form .purchase .action_button').addClass('disabled-btn');		
-      }
-
-
-
-    });
-
-
-  });
+      
 
   $(document).ready(function() {
 
@@ -221,23 +169,21 @@
       </div>
     {% endif %}
   
-    {% if settings.display_inventory_left %}
-      <div class="items_left">
-        {% if variant.inventory_management != blank and variant.inventory_quantity > 0 %}
-          {% capture items_left_text %}
-            {% if variant.inventory_quantity == 1 %}
-              {{ 'products.product.items_left_count.one' | t }}
-            {% else %}
-              {{ 'products.product.items_left_count.other' | t }}
-            {% endif %}
-          {% endcapture %}
+   
+    
+    {% assign current_variant = product.selected_or_first_available_variant %}
+ <div class="inventoryNote form__label">
+ 
+ {% if current_variant.available %}
+ {% if current_variant.inventory_quantity > 0 and current_variant.inventory_quantity <= 3 %} <p style="color:red;"><strong>LOW STOCK!  <img class="trigger-popup" src="https://cdn.shopify.com/s/files/1/0892/2046/files/info3.png?v=1695936000"/></p</strong>
+   {% elsif current_variant.inventory_quantity > 3 and current_variant.inventory_quantity <= 10 %}<p style="color:#ff6600;" style="size:24;"> <strong>{{ current_variant.inventory_quantity }} IN STOCK!  <img class="trigger-popup" src="https://cdn.shopify.com/s/files/1/0892/2046/files/info3.png?v=1695936000"/></p</strong>
+{% elsif current_variant.inventory_quantity > 10 %}<p style="color:#ff6600;" style="size:24;"><strong>10+ IN STOCK!  <img class="trigger-popup" src="https://cdn.shopify.com/s/files/1/0892/2046/files/info3.png?v=1695936000"/></p><strong/><p/>
 
-          <p><em>{{ variant.inventory_quantity }} {{ items_left_text }}</em></p>
-        {% endif %}
-      </div>
-    {% endif %}
-    
-    
+   <div class="powr-popup" id="4a034cc5_1695930092"></div><script src="https://www.powr.io/powr.js?platform=shopify"></script>
+ {% endif %}
+ {% endif %}
+ 
+</div>
 
     {% comment %} Bold:POv2 {% endcomment %}
     <div class="bold_options" data-product-id="{{ product.id }}"></div>
@@ -347,3 +293,4 @@
     </script>
   {% endif %}
 {% endcomment %}
+

@@ -208,12 +208,9 @@
     {% if template != 'index' %}
     <script>
       function shappify_options_rendered(){
-        $('.shapp_full_width ').each(function(){
-          $(this).find('option').first().text('Please Make A Selection');
-          $(this).find('option').first().val('');
-        });
+        
         $('.shapp_full_width').change(function(){
-          $(this).find('option').first().attr('disabled','disabled');
+          $(this).find('option').first().attr('enabled','enabled');
         });
       }
     </script>
@@ -329,7 +326,6 @@
     <!-- **END** Hextom QAB Integration // Main Include - DO NOT MODIFY -->
   {% endif %}    
 <!-- {% include 'adroll' %} -->
-{% include 'adroll' %}
 {% include "onvoard-initialize-data" %}
 
 {% include 'swymSnippet' %}
@@ -392,7 +388,10 @@
   <!--End of Structed data markup -->
   {% include 'globo.preorder.custom' %}
   
- </body>          
+  
+ {% include 'adroll' %}
+ {% render ‘pick-an-option’ %}
+</body>           
 </html>
 {% if template != 'index' %}
 {% include 'spently-featured-products' %}

@@ -4,12 +4,12 @@
 
 {% if section.settings.product_breadcrumb %}
   <div class="center prod-breadcrump">{% render 'preorder-now-collection-item', product: product %}
-    <div class="breadcrumb breadcrumb_text product_breadcrumb">
-      <span><a href="{{ shop.url }}" title="{{ shop.name | escape }}"><span>{{ 'general.breadcrumbs.home' | t }}</span></a></span>
+    <div class="breadcrumb breadcrumb_text product_breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+      <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="{{ shop.url }}" title="{{ shop.name | escape }}" itemprop="item"><span itemprop="name">{{ 'general.breadcrumbs.home' | t }}</span></a></span>
       <span class="icon-right-arrow"></span>
-      <span>
+      <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
         {% if collection %}
-          <a href="{{ collection.url }}" title="{{ collection.title | escape }}"><span>{{ collection.title }}</span></a>
+          <a href="{{ collection.url }}" title="{{ collection.title | escape }}" itemprop="item"><span itemprop="name">{{ collection.title }}</span></a>
         {% else %}
           <a href="/collections/all" title="{{ collections.all.title }}">{{ collections.all.title }}</a>
         {% endif %}
@@ -51,9 +51,9 @@
 <div class="center grid prod_main">
 {% if sidebar %}
   {% include 'sidebar' %}
-  <div class="twelve columns product-{{ product.id }}">
+  <div class="twelve columns product-{{ product.id }}"   itemscope itemtype="http://schema.org/Product">
 {% else %}
-  <div class="sixteen columns product-{{ product.id }}">
+  <div class="sixteen columns product-{{ product.id }}"   itemscope itemtype="http://schema.org/Product">
 {% endif %}
 
    <div class="main-product section product_section clearfix thumbnail_position--{{settings.thumbnail_position}} product_slideshow_animation--{{settings.product_slideshow_animation}}"
@@ -144,21 +144,21 @@ margin: 0px;
           {{ product.vendor | link_to_vendor }}
         </p>
       {% endif %}
-      <h1 class="product_name">{{ product.title }}</h1>
+      <h1 class="product_name" itemprop="name">{{ product.title }}</h1>
 
        {% include 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: true %}
 
-       <p  class="modal_price">
-          <meta content="{{ shop.currency }}" />
-          <meta  content="{{ shop.name | escape }}" />
-          <link href="http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}">
-          <meta content="New" />
+       <p  class="modal_price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+          <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
+          <meta itemprop="seller" content="{{ shop.name | escape }}" />
+          <link itemprop="availability" href="http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}">
+          <meta itemprop="itemCondition" content="New" />
          
          
 
           
 <span class="sold_out">{% if variant.available == false %}Contact for Availability{% endif %}</span>
-          <span data-gpo-product-unit-price content="{{ variant.price | money_without_currency }}" class="gpo-custom-price {% if variant.compare_at_price > variant.price %}sale{% endif %}">
+          <span data-gpo-product-unit-price itemprop="price" content="{{ variant.price | money_without_currency }}" class="gpo-custom-price {% if variant.compare_at_price > variant.price %}sale{% endif %}">
             <span class="bold_option_price_display current_price ">
               {% if variant.price > 0 %}
                 <span class="money">{{ variant.price | money }}</span>
@@ -201,7 +201,7 @@ margin: 0px;
       {% if variant.sku != blank and section.settings.display_sku %}
         <p class="sku">
           <span class="label">Sku:</span>
-          <span class="skui">{{ variant.sku }}</span>
+          <span class="skui" itemprop="sku">{{ variant.sku }}</span>
           
         </p>
       {% endif %}
@@ -230,7 +230,6 @@ margin: 0px;
 
 
        {% unless product.available %}
-         <button contactform-trigger='241434'></button>
        <div id="sold-out">
          {% form 'contact' %}
          {% if form.posted_successfully? %}
@@ -250,7 +249,8 @@ margin: 0px;
            {% else %}
            <input style="float:left; width:180px;" required="required" type="email" name="contact[email]" placeholder="your@email.com" class="styled-input{% if form.errors contains 'email' %} error{% endif %}" value="{{ contact.fields.email }}" />
            {% endif %}
-           
+           <label for="freehub">Freehub</label>
+  <input required class="required" id="freehub" type="text" name="properties[Freehub]">
 </p>
            <input type="hidden" name="contact[body]" value="Please notify me when {{ product.title | escape }} becomes available." />
            <input style="float:left; margin-left:5px;" class="btn styled-submit" type="submit" value="Send" />
@@ -334,16 +334,9 @@ margin: 0px;
     {% when '2021foxtransferspreorder' %}*Pre-Order Now! Shipping Soon*
   {% endcase %}
         {% endfor %}
-        
       <p> {% for tag in product.tags %}
   {% case tag %}
     {% when 'pushshock' %}*Please note these shocks have a 1-2 week turnaround time*
-  {% endcase %}
-        {% endfor %}
-        
-        <p> {% for tag in product.tags %}
-  {% case tag %}
-    {% when 'extaria' %}*Please note these shocks have an eastimated shipping date of mid May*
   {% endcase %}
         {% endfor %}
                
@@ -354,7 +347,7 @@ margin: 0px;
         {% endfor %}
         <p> {% for tag in product.tags %}
   {% case tag %}
-    {% when 'alloyibissssssssssssss' %}*Please note all IBIS Alloy bikes incur a $150 shipping charge*
+    {% when 'alloyibis' %}*Please note all IBIS Alloy bikes incur a $150 shipping charge*
   {% endcase %}
         {% endfor %}
         
@@ -536,7 +529,7 @@ margin: 0px;
       <ul>
         <li class="shipping">Free shipping on orders over $50</li>
         <li class="delivery">No hassle returns within 45 days of delivery</li>
-        <li class="talk"><span class="bcontact-custom-button"><u><strong>Ask a Pro</strong></u></span> if this product is right for you.
+        <li class="talk"><a href="https://www.probikesupply.com/pages/ask-a-pro-1"><style="color:#800080"><strong>Ask a Pro</strong></a> if this product is right for you.</li>
         <li class="price">
           Found a better price?
           <span>
@@ -581,7 +574,7 @@ margin: 0px;
 
         {% if section.settings.display_type %}
            <p>
-             <span class="label">{{ 'products.product.product_types' | t }}:</span> <span>{{ product.type | link_to_type }}</span>
+             <span class="label">{{ 'products.product.product_types' | t }}:</span> <span itemprop="category">{{ product.type | link_to_type }}</span>
            </p>
         {% endif %}
       </div>
@@ -679,8 +672,8 @@ margin: 0px;
                       {% endif %}
                     </div>{% endcomment %}
 
+                    {% include 'judgeme_widgets', widget_type: 'judgeme_review_widget', concierge_install: true %}
                 </div>
-              
                 <div class="expand">
                     <a class="button">Read More</a>
                 </div>
@@ -688,7 +681,6 @@ margin: 0px;
         </div>
     </div>
 </div>
-                    {% include 'judgeme_widgets', widget_type: 'judgeme_review_widget', concierge_install: true %}
 
 <div class="pro-low center mobile">
     <p> {% for tag in product.tags %}

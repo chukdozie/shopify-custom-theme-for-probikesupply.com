@@ -189,7 +189,7 @@
              
   {% include 'search-autocomplete' %}
 
-  <body class="{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}"><div class="page-builder-container">{{ content_for_layout }}</div></body>          
+  <body class="{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}"><div class="page-builder-container">{{ content_for_layout }}</div></body>           
 </html>
 {% if template != 'index' %}
 {% include 'spently-featured-products' %}
