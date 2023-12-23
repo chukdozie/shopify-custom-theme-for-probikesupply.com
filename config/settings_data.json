@@ -2702,30 +2702,27 @@
         "blocks": {
           "c050a3b9-e2f1-4674-823b-2a53226ef2d8": {
             "type": "image",
-            "disabled": true,
             "settings": {
-              "image": "shopify:\/\/shop_images\/sram_featured_product_0e243303-ed5b-47f6-afda-1f22036de449.gif",
-              "link": "https:\/\/www.probikesupply.com\/collections\/sram-map-holiday-2023",
+              "image": "shopify:\/\/shop_images\/specialized_more_added_featured_product.gif",
+              "link": "https:\/\/www.probikesupply.com\/collections\/specialized-bikes-frames-just-added",
               "title": "",
               "text": ""
             }
           },
           "a600fb7c-95ad-4aaa-a5e1-63ffe886838e": {
             "type": "image",
-            "disabled": true,
             "settings": {
-              "image": "shopify:\/\/shop_images\/BLACK_FRIDAY_FEATURED_PRODUCTS_closeout_bikes_eb89f498-7851-482f-8c40-f6251d779f2f.gif",
-              "link": "https:\/\/www.probikesupply.com\/collections\/cyber-monday-bike-sale",
+              "image": "shopify:\/\/shop_images\/G_ONE_FEATURED_PRODUCT_a88835ee-5df8-4614-9ba2-d016ba781ecd.gif",
+              "link": "https:\/\/www.probikesupply.com\/collections\/schwalbe-g-one-rs-tire-700c-tires-restocked",
               "title": "",
               "text": ""
             }
           },
           "2be19ada-514a-4776-9fb5-03b49140d958": {
             "type": "image",
-            "disabled": true,
             "settings": {
-              "image": "shopify:\/\/shop_images\/wtb_featured_product.gif",
-              "link": "https:\/\/www.probikesupply.com\/collections\/wtb-holiday-sale-2023?page=1&sort_by=best-selling",
+              "image": "shopify:\/\/shop_images\/yeti_cycles_featured_product.gif",
+              "link": "https:\/\/www.probikesupply.com\/collections\/2024-yeti-bikes-frames",
               "title": "",
               "text": ""
             }
@@ -3149,7 +3146,58 @@
         "type": "shopify:\/\/apps\/preorder-globo-restock\/blocks\/app-embed\/e547a0ad-8212-4bcc-b02f-761faa9b8af2",
         "disabled": false,
         "settings": {}
+      },
+      "12645029315662244871": {
+        "type": "shopify:\/\/apps\/meteor-mega-menu\/blocks\/app_embed\/9412d6a7-f8f8-4d65-b9ae-2737c2f0f45b",
+        "disabled": false,
+        "settings": {
+          "navigation_link_caret_style": "outline",
+          "navigation_link_spacing": 24,
+          "menu_vertical_padding": 0,
+          "menu_justify_content": "flex-start",
+          "menu_font_size": 12,
+          "menu_font_weight": "700",
+          "menu_text_transform": "uppercase",
+          "menu_center_in_viewport": false,
+          "menu_vertical_offset": 0,
+          "menu_display_action": "hover",
+          "menu_display_delay": "0",
+          "menu_display_animation": "none",
+          "disable_desktop": false,
+          "mobile_breakpoint": 960,
+          "disable_mobile": false,
+          "desktop_nav_selector": "#menu",
+          "mobile_nav_selector": "#menu"
+        }
+      },
+      "15683396631634586217": {
+        "type": "shopify:\/\/apps\/inbox\/blocks\/chat\/841fc607-4181-4ad1-842d-e24d7f8bad6b",
+        "disabled": true,
+        "settings": {
+          "button_color": "#000000",
+          "button_icon": "chat_bubble",
+          "button_text": "chat_with_us",
+          "button_horizontal_position": "bottom_right",
+          "button_vertical_position": "lowest",
+          "greeting_message": "👋 Hi, message us with any questions. We're happy to help!"
+        }
+      },
+      "6052823664294247695": {
+        "type": "shopify:\/\/apps\/qikify-form-builder\/blocks\/app-embed\/753fa0d7-50d4-480a-b094-cff26e632c36",
+        "disabled": false,
+        "settings": {}
       }
     }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      ".Meteor-Navigation__Link__desktop {color: #fff !important; line-height: 70px; padding: 0 !important; letter-spacing: 2px !important;}",
+      ".Meteor-Navigation__Link__desktop:hover {color: #ff6000 !important;}",
+      "#meteor-desktop-nav {padding-left: 12px !important;}",
+      "#meteor-mobile-nav li {list-style: none !important;}",
+      "#meteor-mobile-nav {height: 75% !important; overflow-y: auto;}",
+      "#meteor-mobile-nav ul {border: none !important; position: unset !important;}",
+      "@media screen and (min-width: 959px) {#meteor-mobile-nav {display: none; }}"
+    ]
   }
 }

@@ -9,7 +9,7 @@
   <!-- Added by AVADA Joy -->
   {% include 'avada-joy' %}
   <!-- /Added by AVADA Joy -->
-
+<div class="powr-popup" id="2d73b8a0_1703283814"></div><script src="https://www.powr.io/powr.js?platform=shopify"></script>
 
   <meta name="google-site-verification" content="EYcL9jwo-Cz8vufbv4LWTHIbqjbA43w2T3IzP_xJjBU" />
  {%- render 'layouthub_header' -%}
@@ -125,8 +125,6 @@
     {{ 'ndnapps-sociallogin.css' | asset_url | stylesheet_tag }}
     {% if shop.customer_accounts_enabled %}{% unless customer  %}{{ 'ndnapps-sociallogin-script.js' | asset_url | script_tag }}{% endunless %}{% endif %}
     {% endif %}
-    
-  {% include 'meteor-menu', load: 'head' %}
   {{ content_for_header }}{% if template != 'index' %}
     {% include 'webyze-infinitelivepreviewoptions' %}
     {% endif %}    
