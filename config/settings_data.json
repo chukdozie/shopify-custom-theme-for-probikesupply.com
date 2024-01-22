@@ -2703,8 +2703,8 @@
           "c050a3b9-e2f1-4674-823b-2a53226ef2d8": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/specialized_more_added_featured_product.gif",
-              "link": "https:\/\/www.probikesupply.com\/collections\/specialized-bikes-frames-just-added",
+              "image": "shopify:\/\/shop_images\/one_up_droppr_v3_featured_product.gif",
+              "link": "https:\/\/www.probikesupply.com\/products\/oneup-components-v3-dropper-post",
               "title": "",
               "text": ""
             }
@@ -2977,30 +2977,17 @@
       "slideshow": {
         "type": "slideshow",
         "blocks": {
-          "9aa8b608-d0e0-45ef-87f0-4f7ec27af49c": {
+          "d3c52ad1-f067-42ba-83e1-f26d8627ec56": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/holiday_gift_guide_homepage_c216a56a-6b1a-40b2-8257-1373518e2c32.gif",
-              "image2": "shopify:\/\/shop_images\/holiday_gift_guide_mobile_ba0eb092-216f-4c50-8786-2fb45d572aca.gif",
-              "title": "Holiday Gift Guide",
-              "subtitle": "Our top picks for the cyclist in your liife",
+              "image": "shopify:\/\/shop_images\/rockshox-vivid_9169820c-c35d-41ea-85d5-4d5bcf7e2430.gif",
+              "image2": "shopify:\/\/shop_images\/rockshox-vivid-mobile_c3540911-cdac-4020-81fd-ecfa81e1a265.gif",
+              "title": "All New 2024 Rockshox",
+              "subtitle": "In Stock!",
               "text_position": "center",
               "text_align": "center",
               "button_label": "Shop Now",
-              "link": "https:\/\/www.probikesupply.com\/pages\/2023-holiday-gift-guide"
-            }
-          },
-          "7a04d860-b3ba-4e90-8fc9-e9be7e1954ec": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/holiday_bike_sale_homepage.gif",
-              "image2": "shopify:\/\/shop_images\/holiday_bike_sale_mobile.gif",
-              "title": "Holiday Bike Buyers Guide",
-              "subtitle": "2023 Pro Picks",
-              "text_position": "center",
-              "text_align": "center",
-              "button_label": "View Now",
-              "link": "https:\/\/www.probikesupply.com\/pages\/holiday-bike-guide"
+              "link": "https:\/\/www.probikesupply.com\/collections\/2024-rockshox-suspension"
             }
           },
           "f681fd81-66e5-4043-b94c-623f866b1e95": {
@@ -3015,40 +3002,11 @@
               "button_label": "Shop Now",
               "link": "https:\/\/www.probikesupply.com\/pages\/specialized-summer-sale"
             }
-          },
-          "d3c52ad1-f067-42ba-83e1-f26d8627ec56": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/rockshox-vivid_9169820c-c35d-41ea-85d5-4d5bcf7e2430.gif",
-              "image2": "shopify:\/\/shop_images\/rockshox-vivid-mobile_c3540911-cdac-4020-81fd-ecfa81e1a265.gif",
-              "title": "All New 2024 Rockshox",
-              "subtitle": "In Stock!",
-              "text_position": "center",
-              "text_align": "center",
-              "button_label": "Shop Now",
-              "link": "https:\/\/www.probikesupply.com\/collections\/2024-rockshox-suspension"
-            }
-          },
-          "6789907a-9677-445d-b2e4-3126f7cf1d5b": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/eq_homepagae.gif",
-              "image2": "shopify:\/\/shop_images\/eq_mobile.gif",
-              "title": "Up to 60%off",
-              "subtitle": "EQUIPMENT SALE",
-              "text_position": "center",
-              "text_align": "center",
-              "button_label": "Shop Now",
-              "link": "https:\/\/www.probikesupply.com\/collections\/specialized-equipment-holiday-sale-2023"
-            }
           }
         },
         "block_order": [
-          "9aa8b608-d0e0-45ef-87f0-4f7ec27af49c",
-          "7a04d860-b3ba-4e90-8fc9-e9be7e1954ec",
-          "f681fd81-66e5-4043-b94c-623f866b1e95",
           "d3c52ad1-f067-42ba-83e1-f26d8627ec56",
-          "6789907a-9677-445d-b2e4-3126f7cf1d5b"
+          "f681fd81-66e5-4043-b94c-623f866b1e95"
         ],
         "custom_css": [],
         "settings": {
@@ -3184,6 +3142,11 @@
       },
       "6052823664294247695": {
         "type": "shopify:\/\/apps\/qikify-form-builder\/blocks\/app-embed\/753fa0d7-50d4-480a-b094-cff26e632c36",
+        "disabled": false,
+        "settings": {}
+      },
+      "15216558432548357557": {
+        "type": "shopify:\/\/apps\/deco-product-labels-badges\/blocks\/deco-pl\/fd2caeda-48fd-4076-b5f9-8dfada7253f1",
         "disabled": false,
         "settings": {}
       }

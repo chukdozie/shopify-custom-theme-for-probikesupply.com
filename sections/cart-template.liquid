@@ -236,7 +236,7 @@
           </div>
         </div>
         <div class="shipping_box" style="display: none;"><a class="shipping_box_button" href="#shipping-calculator">Calculate Shipping</a></div>
-  
+  <a href="#" style='display:none;' data-tbnaction='SHOW_UI' data-tbnadhide='DEFAULT'>Have a discount code?</a>
         {% if section.settings.display_tos_checkbox %}
           <div>
             <input type="checkbox" class="tos_agree" id="cart_agree" required />
@@ -253,9 +253,10 @@
           </div>
  
               </br>
-                
+                <a href="#" style='display:none;' data-tbnaction='SHOW_UI' data-tbnadhide='DEFAULT'>Have a discount code?</a>
           <div id="automatic-discount">
-            
+            <a href='#' data-tbnaction='SHOW_UI' data-tbnadhide='NEVER' style='display:none;'>Have a discount code?</a>
+            <div style='display:none;' data-tbnadfield='DISCOUNT_CODE' data-tbnadhide='NO_DISCOUNT' ></div>
           </div>
                 </br>
           <p style="margin: 40px 20px 10px 20px;" class="affirm-as-low-as" data-affirm-color="blue" data-amount="{{cart.total_price}}"></p>
